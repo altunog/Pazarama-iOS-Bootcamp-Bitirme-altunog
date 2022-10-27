@@ -13,7 +13,7 @@ class ProductsViewController: UIViewController {
         super.viewDidLoad()
 
 		title = "Products"
-		view.backgroundColor = .white
+		view.backgroundColor = .red
     }
     
 }
