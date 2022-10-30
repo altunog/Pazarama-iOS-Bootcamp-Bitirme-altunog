@@ -20,7 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	private func setupWindow() {
 		// Override point for customization after application launch.
 		let window = UIWindow(frame: UIScreen.main.bounds)
-		window.rootViewController = PYMainTabBarController()
+		let tabBar = PYMainTabBarController()
+		window.rootViewController = tabBar
 		window.makeKeyAndVisible()
 		self.window = window
 	}

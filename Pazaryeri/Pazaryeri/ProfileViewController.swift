@@ -13,7 +13,7 @@ class ProfileViewController: UIViewController {
 		super.viewDidLoad()
 		
 		title = "Profile"
-		view.backgroundColor = .white
+		view.backgroundColor = .purple
  }
 
 

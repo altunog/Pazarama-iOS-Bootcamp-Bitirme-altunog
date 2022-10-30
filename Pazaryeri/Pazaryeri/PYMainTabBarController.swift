@@ -22,32 +22,31 @@ final class PYMainTabBarController: UITabBarController {
 	
 	private func configureTabBar() {
 		tabBar.itemPositioning = .centered
-		tabBar.tintColor = UIColor(named: "AccentColor")
-		tabBar.backgroundColor = .white
+		tabBar.tintColor = Colors.secondary
 	}
 	
 	private func createProductsNC() -> UINavigationController {
-		let productsNC = UINavigationController(rootViewController: ProductsViewController())
-		productsNC.tabBarItem = UITabBarItem(title: "Products",
-											 image: ImageHelper.product,
-											 selectedImage: ImageHelper.productFill)
-		return productsNC
+		let productsVC = ProductsViewController()
+		productsVC.tabBarItem = UITabBarItem(title: "Products",
+											 image: Symbols.house,
+											 selectedImage: Symbols.houseFill)
+		return UINavigationController(rootViewController: productsVC)
 	}
 	
 	private func createSearchNC() -> UINavigationController {
-		let searchNC = UINavigationController(rootViewController: SearchViewController())
-		searchNC.tabBarItem = UITabBarItem(title: "Search",
-											 image: ImageHelper.search,
-											 selectedImage: ImageHelper.searchFill)
-		return searchNC
+		let searchVC = SearchViewController()
+		searchVC.tabBarItem = UITabBarItem(title: "Search",
+											 image: Symbols.search,
+											 selectedImage: Symbols.searchFill)
+		return UINavigationController(rootViewController: searchVC)
 	}
 	
 	private func createProfileNC() -> UINavigationController {
-		let profileNC = UINavigationController(rootViewController: ProfileViewController())
-		profileNC.tabBarItem = UITabBarItem(title: "Profile",
-											image: ImageHelper.person,
-											selectedImage: ImageHelper.personFill)
-		return profileNC
+		let profileVC = ProfileViewController()
+		profileVC.tabBarItem = UITabBarItem(title: "Profile",
+											image: Symbols.person,
+											selectedImage: Symbols.personFill)
+		return UINavigationController(rootViewController: profileVC)
 	}
     
 }
