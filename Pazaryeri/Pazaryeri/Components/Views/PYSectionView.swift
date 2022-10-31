@@ -58,6 +58,6 @@ class PYSectionView: UIStackView {
 		collectionView.showsHorizontalScrollIndicator = false
 		collectionView.register(ProductCell.self, forCellWithReuseIdentifier: ProductCell.reuseID)
 		
-		collectionView.heightAnchor.constraint(equalToConstant: 270).isActive = true
+		collectionView.heightAnchor.constraint(equalToConstant: 250).isActive = true
 	}
 }

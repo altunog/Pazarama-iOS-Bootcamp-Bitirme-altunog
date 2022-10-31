@@ -30,6 +30,7 @@
 		6AECFC76290D83430020B98A /* PYBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AECFC75290D83430020B98A /* PYBodyLabel.swift */; };
 		6AF64F8D290E4CD1004A35AA /* PYCartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF64F8C290E4CD1004A35AA /* PYCartButton.swift */; };
 		6AF64F8F290E4CEC004A35AA /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AF64F8E290E4CEC004A35AA /* Storyboard.storyboard */; };
+		6AF64F92290EF1E8004A35AA /* Double+CurrencyString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF64F91290EF1E8004A35AA /* Double+CurrencyString.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		6AECFC75290D83430020B98A /* PYBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYBodyLabel.swift; sourceTree = "<group>"; };
 		6AF64F8C290E4CD1004A35AA /* PYCartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCartButton.swift; sourceTree = "<group>"; };
 		6AF64F8E290E4CEC004A35AA /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		6AF64F91290EF1E8004A35AA /* Double+CurrencyString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+CurrencyString.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				6A4FA3FF290DCBF300137437 /* UIView+PinToEdges.swift */,
+				6AF64F91290EF1E8004A35AA /* Double+CurrencyString.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 				6A4FA400290DCBF300137437 /* UIView+PinToEdges.swift in Sources */,
 				6A4FA3FD290DB37E00137437 /* UIHelper.swift in Sources */,
 				6AECFC6E290C36DE0020B98A /* ProductCell.swift in Sources */,
+				6AF64F92290EF1E8004A35AA /* Double+CurrencyString.swift in Sources */,
 				6AECFC72290C47E80020B98A /* PYSecondaryTitleLabel.swift in Sources */,
 				6A4FA3FB290DAD2200137437 /* PYSectionView.swift in Sources */,
 				6AECFC6C290AD8950020B98A /* PYButton.swift in Sources */,

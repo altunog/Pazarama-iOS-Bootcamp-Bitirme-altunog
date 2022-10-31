@@ -7,13 +7,15 @@
 
 import UIKit
 
-class ProductCell: UICollectionViewCell {
-	
+final class ProductCell: UICollectionViewCell {
 	static let reuseID = "ProductCell"
-	private let productLabel = PYSecondaryTitleLabel(textAlignment: .left, fontSize: 14)
-	private let productImageView = PYProductImageView(frame: .zero)
-	private let addToCartButton = PYButton(kind: .tinted, color: Colors.primary, title: "SEPETE EKLE")
 	
+	// MARK: UI Elements
+	let nameLabel = PYSecondaryTitleLabel(textAlignment: .left, fontSize: 14)
+	let productImageView = PYProductImageView(frame: .zero)
+	let priceLabel = PYTitleLabel(textAlignment: .left, fontSize: 18)
+	
+	// MARK: Init
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		configure()
@@ -24,26 +26,26 @@ class ProductCell: UICollectionViewCell {
 	}
 	
 	private func configure() {
-		contentView.addSubview(productLabel)
+		contentView.addSubview(nameLabel)
 		contentView.addSubview(productImageView)
-		contentView.addSubview(addToCartButton)
+		contentView.addSubview(priceLabel)
 
 		let padding: CGFloat = 4
-		productLabel.text = "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops Backpack"
+		nameLabel.text = "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops Backpack"
+		priceLabel.text = Double(9.99).currencyString
+		priceLabel.textColor = Colors.secondary
 		NSLayoutConstraint.activate([
 			productImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding),
 			productImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
 			productImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
 			productImageView.heightAnchor.constraint(equalTo: productImageView.widthAnchor),
 			
-			productLabel.topAnchor.constraint(equalTo: productImageView.bottomAnchor, constant: 3*padding),
-			productLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 2*padding),
-			productLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -2*padding),
+			priceLabel.topAnchor.constraint(equalTo: productImageView.bottomAnchor, constant: 2*padding),
+			priceLabel.leadingAnchor.constraint(equalTo: productImageView.leadingAnchor),
 			
-			addToCartButton.topAnchor.constraint(equalTo: productLabel.bottomAnchor, constant: 5*padding),
-			addToCartButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 1*padding),
-			addToCartButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -1*padding),
-			addToCartButton.heightAnchor.constraint(equalToConstant: 44)
+			nameLabel.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 2*padding),
+			nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 2*padding),
+			nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -2*padding)
 		])
 	}
 }

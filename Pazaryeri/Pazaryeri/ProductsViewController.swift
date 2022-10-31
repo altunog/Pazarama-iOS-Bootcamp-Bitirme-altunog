@@ -37,34 +37,7 @@ class ProductsViewController: UIViewController {
 
 }
 
-// MARK: SECTION VIEWS
-extension ProductsViewController {
-	private func configureMensClothingSectionView() {
-		mensClothingSectionView = PYSectionView(containerStackView: stackView, title: "Men's Clothing")
-		mensClothingSectionView.collectionView.delegate = self
-		mensClothingSectionView.collectionView.dataSource = self
-	}
-	
-	private func configureWomensClothingSectionView() {
-		womensClothingSectionView = PYSectionView(containerStackView: stackView, title: "Women's Clothing")
-		womensClothingSectionView.collectionView.delegate = self
-		womensClothingSectionView.collectionView.dataSource = self
-	}
-	
-	private func configureElectronicsSectionView() {
-		electronicsSectionView = PYSectionView(containerStackView: stackView, title: "Electronics")
-		electronicsSectionView.collectionView.delegate = self
-		electronicsSectionView.collectionView.dataSource = self
-	}
-	
-	private func configureJewelerySectionView() {
-		jewelerySectionView = PYSectionView(containerStackView: stackView, title: "Jewelery")
-		jewelerySectionView.collectionView.delegate = self
-		jewelerySectionView.collectionView.dataSource = self
-	}
-}
-
-// MARK: configureScrollView, configureStackView
+// MARK: CONFIGURE SCROLL VIEW and STACK VIEW
 extension ProductsViewController {
 	private func configureScrollView() {
 		scrollView = UIScrollView(frame: .zero)
@@ -91,10 +64,39 @@ extension ProductsViewController {
 	}
 }
 
+// MARK: CONFIGURE SECTION VIEWS
+extension ProductsViewController {
+	private func configureMensClothingSectionView() {
+		mensClothingSectionView = PYSectionView(containerStackView: stackView, title: "Men's Clothing")
+		mensClothingSectionView.collectionView.delegate = self
+		mensClothingSectionView.collectionView.dataSource = self
+	}
+	
+	private func configureWomensClothingSectionView() {
+		womensClothingSectionView = PYSectionView(containerStackView: stackView, title: "Women's Clothing")
+		womensClothingSectionView.collectionView.delegate = self
+		womensClothingSectionView.collectionView.dataSource = self
+	}
+	
+	private func configureElectronicsSectionView() {
+		electronicsSectionView = PYSectionView(containerStackView: stackView, title: "Electronics")
+		electronicsSectionView.collectionView.delegate = self
+		electronicsSectionView.collectionView.dataSource = self
+	}
+	
+	private func configureJewelerySectionView() {
+		jewelerySectionView = PYSectionView(containerStackView: stackView, title: "Jewelery")
+		jewelerySectionView.collectionView.delegate = self
+		jewelerySectionView.collectionView.dataSource = self
+	}
+}
+
+// MARK: UICollectionViewDelegate
 extension ProductsViewController: UICollectionViewDelegate {
 
 }
 
+// MARK: UICollectionViewDataSource
 extension ProductsViewController: UICollectionViewDataSource {
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		return 10

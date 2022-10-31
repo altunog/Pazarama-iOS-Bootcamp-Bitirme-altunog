@@ -21,7 +21,7 @@ class PYSecondaryTitleLabel: UILabel {
 	convenience init(textAlignment: NSTextAlignment, fontSize: CGFloat) {
 		self.init(frame: .zero)
 		self.textAlignment = textAlignment
-		self.font = UIFont.systemFont(ofSize: fontSize, weight: .medium)
+		self.font = UIFont.systemFont(ofSize: fontSize, weight: .semibold)
 		configure()
 	}
 	
@@ -29,7 +29,7 @@ class PYSecondaryTitleLabel: UILabel {
 		textColor = .darkGray
 		adjustsFontSizeToFitWidth = true
 		minimumScaleFactor = 0.9
-		numberOfLines = 2
+		numberOfLines = 3
 		lineBreakMode = .byTruncatingTail
 		translatesAutoresizingMaskIntoConstraints = false
 	}

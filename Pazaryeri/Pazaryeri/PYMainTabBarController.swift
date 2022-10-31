@@ -22,7 +22,7 @@ final class PYMainTabBarController: UITabBarController {
 	
 	private func configureTabBar() {
 		tabBar.itemPositioning = .centered
-		tabBar.tintColor = Colors.secondary
+		tabBar.tintColor = Colors.primary
 	}
 	
 	private func createProductsNC() -> UINavigationController {
