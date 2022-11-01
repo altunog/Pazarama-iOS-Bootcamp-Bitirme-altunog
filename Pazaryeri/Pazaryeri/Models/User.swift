@@ -12,7 +12,7 @@ struct User: Codable {
 	var id: String
 	var username: String
 	var email: String
-	var cart: Cart?
-	var previousOrders: [Cart]?
-	var activeOrders: [Cart]?
+	var cart: Cart
+	var previousOrders: [Cart]
+	var activeOrders: [Cart]
 }
