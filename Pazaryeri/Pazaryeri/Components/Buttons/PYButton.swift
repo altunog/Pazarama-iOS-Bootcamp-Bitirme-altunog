@@ -20,6 +20,8 @@ final class PYButton: UIButton {
 	
 	convenience init(kind: ButtonKind, color: UIColor!, title: String) {
 		self.init(type: .system)
+		setTitle(title, for: .normal)
+		
 		switch kind {
 		case .filled:
 			backgroundColor = color
@@ -28,15 +30,13 @@ final class PYButton: UIButton {
 			backgroundColor = color.withAlphaComponent(0.1)
 			setTitleColor(color, for: .normal)
 		}
-		setTitle(title, for: .normal)
+		
 		configure()
 	}
 	
 	private func configure() {
 		translatesAutoresizingMaskIntoConstraints = false
-		layer.cornerRadius = 8
-//		layer.borderColor = UIColor.orange.cgColor
-//		layer.borderWidth = 1
-		titleLabel?.font = UIFont.preferredFont(forTextStyle: .callout)
+		layer.cornerRadius 	= 8
+		titleLabel?.font 	= .preferredFont(forTextStyle: .callout)
 	}
 }

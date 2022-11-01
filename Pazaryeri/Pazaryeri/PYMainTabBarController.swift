@@ -9,6 +9,9 @@ import UIKit
 
 final class PYMainTabBarController: UITabBarController {
 
+//	var cartButton: PYCartButton!
+//	var cartBarButton: UIBarButtonItem!
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 		setupTabBar()
@@ -27,6 +30,7 @@ final class PYMainTabBarController: UITabBarController {
 	
 	private func createProductsNC() -> UINavigationController {
 		let productsVC = ProductsViewController()
+		productsVC.title = "Products"
 		productsVC.tabBarItem = UITabBarItem(title: "Products",
 											 image: Symbols.house,
 											 selectedImage: Symbols.houseFill)

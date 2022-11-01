@@ -31,6 +31,7 @@
 		6AF64F8D290E4CD1004A35AA /* PYCartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF64F8C290E4CD1004A35AA /* PYCartButton.swift */; };
 		6AF64F8F290E4CEC004A35AA /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AF64F8E290E4CEC004A35AA /* Storyboard.storyboard */; };
 		6AF64F92290EF1E8004A35AA /* Double+CurrencyString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF64F91290EF1E8004A35AA /* Double+CurrencyString.swift */; };
+		6AF64F942910812C004A35AA /* UIBarButtonItem+Toggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF64F932910812C004A35AA /* UIBarButtonItem+Toggle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		6AF64F8C290E4CD1004A35AA /* PYCartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCartButton.swift; sourceTree = "<group>"; };
 		6AF64F8E290E4CEC004A35AA /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		6AF64F91290EF1E8004A35AA /* Double+CurrencyString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+CurrencyString.swift"; sourceTree = "<group>"; };
+		6AF64F932910812C004A35AA /* UIBarButtonItem+Toggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Toggle.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 			children = (
 				6A4FA3FF290DCBF300137437 /* UIView+PinToEdges.swift */,
 				6AF64F91290EF1E8004A35AA /* Double+CurrencyString.swift */,
+				6AF64F932910812C004A35AA /* UIBarButtonItem+Toggle.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6AECFC61290A976D0020B98A /* ProductsViewController.swift in Sources */,
+				6AF64F942910812C004A35AA /* UIBarButtonItem+Toggle.swift in Sources */,
 				6AECFC5F290A96FE0020B98A /* PYMainTabBarController.swift in Sources */,
 				6AECFC65290A97850020B98A /* ProfileViewController.swift in Sources */,
 				6AECFC63290A977B0020B98A /* SearchViewController.swift in Sources */,

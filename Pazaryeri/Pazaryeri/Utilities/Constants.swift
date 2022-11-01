@@ -26,6 +26,7 @@ enum Colors {
 
 enum Images {
 	static let placeholder 	= UIImage(named: "product-placeholder")
+	static let cart			= UIImage(named: "cart")
 }
 
 enum ButtonKind {

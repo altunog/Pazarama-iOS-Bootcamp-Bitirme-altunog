@@ -11,6 +11,10 @@ class ProductsViewController: UIViewController {
 
 	private var scrollView: UIScrollView!
 	private var stackView: UIStackView!
+	var cartButton: PYCartButton!
+	var cartBarButton: UIBarButtonItem!
+	var cartBarButtonWidthConstraint: NSLayoutConstraint?
+	var price: Double = 10
 	
 	private var mensClothingSectionView: PYSectionView!
 	private var womensClothingSectionView: PYSectionView!
@@ -19,7 +23,7 @@ class ProductsViewController: UIViewController {
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
-		
+		configureCartButton()
 		configureViewController()
 		configureScrollView()
 		configureStackView()
@@ -29,6 +33,45 @@ class ProductsViewController: UIViewController {
 		configureElectronicsSectionView()
 		configureJewelerySectionView()
     }
+	func configureCartButton() {
+//		let price: Double 	= 0
+		cartButton 			= PYCartButton(color: Colors.primary,
+										   image: Images.cart,
+										   title: price.currencyString)
+
+		cartButton.updateInsets(considering: price)
+		cartButton.addTarget(self, action: #selector(updateCartCost), for: .touchUpInside)
+		
+		cartBarButton = UIBarButtonItem(customView: cartButton)
+		cartBarButton.customView?.translatesAutoresizingMaskIntoConstraints = false
+		
+		cartBarButtonWidthConstraint = cartBarButton.toggle(considering: price)
+		cartBarButtonWidthConstraint?.isActive = true
+		
+		navigationItem.rightBarButtonItem = cartBarButton
+	}
+	
+	@objc private func updateCartCost() {
+		cartBarButtonWidthConstraint?.isActive = false
+
+		cartButton.updateInsets(considering: .zero)
+		cartBarButtonWidthConstraint = cartBarButton.collapse(to: 25)
+		cartBarButtonWidthConstraint?.isActive = true
+		UIView.animate(withDuration: 3) {
+			self.view.layoutIfNeeded()
+		}
+		
+		price += 90
+		cartBarButtonWidthConstraint?.isActive = false
+		cartBarButtonWidthConstraint = cartBarButton.toggle(considering: price)
+		cartBarButtonWidthConstraint?.isActive = true
+		UIView.animate(withDuration: 0.4) {
+			self.view.layoutIfNeeded()
+		}
+		self.cartButton.title = self.price.currencyString
+		self.cartButton.updateInsets(considering: self.price)
+
+	}
 	
 	private func configureViewController() {
 		title = "Products"
