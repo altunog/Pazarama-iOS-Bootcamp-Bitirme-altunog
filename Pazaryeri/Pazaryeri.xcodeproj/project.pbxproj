@@ -13,6 +13,8 @@
 		6AB1C9482911082100042527 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1C9472911082100042527 /* User.swift */; };
 		6AB1C94A291109BA00042527 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1C949291109BA00042527 /* Cart.swift */; };
 		6AB1C94C29111D9F00042527 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1C94B29111D9F00042527 /* Product.swift */; };
+		6AB1C973291161DA00042527 /* PazaryeriAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AB1C972291161DA00042527 /* PazaryeriAPI.framework */; };
+		6AB1C974291161DA00042527 /* PazaryeriAPI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6AB1C972291161DA00042527 /* PazaryeriAPI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6AECFC2D2908136E0020B98A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AECFC2C2908136E0020B98A /* AppDelegate.swift */; };
 		6AECFC362908136F0020B98A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AECFC352908136F0020B98A /* Assets.xcassets */; };
 		6AECFC392908136F0020B98A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AECFC372908136F0020B98A /* LaunchScreen.storyboard */; };
@@ -52,6 +54,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		6AB1C975291161DA00042527 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6AB1C974291161DA00042527 /* PazaryeriAPI.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		6A4FA3FA290DAD2200137437 /* PYSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYSectionView.swift; sourceTree = "<group>"; };
 		6A4FA3FC290DB37E00137437 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
@@ -59,6 +75,7 @@
 		6AB1C9472911082100042527 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		6AB1C949291109BA00042527 /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		6AB1C94B29111D9F00042527 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		6AB1C972291161DA00042527 /* PazaryeriAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PazaryeriAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AECFC292908136E0020B98A /* Pazaryeri.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pazaryeri.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AECFC2C2908136E0020B98A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6AECFC352908136F0020B98A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -90,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6AB1C973291161DA00042527 /* PazaryeriAPI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,6 +148,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		6AB1C971291161DA00042527 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6AB1C972291161DA00042527 /* PazaryeriAPI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		6AECFC202908136E0020B98A = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +163,7 @@
 				6AECFC422908136F0020B98A /* PazaryeriTests */,
 				6AECFC4C2908136F0020B98A /* PazaryeriUITests */,
 				6AECFC2A2908136E0020B98A /* Products */,
+				6AB1C971291161DA00042527 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -252,6 +279,7 @@
 				6AECFC252908136E0020B98A /* Sources */,
 				6AECFC262908136E0020B98A /* Frameworks */,
 				6AECFC272908136E0020B98A /* Resources */,
+				6AB1C975291161DA00042527 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
