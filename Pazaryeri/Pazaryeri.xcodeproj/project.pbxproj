@@ -34,7 +34,7 @@
 		6AECFC76290D83430020B98A /* PYBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AECFC75290D83430020B98A /* PYBodyLabel.swift */; };
 		6AF64F8D290E4CD1004A35AA /* PYCartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF64F8C290E4CD1004A35AA /* PYCartButton.swift */; };
 		6AF64F92290EF1E8004A35AA /* Double+CurrencyString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF64F91290EF1E8004A35AA /* Double+CurrencyString.swift */; };
-		6AF64F942910812C004A35AA /* UIBarButtonItem+Toggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF64F932910812C004A35AA /* UIBarButtonItem+Toggle.swift */; };
+		6AF64F942910812C004A35AA /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF64F932910812C004A35AA /* UIButton+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,7 +101,7 @@
 		6AECFC75290D83430020B98A /* PYBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYBodyLabel.swift; sourceTree = "<group>"; };
 		6AF64F8C290E4CD1004A35AA /* PYCartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCartButton.swift; sourceTree = "<group>"; };
 		6AF64F91290EF1E8004A35AA /* Double+CurrencyString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+CurrencyString.swift"; sourceTree = "<group>"; };
-		6AF64F932910812C004A35AA /* UIBarButtonItem+Toggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Toggle.swift"; sourceTree = "<group>"; };
+		6AF64F932910812C004A35AA /* UIButton+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,9 +135,45 @@
 			children = (
 				6A4FA3FF290DCBF300137437 /* UIView+PinToEdges.swift */,
 				6AF64F91290EF1E8004A35AA /* Double+CurrencyString.swift */,
-				6AF64F932910812C004A35AA /* UIBarButtonItem+Toggle.swift */,
+				6AF64F932910812C004A35AA /* UIButton+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		6A6697BF2912B75000DF44E9 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				6AECFC2C2908136E0020B98A /* AppDelegate.swift */,
+				6AECFC372908136F0020B98A /* LaunchScreen.storyboard */,
+				6AECFC3A2908136F0020B98A /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		6A6697C02912B7D800DF44E9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6AECFC352908136F0020B98A /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		6A6697C22912B83600DF44E9 /* TabBarControllers */ = {
+			isa = PBXGroup;
+			children = (
+				6AECFC5E290A96FE0020B98A /* PYMainTabBarController.swift */,
+			);
+			path = TabBarControllers;
+			sourceTree = "<group>";
+		};
+		6A6697C32912B85100DF44E9 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				6AECFC60290A976D0020B98A /* ProductsViewController.swift */,
+				6AECFC62290A977B0020B98A /* SearchViewController.swift */,
+				6AECFC64290A97850020B98A /* ProfileViewController.swift */,
+			);
+			path = Screens;
 			sourceTree = "<group>";
 		};
 		6AB1C9462911080300042527 /* Models */ = {
@@ -187,15 +223,10 @@
 				6AB1C9462911080300042527 /* Models */,
 				6A4FA3FE290DCBD700137437 /* Extensions */,
 				6AECFC6A290AD8770020B98A /* Components */,
+				6A6697C32912B85100DF44E9 /* Screens */,
 				6AECFC66290AA1E80020B98A /* Utilities */,
-				6AECFC2C2908136E0020B98A /* AppDelegate.swift */,
-				6AECFC352908136F0020B98A /* Assets.xcassets */,
-				6AECFC372908136F0020B98A /* LaunchScreen.storyboard */,
-				6AECFC3A2908136F0020B98A /* Info.plist */,
-				6AECFC5E290A96FE0020B98A /* PYMainTabBarController.swift */,
-				6AECFC60290A976D0020B98A /* ProductsViewController.swift */,
-				6AECFC62290A977B0020B98A /* SearchViewController.swift */,
-				6AECFC64290A97850020B98A /* ProfileViewController.swift */,
+				6A6697C02912B7D800DF44E9 /* Resources */,
+				6A6697BF2912B75000DF44E9 /* App */,
 			);
 			path = Pazaryeri;
 			sourceTree = "<group>";
@@ -229,6 +260,7 @@
 		6AECFC6A290AD8770020B98A /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				6A6697C22912B83600DF44E9 /* TabBarControllers */,
 				6AF64F89290E4C7A004A35AA /* Buttons */,
 				6AF64F8B290E4CA7004A35AA /* Cells */,
 				6AF64F8A290E4C87004A35AA /* Labels */,
@@ -405,7 +437,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6AECFC61290A976D0020B98A /* ProductsViewController.swift in Sources */,
-				6AF64F942910812C004A35AA /* UIBarButtonItem+Toggle.swift in Sources */,
+				6AF64F942910812C004A35AA /* UIButton+Extensions.swift in Sources */,
 				6AECFC5F290A96FE0020B98A /* PYMainTabBarController.swift in Sources */,
 				6AECFC65290A97850020B98A /* ProfileViewController.swift in Sources */,
 				6AECFC63290A977B0020B98A /* SearchViewController.swift in Sources */,
@@ -594,7 +626,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Pazaryeri/Info.plist;
+				INFOPLIST_FILE = Pazaryeri/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -625,7 +657,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Pazaryeri/Info.plist;
+				INFOPLIST_FILE = Pazaryeri/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
