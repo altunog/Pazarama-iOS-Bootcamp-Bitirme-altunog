@@ -11,6 +11,6 @@ class NetworkManager {
 	static let shared = NetworkManager()
 	let baseURL = "https://fakestoreapi.com"
 	
-	private init() = {}
+	private init() {}
 	
 }
