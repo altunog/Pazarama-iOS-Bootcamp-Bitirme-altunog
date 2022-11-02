@@ -29,7 +29,8 @@ final class PYMainTabBarController: UITabBarController {
 	}
 	
 	private func createProductsNC() -> UINavigationController {
-		let productsVC = ProductsViewController()
+		let viewModel = ProductsViewModel()
+		let productsVC = ProductsViewController(viewModel: viewModel)
 		productsVC.title = "Products"
 		productsVC.tabBarItem = UITabBarItem(title: "Products",
 											 image: Symbols.house,

@@ -9,21 +9,35 @@ import UIKit
 
 class ProductsViewController: UIViewController {
 
+	private let viewModel: ProductsViewModel
+	var price: Double = 30
+	
 	private var scrollView: UIScrollView!
 	private var stackView: UIStackView!
-	var cartButton: PYCartButton!
-	var cartBarButton: UIBarButtonItem!
-	var cartButtonWidthConstraint: NSLayoutConstraint?
-	
-	var price: Double = 30
+	private var cartButton: PYCartButton!
+	private var cartBarButton: UIBarButtonItem!
+	private var cartButtonWidthConstraint: NSLayoutConstraint?
 
 	private var mensClothingSectionView: PYSectionView!
 	private var womensClothingSectionView: PYSectionView!
 	private var electronicsSectionView: PYSectionView!
 	private var jewelerySectionView: PYSectionView!
 	
+	init(viewModel: ProductsViewModel) {
+		self.viewModel = viewModel
+		super.init(nibName: nil, bundle: nil)
+	}
+	
+	required init?(coder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+	
 	override func viewDidLoad() {
         super.viewDidLoad()
+		
+		viewModel.delegate = self
+		viewModel.fetchProducts()
+		
 		configureCartButton()
 		configureViewController()
 		configureScrollView()
@@ -36,9 +50,9 @@ class ProductsViewController: UIViewController {
     }
 	
 	func configureCartButton() {
-		cartButton 			= PYCartButton(color: Colors.primary,
-										   image: Images.cart,
-										   title: price.currencyString)
+		cartButton = PYCartButton(color: Colors.primary,
+								  image: Images.cart,
+								  title: price.currencyString)
 
 		cartButton.updateInsets(considering: price)
 		cartButton.addTarget(self, action: #selector(updateCartCost), for: .touchUpInside)
@@ -74,6 +88,19 @@ class ProductsViewController: UIViewController {
 		view.backgroundColor = .white
 	}
 
+}
+
+// MARK: ProductsViewModelDelegate
+extension ProductsViewController: ProductsViewModelDelegate {
+	func didOccurError(_ error: Error) {
+		print(error.localizedDescription)
+	}
+	
+	func didFetchProducts() {
+		print("Products fetched")
+	}
+	
+	
 }
 
 // MARK: CONFIGURE SCROLL VIEW and STACK VIEW
