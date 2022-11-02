@@ -140,6 +140,42 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		6A6697BF2912B75000DF44E9 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				6AECFC2C2908136E0020B98A /* AppDelegate.swift */,
+				6AECFC372908136F0020B98A /* LaunchScreen.storyboard */,
+				6AECFC3A2908136F0020B98A /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		6A6697C02912B7D800DF44E9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6AECFC352908136F0020B98A /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		6A6697C22912B83600DF44E9 /* TabBarControllers */ = {
+			isa = PBXGroup;
+			children = (
+				6AECFC5E290A96FE0020B98A /* PYMainTabBarController.swift */,
+			);
+			path = TabBarControllers;
+			sourceTree = "<group>";
+		};
+		6A6697C32912B85100DF44E9 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				6AECFC60290A976D0020B98A /* ProductsViewController.swift */,
+				6AECFC62290A977B0020B98A /* SearchViewController.swift */,
+				6AECFC64290A97850020B98A /* ProfileViewController.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
 		6AB1C9462911080300042527 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -187,15 +223,10 @@
 				6AB1C9462911080300042527 /* Models */,
 				6A4FA3FE290DCBD700137437 /* Extensions */,
 				6AECFC6A290AD8770020B98A /* Components */,
+				6A6697C32912B85100DF44E9 /* Screens */,
 				6AECFC66290AA1E80020B98A /* Utilities */,
-				6AECFC2C2908136E0020B98A /* AppDelegate.swift */,
-				6AECFC352908136F0020B98A /* Assets.xcassets */,
-				6AECFC372908136F0020B98A /* LaunchScreen.storyboard */,
-				6AECFC3A2908136F0020B98A /* Info.plist */,
-				6AECFC5E290A96FE0020B98A /* PYMainTabBarController.swift */,
-				6AECFC60290A976D0020B98A /* ProductsViewController.swift */,
-				6AECFC62290A977B0020B98A /* SearchViewController.swift */,
-				6AECFC64290A97850020B98A /* ProfileViewController.swift */,
+				6A6697C02912B7D800DF44E9 /* Resources */,
+				6A6697BF2912B75000DF44E9 /* App */,
 			);
 			path = Pazaryeri;
 			sourceTree = "<group>";
@@ -229,6 +260,7 @@
 		6AECFC6A290AD8770020B98A /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				6A6697C22912B83600DF44E9 /* TabBarControllers */,
 				6AF64F89290E4C7A004A35AA /* Buttons */,
 				6AF64F8B290E4CA7004A35AA /* Cells */,
 				6AF64F8A290E4C87004A35AA /* Labels */,
@@ -594,7 +626,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Pazaryeri/Info.plist;
+				INFOPLIST_FILE = Pazaryeri/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -625,7 +657,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Pazaryeri/Info.plist;
+				INFOPLIST_FILE = Pazaryeri/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
