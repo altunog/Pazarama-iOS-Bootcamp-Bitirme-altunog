@@ -33,25 +33,15 @@ class PYCartButton: UIButton {
 	private func configure(using color: UIColor) {
 		translatesAutoresizingMaskIntoConstraints = false
 		
-		layer.backgroundColor 	= color.cgColor
-		layer.cornerRadius 		= 3
-		layer.borderColor 		= color.cgColor
-		layer.borderWidth 		= 1
+		layer.backgroundColor = color.cgColor
+		layer.cornerRadius = 3
+		layer.borderColor = color.cgColor
+		layer.borderWidth = 1
 		
-		titleLabel?.font 		= .systemFont(ofSize: 14, weight: .semibold)
+		titleLabel?.font = .systemFont(ofSize: 14, weight: .semibold)
 		titleLabel?.adjustsFontSizeToFitWidth = true
 	}
 	
-	func updateInsets(considering price: Double) {
-		if price > .zero {
-			titleEdgeInsets = UIEdgeInsets(top: 5, left: 5,
-										   bottom: 5, right: 5)
-			imageEdgeInsets.right = 20
-		} else {
-			titleEdgeInsets = UIEdgeInsets(top: 0, left: 0,
-										   bottom: 0, right: 0)
-			imageEdgeInsets.right = 0
-		}
-	}
+	
 
 }

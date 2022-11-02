@@ -13,8 +13,9 @@ class ProductsViewController: UIViewController {
 	private var stackView: UIStackView!
 	var cartButton: PYCartButton!
 	var cartBarButton: UIBarButtonItem!
-	var cartBarButtonWidthConstraint: NSLayoutConstraint?
-	var price: Double = 10
+	var cartButtonWidthConstraint: NSLayoutConstraint?
+	
+	var price: Double = 30
 
 	private var mensClothingSectionView: PYSectionView!
 	private var womensClothingSectionView: PYSectionView!
@@ -33,8 +34,8 @@ class ProductsViewController: UIViewController {
 		configureElectronicsSectionView()
 		configureJewelerySectionView()
     }
+	
 	func configureCartButton() {
-//		let price: Double 	= 0
 		cartButton 			= PYCartButton(color: Colors.primary,
 										   image: Images.cart,
 										   title: price.currencyString)
@@ -43,33 +44,28 @@ class ProductsViewController: UIViewController {
 		cartButton.addTarget(self, action: #selector(updateCartCost), for: .touchUpInside)
 		
 		cartBarButton = UIBarButtonItem(customView: cartButton)
-		cartBarButton.customView?.translatesAutoresizingMaskIntoConstraints = false
-		
-		cartBarButtonWidthConstraint = cartBarButton.toggle(considering: price)
-		cartBarButtonWidthConstraint?.isActive = true
+
+		if price == .zero {
+			cartButtonWidthConstraint = cartButton.collapse()
+		} else {
+			cartButtonWidthConstraint = cartButton.expand(considering: price)
+		}
+		cartButtonWidthConstraint?.isActive = true
 		
 		navigationItem.rightBarButtonItem = cartBarButton
 	}
 	
 	@objc private func updateCartCost() {
-		cartBarButtonWidthConstraint?.isActive = false
+		price -= 10
+		cartButtonWidthConstraint?.isActive = false
+		if price == .zero {
+			cartButtonWidthConstraint = cartButton.collapse()
+		} else {
+			cartButtonWidthConstraint = cartButton.expand(considering: price)
+		}
+		cartButtonWidthConstraint?.isActive = true
 
-		cartButton.updateInsets(considering: .zero)
-		cartBarButtonWidthConstraint = cartBarButton.collapse(to: 25)
-		cartBarButtonWidthConstraint?.isActive = true
-		UIView.animate(withDuration: 3) {
-			self.view.layoutIfNeeded()
-		}
-		
-		price += 90
-		cartBarButtonWidthConstraint?.isActive = false
-		cartBarButtonWidthConstraint = cartBarButton.toggle(considering: price)
-		cartBarButtonWidthConstraint?.isActive = true
-		UIView.animate(withDuration: 0.4) {
-			self.view.layoutIfNeeded()
-		}
 		self.cartButton.title = self.price.currencyString
-		self.cartButton.updateInsets(considering: self.price)
 
 	}
 	
