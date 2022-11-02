@@ -15,7 +15,9 @@ class ProductsViewController: UIViewController {
 	var cartBarButton: UIBarButtonItem!
 	var cartBarButtonWidthConstraint: NSLayoutConstraint?
 	var price: Double = 10
-	
+	let a = """
+	hello world from Turkiye
+	"""
 	private var mensClothingSectionView: PYSectionView!
 	private var womensClothingSectionView: PYSectionView!
 	private var electronicsSectionView: PYSectionView!
