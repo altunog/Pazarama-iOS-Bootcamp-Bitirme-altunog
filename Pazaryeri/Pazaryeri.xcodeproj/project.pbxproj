@@ -14,8 +14,6 @@
 		6A7B270F2912AFFA00B887A1 /* PazaryeriAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A7B270E2912AFFA00B887A1 /* PazaryeriAPI.framework */; };
 		6A7B27102912AFFA00B887A1 /* PazaryeriAPI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6A7B270E2912AFFA00B887A1 /* PazaryeriAPI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6AB1C9482911082100042527 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1C9472911082100042527 /* User.swift */; };
-		6AB1C94A291109BA00042527 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1C949291109BA00042527 /* Cart.swift */; };
-		6AB1C94C29111D9F00042527 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1C94B29111D9F00042527 /* Product.swift */; };
 		6AECFC2D2908136E0020B98A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AECFC2C2908136E0020B98A /* AppDelegate.swift */; };
 		6AECFC362908136F0020B98A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AECFC352908136F0020B98A /* Assets.xcassets */; };
 		6AECFC392908136F0020B98A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AECFC372908136F0020B98A /* LaunchScreen.storyboard */; };
@@ -77,8 +75,6 @@
 		6A7B270B2912AFCE00B887A1 /* PazaryeriAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PazaryeriAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A7B270E2912AFFA00B887A1 /* PazaryeriAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PazaryeriAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AB1C9472911082100042527 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		6AB1C949291109BA00042527 /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
-		6AB1C94B29111D9F00042527 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		6AB1C972291161DA00042527 /* PazaryeriAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PazaryeriAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AECFC292908136E0020B98A /* Pazaryeri.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pazaryeri.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AECFC2C2908136E0020B98A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -191,8 +187,6 @@
 			isa = PBXGroup;
 			children = (
 				6AB1C9472911082100042527 /* User.swift */,
-				6AB1C949291109BA00042527 /* Cart.swift */,
-				6AB1C94B29111D9F00042527 /* Product.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -454,7 +448,6 @@
 				6AECFC63290A977B0020B98A /* SearchViewController.swift in Sources */,
 				6AECFC2D2908136E0020B98A /* AppDelegate.swift in Sources */,
 				6AECFC70290C41610020B98A /* PYTitleLabel.swift in Sources */,
-				6AB1C94A291109BA00042527 /* Cart.swift in Sources */,
 				6AF64F8D290E4CD1004A35AA /* PYCartButton.swift in Sources */,
 				6AECFC74290C7FA80020B98A /* PYProductImageView.swift in Sources */,
 				6A4FA400290DCBF300137437 /* UIView+PinToEdges.swift in Sources */,
@@ -468,7 +461,6 @@
 				6AECFC68290AA20F0020B98A /* Constants.swift in Sources */,
 				6AECFC76290D83430020B98A /* PYBodyLabel.swift in Sources */,
 				6AB1C9482911082100042527 /* User.swift in Sources */,
-				6AB1C94C29111D9F00042527 /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
