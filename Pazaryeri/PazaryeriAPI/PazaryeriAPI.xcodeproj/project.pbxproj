@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A17A17A29130ED00092ECA2 /* product.json in Resources */ = {isa = PBXBuildFile; fileRef = 6A17A17929130ED00092ECA2 /* product.json */; };
 		6A7B27052912A75300B887A1 /* PazaryeriService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7B27042912A75300B887A1 /* PazaryeriService.swift */; };
 		6A7B27082912A81F00B887A1 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 6A7B27072912A81F00B887A1 /* Moya */; };
 		6AB1C95C291161C200042527 /* PazaryeriAPI.docc in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1C95B291161C200042527 /* PazaryeriAPI.docc */; };
@@ -26,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6A17A17929130ED00092ECA2 /* product.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = product.json; sourceTree = "<group>"; };
 		6A7B27042912A75300B887A1 /* PazaryeriService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PazaryeriService.swift; sourceTree = "<group>"; };
 		6AB1C957291161C200042527 /* PazaryeriAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PazaryeriAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AB1C95A291161C200042527 /* PazaryeriAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PazaryeriAPI.h; sourceTree = "<group>"; };
@@ -54,6 +56,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6A17A17C29130EF20092ECA2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6A17A17929130ED00092ECA2 /* product.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		6AB1C94D291161C200042527 = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				6AB1C966291161C200042527 /* PazaryeriAPITests.swift */,
+				6A17A17C29130EF20092ECA2 /* Resources */,
 			);
 			path = PazaryeriAPITests;
 			sourceTree = "<group>";
@@ -195,6 +206,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A17A17A29130ED00092ECA2 /* product.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
