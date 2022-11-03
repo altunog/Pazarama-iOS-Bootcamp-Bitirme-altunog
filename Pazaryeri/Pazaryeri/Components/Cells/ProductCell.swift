@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PazaryeriAPI
 
 final class ProductCell: UICollectionViewCell {
 	static let reuseID = "ProductCell"
@@ -24,7 +25,7 @@ final class ProductCell: UICollectionViewCell {
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
-	
+
 	private func configure() {
 		contentView.addSubview(nameLabel)
 		contentView.addSubview(productImageView)
@@ -47,5 +48,9 @@ final class ProductCell: UICollectionViewCell {
 			nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 2*padding),
 			nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -2*padding)
 		])
+	}
+	
+	func set(product: Product) {
+		
 	}
 }
