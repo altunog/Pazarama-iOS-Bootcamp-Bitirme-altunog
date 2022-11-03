@@ -55,7 +55,7 @@ class ProductsViewController: UIViewController {
     }
 	
 	func configureCartButton() {
-		cartButton = PYCartButton(color: Colors.primary,
+		cartButton = PYCartButton(color: Colors.secondary,
 								  image: Images.cart,
 								  title: price.currencyString)
 
