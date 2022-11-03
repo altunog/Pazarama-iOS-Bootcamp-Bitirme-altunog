@@ -6,3 +6,15 @@
 //
 
 import Foundation
+
+protocol AuthViewModelDelegate: AnyObject {
+	func didOccurError(_ error: Error)
+	func didSignUpSuccessful()
+	func didSignInSuccessful()
+}
+
+final class AuthViewModel {
+	weak var delegate: AuthViewModelDelegate?
+	
+	
+}
