@@ -176,16 +176,16 @@ extension ProductsViewController: UICollectionViewDataSource {
 		switch collectionView {
 		
 		case mensClothingSectionView.collectionView:
-			return viewModel.getNumberOfItems(for: mensClothingSectionView)
+			return viewModel.getNumberOfProducts(for: mensClothingSectionView)
 		
 		case womensClothingSectionView.collectionView:
-			return viewModel.getNumberOfItems(for: womensClothingSectionView)
+			return viewModel.getNumberOfProducts(for: womensClothingSectionView)
 		
 		case electronicsSectionView.collectionView:
-			return viewModel.getNumberOfItems(for: electronicsSectionView)
+			return viewModel.getNumberOfProducts(for: electronicsSectionView)
 		
 		case jewelerySectionView.collectionView:
-			return viewModel.getNumberOfItems(for: jewelerySectionView)
+			return viewModel.getNumberOfProducts(for: jewelerySectionView)
 		
 		default:
 			return .zero
@@ -194,8 +194,35 @@ extension ProductsViewController: UICollectionViewDataSource {
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductCell.reuseID, for: indexPath) as! ProductCell
-		let product = viewModel.products[indexPath.item]
-		cell.set(product: product)
-		return cell
+		
+		switch collectionView {
+
+		case mensClothingSectionView.collectionView:
+			if let product = viewModel.getProduct(for: mensClothingSectionView, at: indexPath) {
+				cell.set(product: product)
+			}
+			return cell
+			
+		case womensClothingSectionView.collectionView:
+			if let product = viewModel.getProduct(for: womensClothingSectionView, at: indexPath) {
+				cell.set(product: product)
+			}
+			return cell
+			
+		case electronicsSectionView.collectionView:
+			if let product = viewModel.getProduct(for: electronicsSectionView, at: indexPath) {
+				cell.set(product: product)
+			}
+			return cell
+			
+		case jewelerySectionView.collectionView:
+			if let product = viewModel.getProduct(for: jewelerySectionView, at: indexPath) {
+				cell.set(product: product)
+			}
+			return cell
+			
+		default:
+			return cell
+		}
 	}
 }

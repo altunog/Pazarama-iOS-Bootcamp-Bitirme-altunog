@@ -19,11 +19,14 @@ final class ProductsViewModel {
 	private(set) var products = [Product]() {
 		didSet {
 			for item in products {
-				productCountByCategory[item.category?.lowercased() ?? "unavailable", default: 0] += 1
+				productsByCategory[item.category ?? "unavailable", default: []].append(item)
+				print(productsByCategory)
 			}
+
 		}
 	}
-	private(set) var productCountByCategory = [String: Int]()
+
+	private(set) var productsByCategory = [String: [Product]]()
 	
 	func fetchProducts() {
 		pazaryeriServiceProvider.request(.getProducts) { result in
@@ -42,8 +45,12 @@ final class ProductsViewModel {
 		}
 	}
 	
-	func getNumberOfItems(for section: PYSectionView) -> Int {
-		return productCountByCategory[section.title.lowercased()] ?? .zero
+	func getNumberOfProducts(for section: PYSectionView) -> Int {
+		return productsByCategory[section.title.lowercased()]?.count ?? .zero
+	}
+	
+	func getProduct(for section: PYSectionView, at indexPath: IndexPath) -> Product? {
+		return productsByCategory[section.title.lowercased()]?[indexPath.item]
 	}
 	
 	
