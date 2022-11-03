@@ -51,6 +51,10 @@ final class ProductCell: UICollectionViewCell {
 	}
 	
 	func set(product: Product) {
+		nameLabel.text = product.title
+		priceLabel.text = product.price?.currencyString
 		
+		guard let imageUrlString = product.image else { return }
+		productImageView.downloadImage(from: imageUrlString)
 	}
 }
