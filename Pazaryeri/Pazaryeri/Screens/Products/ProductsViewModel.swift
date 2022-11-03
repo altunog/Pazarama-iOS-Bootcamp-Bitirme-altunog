@@ -19,7 +19,7 @@ final class ProductsViewModel {
 	private(set) var products = [Product]() {
 		didSet {
 			for item in products {
-				productCountByCategory[item.category ?? "unavailable", default: 0] += 1
+				productCountByCategory[item.category?.lowercased() ?? "unavailable", default: 0] += 1
 			}
 		}
 	}
@@ -42,6 +42,9 @@ final class ProductsViewModel {
 		}
 	}
 	
+	func getNumberOfItems(for section: PYSectionView) -> Int {
+		return productCountByCategory[section.title.lowercased()] ?? .zero
+	}
 	
 	
 }

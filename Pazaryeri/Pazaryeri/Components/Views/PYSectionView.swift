@@ -12,7 +12,7 @@ class PYSectionView: UIStackView {
 	private var containerStackView: UIStackView!
 	private var titleLabel: PYTitleLabel!
 	var collectionView: UICollectionView!
-	private var title: String!
+	private(set) var title: String!
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)

@@ -108,8 +108,6 @@ extension ProductsViewController: ProductsViewModelDelegate {
 		jewelerySectionView.collectionView.reloadData()
 		print("Products fetched.")
 	}
-	
-	
 }
 
 // MARK: CONFIGURE SCROLL VIEW and STACK VIEW
@@ -174,20 +172,24 @@ extension ProductsViewController: UICollectionViewDelegate {
 // MARK: UICollectionViewDataSource
 extension ProductsViewController: UICollectionViewDataSource {
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		var numberOfItems: Int?
+
 		switch collectionView {
+		
 		case mensClothingSectionView.collectionView:
-			numberOfItems = viewModel.productCountByCategory["men's clothing"]
+			return viewModel.getNumberOfItems(for: mensClothingSectionView)
+		
 		case womensClothingSectionView.collectionView:
-			numberOfItems = viewModel.productCountByCategory["women's clothing"]
+			return viewModel.getNumberOfItems(for: womensClothingSectionView)
+		
 		case electronicsSectionView.collectionView:
-			numberOfItems = viewModel.productCountByCategory["electronics"]
+			return viewModel.getNumberOfItems(for: electronicsSectionView)
+		
 		case jewelerySectionView.collectionView:
-			numberOfItems = viewModel.productCountByCategory["jewelery"]
+			return viewModel.getNumberOfItems(for: jewelerySectionView)
+		
 		default:
-			numberOfItems = .zero
+			return .zero
 		}
-		return numberOfItems ?? .zero
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
