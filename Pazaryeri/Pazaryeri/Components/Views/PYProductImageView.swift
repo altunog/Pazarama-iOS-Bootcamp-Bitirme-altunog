@@ -22,7 +22,7 @@ class PYProductImageView: UIImageView {
 		layer.cornerRadius = 8
 		layer.borderColor = UIColor.lightGray.cgColor
 		layer.borderWidth = 0.5
-		contentMode = .scaleToFill
+		contentMode = .scaleAspectFit
 		clipsToBounds = true
 		image = Images.placeholder
 		translatesAutoresizingMaskIntoConstraints = false

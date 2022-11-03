@@ -16,7 +16,14 @@ protocol ProductsViewModelDelegate: AnyObject {
 final class ProductsViewModel {
 	weak var delegate: ProductsViewModelDelegate?
 	
-	private(set) var products = [Product]()
+	private(set) var products = [Product]() {
+		didSet {
+			for item in products {
+				productCountByCategory[item.category ?? "unavailable", default: 0] += 1
+			}
+		}
+	}
+	private(set) var productCountByCategory = [String: Int]()
 	
 	func fetchProducts() {
 		pazaryeriServiceProvider.request(.getProducts) { result in

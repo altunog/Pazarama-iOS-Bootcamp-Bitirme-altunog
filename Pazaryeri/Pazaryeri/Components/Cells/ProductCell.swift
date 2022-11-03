@@ -9,6 +9,7 @@ import UIKit
 import PazaryeriAPI
 
 final class ProductCell: UICollectionViewCell {
+	// MARK: Cell ID
 	static let reuseID = "ProductCell"
 	
 	// MARK: UI Elements
@@ -26,14 +27,14 @@ final class ProductCell: UICollectionViewCell {
 		fatalError("init(coder:) has not been implemented")
 	}
 
+	// MARK: Configuration Methods
 	private func configure() {
 		contentView.addSubview(nameLabel)
 		contentView.addSubview(productImageView)
 		contentView.addSubview(priceLabel)
 
 		let padding: CGFloat = 4
-		nameLabel.text = "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops Backpack"
-		priceLabel.text = Double(9.99).currencyString
+		
 		priceLabel.textColor = Colors.secondary
 		NSLayoutConstraint.activate([
 			productImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding),

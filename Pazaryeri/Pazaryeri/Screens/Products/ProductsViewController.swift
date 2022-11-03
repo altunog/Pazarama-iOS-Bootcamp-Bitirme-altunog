@@ -7,6 +7,11 @@
 
 import UIKit
 
+protocol ProductsViewControllerInterface {
+	func configureViewController()
+	
+}
+
 class ProductsViewController: UIViewController {
 
 	private let viewModel: ProductsViewModel
@@ -35,9 +40,6 @@ class ProductsViewController: UIViewController {
 	override func viewDidLoad() {
         super.viewDidLoad()
 		
-		viewModel.delegate = self
-		viewModel.fetchProducts()
-		
 		configureCartButton()
 		configureViewController()
 		configureScrollView()
@@ -47,6 +49,9 @@ class ProductsViewController: UIViewController {
 		configureWomensClothingSectionView()
 		configureElectronicsSectionView()
 		configureJewelerySectionView()
+		
+		viewModel.delegate = self
+		viewModel.fetchProducts()
     }
 	
 	func configureCartButton() {
@@ -97,7 +102,11 @@ extension ProductsViewController: ProductsViewModelDelegate {
 	}
 	
 	func didFetchProducts() {
-		print("Products fetched")
+		mensClothingSectionView.collectionView.reloadData()
+		womensClothingSectionView.collectionView.reloadData()
+		electronicsSectionView.collectionView.reloadData()
+		jewelerySectionView.collectionView.reloadData()
+		print("Products fetched.")
 	}
 	
 	
@@ -165,12 +174,26 @@ extension ProductsViewController: UICollectionViewDelegate {
 // MARK: UICollectionViewDataSource
 extension ProductsViewController: UICollectionViewDataSource {
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return 10
+		var numberOfItems: Int?
+		switch collectionView {
+		case mensClothingSectionView.collectionView:
+			numberOfItems = viewModel.productCountByCategory["men's clothing"]
+		case womensClothingSectionView.collectionView:
+			numberOfItems = viewModel.productCountByCategory["women's clothing"]
+		case electronicsSectionView.collectionView:
+			numberOfItems = viewModel.productCountByCategory["electronics"]
+		case jewelerySectionView.collectionView:
+			numberOfItems = viewModel.productCountByCategory["jewelery"]
+		default:
+			numberOfItems = .zero
+		}
+		return numberOfItems ?? .zero
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductCell.reuseID, for: indexPath) as! ProductCell
-
+		let product = viewModel.products[indexPath.item]
+		cell.set(product: product)
 		return cell
 	}
 }
