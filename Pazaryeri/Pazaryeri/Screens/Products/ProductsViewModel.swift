@@ -16,7 +16,7 @@ protocol ProductsViewModelDelegate: AnyObject {
 final class ProductsViewModel {
 	weak var delegate: ProductsViewModelDelegate?
 	
-	var products = [Product]()
+	private(set) var products = [Product]()
 	
 	func fetchProducts() {
 		pazaryeriServiceProvider.request(.getProducts) { result in
