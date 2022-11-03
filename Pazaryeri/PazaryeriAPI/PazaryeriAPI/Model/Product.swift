@@ -8,16 +8,16 @@
 import Foundation
 
 public struct Product: Codable {
-	let id: Int?
-	let title: String?
-	let price: Double?
-	let description: String?
-	let category: String?
-	let image: String?
-	let rating: Rating?
+	public var id: Int?
+	public var title: String?
+	public var price: Double?
+	public var description: String?
+	public var category: String?
+	public var image: String?
+	public var rating: Rating?
 }
 
 public struct Rating: Codable {
-	let rate: Double?
-	let count: Int?
+	public var rate: Double?
+	public var count: Int?
 }
