@@ -8,45 +8,17 @@
 import UIKit
 
 class PYInputView: UIView {
-
-	// MARK: Properties Getters and Setters
-	var input: String? {
-		didSet {
-			inputLabel.text = input
-		}
-	}
-	
-	var placeholder: String? {
-		didSet {
-			inputField.placeholder = placeholder
-		}
-	}
-	
-	var isSecureText: Bool = false {
-		didSet {
-			inputField.isSecureTextEntry = isSecureText
-		}
-	}
 	
 	// MARK: UI Elements
-	private(set) lazy var inputLabel: PYBodyLabel = {
-		let label = PYBodyLabel(textAlignment: .left, fontSize: 11)
-		label.textColor = .gray
-		return label
-	}()
-	
-	private(set) lazy var inputField: PYTextField = {
-		let textField = PYTextField(placeholder: "", isSecureTextEntry: false)
-		
-		return textField
-	}()
+	let inputLabel = PYBodyLabel(textAlignment: .left, fontSize: 12)
+	let inputField = PYTextField(placeholder: "", isSecureTextEntry: false)
 	
 	// MARK: Init
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		
-		setupInputLabel()
-		setupInputField()
+		configureInputLabel()
+		configureInputField()
 	}
 	
 	required init?(coder: NSCoder) {
@@ -54,8 +26,10 @@ class PYInputView: UIView {
 	}
 	
 	// MARK: Methods
-	private func setupInputLabel() {
+	private func configureInputLabel() {
 		addSubview(inputLabel)
+		inputLabel.textColor = .darkGray
+		
 		NSLayoutConstraint.activate([
 			inputLabel.topAnchor.constraint(equalTo: topAnchor),
 			inputLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -63,12 +37,13 @@ class PYInputView: UIView {
 		])
 	}
 	
-	private func setupInputField() {
+	private func configureInputField() {
 		addSubview(inputField)
 		NSLayoutConstraint.activate([
 			inputField.topAnchor.constraint(equalTo: inputLabel.bottomAnchor),
 			inputField.leadingAnchor.constraint(equalTo: leadingAnchor),
-			inputField.trailingAnchor.constraint(equalTo: trailingAnchor)
+			inputField.trailingAnchor.constraint(equalTo: trailingAnchor),
+			inputField.heightAnchor.constraint(equalToConstant: 52)
 		])
 	}
 	

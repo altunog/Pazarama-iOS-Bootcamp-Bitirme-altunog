@@ -30,7 +30,7 @@ class PYTextField: UITextField {
 		
 		layer.cornerRadius 			= 3
 		layer.borderWidth 			= 1
-		layer.borderColor 			= UIColor.gray.cgColor
+		layer.borderColor 			= UIColor.darkGray.cgColor
 		
 		textColor 					= .black
 		tintColor 					= .black
