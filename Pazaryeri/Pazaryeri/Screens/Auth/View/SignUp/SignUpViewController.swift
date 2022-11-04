@@ -9,7 +9,26 @@ import UIKit
 
 class SignUpViewController: UIViewController {
 
+	// MARK: Properties
+	private let viewModel = AuthViewModel()
 	private let signUpView = SignUpView()
+	
+	// MARK: Gettable Properties
+	var username: String {
+		signUpView.usernameInputView.inputField.text ?? ""
+	}
+	
+	var email: String {
+		signUpView.emailInputView.inputField.text ?? ""
+	}
+	
+	var password: String {
+		signUpView.passwordInputView.inputField.text ?? ""
+	}
+	
+	var confirmPassword: String {
+		signUpView.confirmInputView.inputField.text ?? ""
+	}
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +46,7 @@ extension SignUpViewController: SignUpViewInterface {
 	func signUpView(_ view: SignUpView, didTapSubmitButton button: PYButton) {
 		print("signed up")
 		// TODO: implement firebase signUp()
+		
 	}
 	
 	func signUpView(_ view: SignUpView, didTapCancelButton button: UIButton) {
