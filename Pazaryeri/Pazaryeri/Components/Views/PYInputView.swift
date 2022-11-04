@@ -11,7 +11,7 @@ class PYInputView: UIView {
 	
 	// MARK: UI Elements
 	let inputLabel = PYBodyLabel(textAlignment: .left, fontSize: 14)
-	let inputField = PYTextField(placeholder: "", isSecureTextEntry: false)
+	let inputField = PYInputField(placeholder: "", isSecureTextEntry: false)
 	
 	// MARK: Init
 	override init(frame: CGRect) {
