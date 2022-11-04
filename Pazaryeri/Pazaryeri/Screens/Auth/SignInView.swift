@@ -11,6 +11,7 @@ class SignInView: UIView {
 	
 	// MARK: Properties
 	private let padding: CGFloat = 20
+	private let spacing: CGFloat = 8
 
 	// MARK: UI Elements
 	private lazy var titleLabel: UILabel = {
@@ -37,6 +38,13 @@ class SignInView: UIView {
 		return inputView
 	}()
 	
+	private lazy var continueButton: PYButton = {
+		let button = PYButton(kind: .filled, color: Colors.primary, title: "Continue")
+		button.layer.cornerRadius 	= 3
+		button.titleLabel?.font 	= .boldSystemFont(ofSize: 18)
+		return button
+	}()
+	
 	private lazy var bottomLabel: UILabel = {
 		let label 		= UILabel()
 		label.text 		= "Don't have an account?"
@@ -48,20 +56,12 @@ class SignInView: UIView {
 	private lazy var goSignUpButton: UIButton = {
 		let button 				= UIButton(type: .system)
 		button.titleLabel?.font = .boldSystemFont(ofSize: 17)
-		
-		button.setTitle("Sign Up", for: .normal)
+		button.setTitle("Sign up!", for: .normal)
 		button.setTitleColor(Colors.primary, for: .normal)
-		//		button.backgroundColor = .none
 		//		button.addTarget(self,
 		//						 action: #selector(didTapCancelButton(_:)),
 		//						 for: .touchUpInside)
 		return button
-	}()
-	
-	private lazy var signInStackView: UIStackView = {
-		let stackView = UIStackView(arrangedSubviews: [emailInputView,
-													   passwordInputView])
-		return stackView
 	}()
 	
 	private lazy var bottomStackView: UIStackView = {
@@ -74,8 +74,9 @@ class SignInView: UIView {
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		
+		backgroundColor = .white
 		configureTitleLabel()
-		configureSignInStackView()
+		configureSignInMenu()
 		configureBottomStackView()
 	}
 	
@@ -86,38 +87,40 @@ class SignInView: UIView {
 	// MARK: Configurations
 	private func configureTitleLabel() {
 		addSubview(titleLabel)
+		titleLabel.text = "Sign In"
+		titleLabel.font 		= .systemFont(ofSize: 48, weight: .light)
 		
+		titleLabel.translatesAutoresizingMaskIntoConstraints = false
 		NSLayoutConstraint.activate([
 			titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor,	constant: 4*padding),
 			titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
 		])
 	}
-	
-//	private func configureEmailInputView() {
-//		addSubview(emailInputView)
-//		NSLayoutConstraint.activate([
-//
-//		])
-//	}
-//
-//	private func configurePasswordInputView() {
-//		addSubview(passwordInputView)
-//		NSLayoutConstraint.activate([
-//
-//		])
-//	}
-//
-	private func configureSignInStackView() {
-		addSubview(signInStackView)
-		signInStackView.axis 			= .vertical
-		signInStackView.spacing 		= 3
-		signInStackView.alignment 		= .fill
-		signInStackView.distribution	= .fill
+
+	private func configureSignInMenu() {
+		addSubview(emailInputView)
+		addSubview(passwordInputView)
+		addSubview(continueButton)
+		emailInputView.translatesAutoresizingMaskIntoConstraints 	= false
+		passwordInputView.translatesAutoresizingMaskIntoConstraints = false
+		continueButton.translatesAutoresizingMaskIntoConstraints 	= false
 		
 		NSLayoutConstraint.activate([
-			signInStackView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -100),
-			signInStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
-			signInStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding)
+			emailInputView.bottomAnchor.constraint(equalTo: passwordInputView.topAnchor,
+												   constant: -2*spacing),
+			emailInputView.leadingAnchor.constraint(equalTo: passwordInputView.leadingAnchor),
+			emailInputView.trailingAnchor.constraint(equalTo: passwordInputView.trailingAnchor),
+			emailInputView.heightAnchor.constraint(equalToConstant: 70),
+			
+			passwordInputView.centerYAnchor.constraint(equalTo: centerYAnchor),
+			passwordInputView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
+			passwordInputView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
+			passwordInputView.heightAnchor.constraint(equalToConstant: 70),
+			
+			continueButton.topAnchor.constraint(equalTo: passwordInputView.bottomAnchor, constant: 2*spacing),
+			continueButton.leadingAnchor.constraint(equalTo: passwordInputView.leadingAnchor),
+			continueButton.trailingAnchor.constraint(equalTo: passwordInputView.trailingAnchor),
+			continueButton.heightAnchor.constraint(equalToConstant: 52)
 		])
 	}
 	
@@ -128,6 +131,7 @@ class SignInView: UIView {
 		bottomStackView.alignment 		= .fill
 		bottomStackView.distribution 	= .fill
 		
+		bottomStackView.translatesAutoresizingMaskIntoConstraints = false
 		NSLayoutConstraint.activate([
 			bottomStackView.centerXAnchor.constraint(equalTo: centerXAnchor),
 			bottomStackView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -3*padding)

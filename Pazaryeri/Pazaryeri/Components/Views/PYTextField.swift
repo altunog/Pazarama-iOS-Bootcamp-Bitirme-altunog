@@ -30,7 +30,7 @@ class PYTextField: UITextField {
 		
 		layer.cornerRadius 			= 3
 		layer.borderWidth 			= 1
-		layer.borderColor 			= UIColor.darkGray.cgColor
+		layer.borderColor 			= UIColor.gray.cgColor
 		
 		textColor 					= .black
 		tintColor 					= .black
@@ -39,10 +39,25 @@ class PYTextField: UITextField {
 		adjustsFontSizeToFitWidth	= true
 		minimumFontSize 			= 16
 		
-		backgroundColor 			= .lightGray
+		backgroundColor 			= .white
+		autocapitalizationType		= .none
 		autocorrectionType 			= .no
-		returnKeyType 				= .next
+		keyboardType				= .default
+		returnKeyType 				= .continue
 		clearButtonMode 			= .whileEditing
+	}
+	let padding = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+
+	override open func textRect(forBounds bounds: CGRect) -> CGRect {
+		return bounds.inset(by: padding)
+	}
+	
+	override open func placeholderRect(forBounds bounds: CGRect) -> CGRect {
+		return bounds.inset(by: padding)
+	}
+	
+	override open func editingRect(forBounds bounds: CGRect) -> CGRect {
+		return bounds.inset(by: padding)
 	}
 
 }

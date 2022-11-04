@@ -26,12 +26,13 @@ class PYBodyLabel: UILabel {
 	}
 	
 	private func configure() {
+		translatesAutoresizingMaskIntoConstraints = false
+		
 		textColor = .black
 		adjustsFontSizeToFitWidth = true
 		minimumScaleFactor = 0.9
 		numberOfLines = 0
 		lineBreakMode = .byWordWrapping
-		translatesAutoresizingMaskIntoConstraints = false
 	}
 
 }

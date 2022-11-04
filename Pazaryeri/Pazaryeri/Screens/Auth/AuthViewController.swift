@@ -9,11 +9,16 @@ import UIKit
 
 class AuthViewController: UIViewController {
 
+	private lazy var signInView: SignInView = {
+		let view = SignInView()
+		return view
+	}()
+	
     override func viewDidLoad() {
         super.viewDidLoad()
-
+		
+		view.backgroundColor = .systemPink
+		view = signInView
     }
-    
-
 
 }

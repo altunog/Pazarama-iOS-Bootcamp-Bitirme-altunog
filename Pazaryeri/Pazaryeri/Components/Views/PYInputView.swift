@@ -10,7 +10,7 @@ import UIKit
 class PYInputView: UIView {
 	
 	// MARK: UI Elements
-	let inputLabel = PYBodyLabel(textAlignment: .left, fontSize: 12)
+	let inputLabel = PYBodyLabel(textAlignment: .left, fontSize: 14)
 	let inputField = PYTextField(placeholder: "", isSecureTextEntry: false)
 	
 	// MARK: Init
@@ -40,7 +40,7 @@ class PYInputView: UIView {
 	private func configureInputField() {
 		addSubview(inputField)
 		NSLayoutConstraint.activate([
-			inputField.topAnchor.constraint(equalTo: inputLabel.bottomAnchor),
+			inputField.topAnchor.constraint(equalTo: inputLabel.bottomAnchor, constant: 2),
 			inputField.leadingAnchor.constraint(equalTo: leadingAnchor),
 			inputField.trailingAnchor.constraint(equalTo: trailingAnchor),
 			inputField.heightAnchor.constraint(equalToConstant: 52)
