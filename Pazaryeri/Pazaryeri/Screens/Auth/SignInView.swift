@@ -30,9 +30,9 @@ class SignInView: UIView {
 	}()
 	
 	private lazy var emailInputView: PYInputView = {
-		let inputView 						= PYInputView()
-		inputView.inputLabel.text 			= "Email"
-		inputView.inputField.placeholder 	= "enter your email address"
+		let inputView 							=	 PYInputView()
+		inputView.inputLabel.text 				= "Email"
+		inputView.inputField.placeholderText 	= "enter your email address"
 		inputView.inputField.keyboardType 	= .emailAddress
 		return inputView
 	}()
@@ -40,7 +40,7 @@ class SignInView: UIView {
 	private lazy var passwordInputView: PYInputView = {
 		let inputView 							= PYInputView()
 		inputView.inputLabel.text 				= "Password"
-		inputView.inputField.placeholder 		= "enter your password"
+		inputView.inputField.placeholderText 	= "enter your password"
 		inputView.inputField.isSecureTextEntry 	= true
 		return inputView
 	}()
@@ -94,12 +94,9 @@ class SignInView: UIView {
 	// MARK: Configurations
 	private func configureTitleLabel() {
 		addSubview(titleLabel)
-		titleLabel.text = "Sign In"
-		titleLabel.font 		= .systemFont(ofSize: 48, weight: .light)
-		
 		titleLabel.translatesAutoresizingMaskIntoConstraints = false
 		NSLayoutConstraint.activate([
-			titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor,	constant: 4*padding),
+			titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor,	constant: 3*padding),
 			titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
 		])
 	}

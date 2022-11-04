@@ -37,18 +37,14 @@ class PYInputView: UIView {
 		inputLabel.textColor = .darkGray
 		inputLabel.backgroundColor = .white
 		NSLayoutConstraint.activate([
-//			inputLabel.topAnchor.constraint(equalTo: topAnchor),
 			inputLabel.centerYAnchor.constraint(equalTo: inputField.topAnchor),
-			inputLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
-//			inputLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
-			
+			inputLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8)
 		])
 	}
 	
 	private func configureInputField() {
 		addSubview(inputField)
 		NSLayoutConstraint.activate([
-//			inputField.topAnchor.constraint(equalTo: inputLabel.bottomAnchor, constant: 2),
 			inputField.topAnchor.constraint(equalTo: topAnchor, constant: 6),
 			inputField.leadingAnchor.constraint(equalTo: leadingAnchor),
 			inputField.trailingAnchor.constraint(equalTo: trailingAnchor),
@@ -57,6 +53,7 @@ class PYInputView: UIView {
 	}
 }
 
+// MARK: UITextFieldDelegate
 extension PYInputView: UITextFieldDelegate {
 	func textFieldDidBeginEditing(_ textField: UITextField) {
 		textField.layer.borderColor = Colors.primary?.cgColor

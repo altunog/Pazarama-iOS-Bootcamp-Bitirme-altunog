@@ -9,6 +9,14 @@ import UIKit
 
 class PYInputField: UITextField {
 
+	var placeholderText: String? {
+		didSet {
+			placeholder = placeholderText
+			let attributes: [NSAttributedString.Key: Any] = [.font: UIFont.systemFont(ofSize: 17)]
+			attributedPlaceholder = NSAttributedString(string: placeholder ?? "", attributes: attributes)
+		}
+	}
+	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		configure()
@@ -20,7 +28,7 @@ class PYInputField: UITextField {
 	
 	convenience init(placeholder: String, isSecureTextEntry: Bool) {
 		self.init(frame: .zero)
-		self.placeholder 		= placeholder
+		self.placeholderText	= placeholder
 		self.isSecureTextEntry 	= isSecureTextEntry
 		configure()
 	}
