@@ -14,6 +14,8 @@
 		6A431B90291477FA00AD15DD /* PYInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A431B8F291477FA00AD15DD /* PYInputView.swift */; };
 		6A431B9229147B8800AD15DD /* PYInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A431B9129147B8800AD15DD /* PYInputField.swift */; };
 		6A431B962914D85D00AD15DD /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A431B952914D85D00AD15DD /* SignInView.swift */; };
+		6A431B982915559300AD15DD /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A431B972915559300AD15DD /* SignUpView.swift */; };
+		6A431B9A291555A300AD15DD /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A431B99291555A300AD15DD /* SignUpViewController.swift */; };
 		6A4FA3FB290DAD2200137437 /* PYSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4FA3FA290DAD2200137437 /* PYSectionView.swift */; };
 		6A4FA3FD290DB37E00137437 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4FA3FC290DB37E00137437 /* UIHelper.swift */; };
 		6A4FA400290DCBF300137437 /* UIView+PinToEdges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4FA3FF290DCBF300137437 /* UIView+PinToEdges.swift */; };
@@ -87,6 +89,8 @@
 		6A431B8F291477FA00AD15DD /* PYInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYInputView.swift; sourceTree = "<group>"; };
 		6A431B9129147B8800AD15DD /* PYInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYInputField.swift; sourceTree = "<group>"; };
 		6A431B952914D85D00AD15DD /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		6A431B972915559300AD15DD /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		6A431B99291555A300AD15DD /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		6A4FA3FA290DAD2200137437 /* PYSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYSectionView.swift; sourceTree = "<group>"; };
 		6A4FA3FC290DB37E00137437 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		6A4FA3FF290DCBF300137437 /* UIView+PinToEdges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+PinToEdges.swift"; sourceTree = "<group>"; };
@@ -168,6 +172,8 @@
 				6A431B892914146100AD15DD /* SignInViewController.swift */,
 				6A431B952914D85D00AD15DD /* SignInView.swift */,
 				6A431B8D2914731200AD15DD /* Storyboard.storyboard */,
+				6A431B972915559300AD15DD /* SignUpView.swift */,
+				6A431B99291555A300AD15DD /* SignUpViewController.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -498,8 +504,10 @@
 				6AECFC5F290A96FE0020B98A /* PYMainTabBarController.swift in Sources */,
 				6AECFC65290A97850020B98A /* ProfileViewController.swift in Sources */,
 				6AECFC63290A977B0020B98A /* SearchViewController.swift in Sources */,
+				6A431B9A291555A300AD15DD /* SignUpViewController.swift in Sources */,
 				6AECFC2D2908136E0020B98A /* AppDelegate.swift in Sources */,
 				6AECFC70290C41610020B98A /* PYTitleLabel.swift in Sources */,
+				6A431B982915559300AD15DD /* SignUpView.swift in Sources */,
 				6AF64F8D290E4CD1004A35AA /* PYCartButton.swift in Sources */,
 				6AECFC74290C7FA80020B98A /* PYProductImageView.swift in Sources */,
 				6A4FA400290DCBF300137437 /* UIView+PinToEdges.swift in Sources */,
