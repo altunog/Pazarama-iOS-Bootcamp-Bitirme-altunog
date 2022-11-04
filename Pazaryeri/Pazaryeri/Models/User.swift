@@ -18,7 +18,7 @@ struct User: Codable {
 }
 
 struct Cart: Codable {
-	var products: [Product: Int]	
+	var products: [Product: Int]
 }
 
 extension Cart {

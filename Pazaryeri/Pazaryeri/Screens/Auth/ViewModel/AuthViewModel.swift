@@ -18,5 +18,35 @@ protocol AuthViewModelDelegate: AnyObject {
 final class AuthViewModel {
 	weak var delegate: AuthViewModelDelegate?
 	
+	private let db = Firestore.firestore()
 	
+	func signUp(username: String, email: String, password: String, completion: @escaping () -> Void) {
+		Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+			if let error {
+				self.delegate?.didOccurError(error)
+				return
+			}
+			
+			guard let uid = authResult?.user.uid,
+				  let email = authResult?.user.email else { return }
+			
+			let user = User(id: uid,
+							username: username,
+							email: email,
+							cart: Cart(products: [:]),
+							previousOrders: [],
+							activeOrders: [])
+			
+			let userAsEncoded = user.dictionary
+			self.db.collection("users").document(uid).setData(userAsEncoded) { error in
+				if let error {
+					self.delegate?.didOccurError(error)
+					return
+				} else {
+					self.delegate?.didSignUpSuccessful()
+					completion()
+				}
+			}
+		}
+	}
 }
