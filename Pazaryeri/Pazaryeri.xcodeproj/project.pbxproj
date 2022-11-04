@@ -16,6 +16,7 @@
 		6A431B982915559300AD15DD /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A431B972915559300AD15DD /* SignUpView.swift */; };
 		6A431B9A291555A300AD15DD /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A431B99291555A300AD15DD /* SignUpViewController.swift */; };
 		6A431B9C29156BA100AD15DD /* PYInputLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A431B9B29156BA100AD15DD /* PYInputLabel.swift */; };
+		6A431BA32915C3BD00AD15DD /* Encodable+Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A431BA22915C3BD00AD15DD /* Encodable+Dictionary.swift */; };
 		6A4FA3FB290DAD2200137437 /* PYSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4FA3FA290DAD2200137437 /* PYSectionView.swift */; };
 		6A4FA3FD290DB37E00137437 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4FA3FC290DB37E00137437 /* UIHelper.swift */; };
 		6A4FA400290DCBF300137437 /* UIView+PinToEdges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4FA3FF290DCBF300137437 /* UIView+PinToEdges.swift */; };
@@ -91,6 +92,7 @@
 		6A431B972915559300AD15DD /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		6A431B99291555A300AD15DD /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		6A431B9B29156BA100AD15DD /* PYInputLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYInputLabel.swift; sourceTree = "<group>"; };
+		6A431BA22915C3BD00AD15DD /* Encodable+Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Dictionary.swift"; sourceTree = "<group>"; };
 		6A4FA3FA290DAD2200137437 /* PYSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYSectionView.swift; sourceTree = "<group>"; };
 		6A4FA3FC290DB37E00137437 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		6A4FA3FF290DCBF300137437 /* UIView+PinToEdges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+PinToEdges.swift"; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				6A4FA3FF290DCBF300137437 /* UIView+PinToEdges.swift */,
 				6AF64F91290EF1E8004A35AA /* Double+CurrencyString.swift */,
 				6AF64F932910812C004A35AA /* UIButton+Extensions.swift */,
+				6A431BA22915C3BD00AD15DD /* Encodable+Dictionary.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -549,6 +552,7 @@
 				6A431B982915559300AD15DD /* SignUpView.swift in Sources */,
 				6AF64F8D290E4CD1004A35AA /* PYCartButton.swift in Sources */,
 				6AECFC74290C7FA80020B98A /* PYProductImageView.swift in Sources */,
+				6A431BA32915C3BD00AD15DD /* Encodable+Dictionary.swift in Sources */,
 				6A4FA400290DCBF300137437 /* UIView+PinToEdges.swift in Sources */,
 				6A431B8A2914146100AD15DD /* SignInViewController.swift in Sources */,
 				6A4FA3FD290DB37E00137437 /* UIHelper.swift in Sources */,
