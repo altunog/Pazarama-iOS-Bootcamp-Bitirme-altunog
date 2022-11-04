@@ -11,6 +11,7 @@ class SignInViewController: UIViewController {
 
 	private lazy var signInView: SignInView = {
 		let view = SignInView()
+		view.delegate = self
 		return view
 	}()
 	
@@ -21,4 +22,15 @@ class SignInViewController: UIViewController {
 		view = signInView
     }
 
+}
+
+extension SignInViewController: SignInViewInterface {
+	func signInView(_ view: SignInView, didTapContinueButton button: PYButton) {
+		print("Burada")
+	}
+	
+	func signInView(_ view: SignInView, didTapGoSignUpButton button: UIButton) {
+		let signUpVC = SignUpViewController()
+		present(signUpVC, animated: true)
+	}
 }

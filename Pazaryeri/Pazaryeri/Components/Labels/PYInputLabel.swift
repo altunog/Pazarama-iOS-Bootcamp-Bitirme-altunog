@@ -1,13 +1,13 @@
 //
-//  PYBodyLabel.swift
+//  PYInputLabel.swift
 //  Pazaryeri
 //
-//  Created by Oğuz Kaan Altun on 29.10.2022.
+//  Created by Oğuz Kaan Altun on 4.11.2022.
 //
 
 import UIKit
 
-class PYBodyLabel: UILabel {
+class PYInputLabel: UILabel {
 
 	override init(frame: CGRect) {
 		super.init(frame: frame)
@@ -27,23 +27,22 @@ class PYBodyLabel: UILabel {
 	
 	private func configure() {
 		translatesAutoresizingMaskIntoConstraints = false
-		
 		textColor = .black
-		adjustsFontSizeToFitWidth = true
-		minimumScaleFactor = 0.9
-		numberOfLines = 0
-		lineBreakMode = .byWordWrapping
 	}
 
+	// MARK: MEMO: code from stackoverflow, adds inset to left and right edges of UILabel
+	// https://stackoverflow.com/questions/27459746/adding-space-padding-to-a-uilabel
+	let inset: CGFloat = 2
 	
 	override func drawText(in rect: CGRect) {
-		let insets = UIEdgeInsets(top: 0, left: 2, bottom: 0, right: 2)
+		let insets = UIEdgeInsets(top: 0, left: inset, bottom: 0, right: inset)
 		super.drawText(in: rect.inset(by: insets))
 	}
 	
 	override var intrinsicContentSize: CGSize {
 		let size = super.intrinsicContentSize
-		return CGSize(width: size.width + 2 + 2,
+		return CGSize(width: size.width + inset + inset,
 					  height: size.height + 0 + 0)
 	}
+
 }

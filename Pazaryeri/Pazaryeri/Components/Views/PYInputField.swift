@@ -30,7 +30,7 @@ class PYInputField: UITextField {
 		
 		layer.cornerRadius 			= 3
 		layer.borderWidth 			= 1
-		layer.borderColor 			= UIColor.gray.cgColor
+		layer.borderColor 			= UIColor.lightGray.cgColor
 		
 		textColor 					= .black
 		tintColor 					= .black
@@ -47,17 +47,17 @@ class PYInputField: UITextField {
 	
 	// MARK: MEMO: code from stackoverflow, adds padding to left and right edges of UITextField
 	// https://stackoverflow.com/questions/25367502/create-space-at-the-beginning-of-a-uitextfield
-	let padding = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+	let padding = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
 
-	override open func textRect(forBounds bounds: CGRect) -> CGRect {
+	override func textRect(forBounds bounds: CGRect) -> CGRect {
+		return bounds.inset(by: padding)
+	}
+
+	override func placeholderRect(forBounds bounds: CGRect) -> CGRect {
 		return bounds.inset(by: padding)
 	}
 	
-	override open func placeholderRect(forBounds bounds: CGRect) -> CGRect {
-		return bounds.inset(by: padding)
-	}
-	
-	override open func editingRect(forBounds bounds: CGRect) -> CGRect {
+	override func editingRect(forBounds bounds: CGRect) -> CGRect {
 		return bounds.inset(by: padding)
 	}
 

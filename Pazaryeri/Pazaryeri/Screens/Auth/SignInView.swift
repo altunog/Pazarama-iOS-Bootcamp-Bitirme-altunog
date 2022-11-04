@@ -7,7 +7,14 @@
 
 import UIKit
 
+protocol SignInViewInterface: AnyObject {
+	func signInView(_ view: SignInView, didTapContinueButton button: PYButton)
+	func signInView(_ view: SignInView, didTapGoSignUpButton button: UIButton)
+}
+
 class SignInView: UIView {
+	
+	weak var delegate: SignInViewInterface?
 	
 	// MARK: Properties
 	private let padding: CGFloat = 20
@@ -25,7 +32,7 @@ class SignInView: UIView {
 	private lazy var emailInputView: PYInputView = {
 		let inputView 						= PYInputView()
 		inputView.inputLabel.text 			= "Email"
-		inputView.inputField.placeholder 	= "Enter your email address"
+		inputView.inputField.placeholder 	= "enter your email address"
 		inputView.inputField.keyboardType 	= .emailAddress
 		return inputView
 	}()
@@ -33,7 +40,7 @@ class SignInView: UIView {
 	private lazy var passwordInputView: PYInputView = {
 		let inputView 							= PYInputView()
 		inputView.inputLabel.text 				= "Password"
-		inputView.inputField.placeholder 		= "Enter your password"
+		inputView.inputField.placeholder 		= "enter your password"
 		inputView.inputField.isSecureTextEntry 	= true
 		return inputView
 	}()
@@ -137,7 +144,7 @@ class SignInView: UIView {
 	private func configureBottomStackView() {
 		addSubview(bottomStackView)
 		bottomStackView.axis 			= .horizontal
-		bottomStackView.spacing			= 7
+		bottomStackView.spacing			= spacing
 		bottomStackView.alignment 		= .fill
 		bottomStackView.distribution 	= .fill
 		
@@ -149,11 +156,13 @@ class SignInView: UIView {
 	}
 	
 	//MARK: Actions
-	@objc private func continueButtonTapped() {
+	@objc private func continueButtonTapped(_ button: PYButton) {
 		print("Continue")
+		delegate?.signInView(self, didTapContinueButton: button)
 	}
-	
-	@objc private func goSignUpButtonTapped() {
+
+	@objc private func goSignUpButtonTapped(_ button: UIButton) {
 		print("Go sign up")
+		delegate?.signInView(self, didTapGoSignUpButton: button)
 	}
 }
