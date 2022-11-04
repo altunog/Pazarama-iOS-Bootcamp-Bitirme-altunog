@@ -11,7 +11,7 @@ class SignInViewController: UIViewController {
 
 	private lazy var signInView: SignInView = {
 		let view = SignInView()
-		view.delegate = self
+		view.interface = self
 		return view
 	}()
 	

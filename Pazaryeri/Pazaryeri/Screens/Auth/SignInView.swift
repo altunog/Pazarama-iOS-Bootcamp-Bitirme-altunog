@@ -14,7 +14,7 @@ protocol SignInViewInterface: AnyObject {
 
 class SignInView: UIView {
 	
-	weak var delegate: SignInViewInterface?
+	weak var interface: SignInViewInterface?
 	
 	// MARK: Properties
 	private let padding: CGFloat = 20
@@ -33,7 +33,7 @@ class SignInView: UIView {
 		let inputView 							=	 PYInputView()
 		inputView.inputLabel.text 				= "Email"
 		inputView.inputField.placeholderText 	= "enter your email address"
-		inputView.inputField.keyboardType 	= .emailAddress
+		inputView.inputField.keyboardType 		= .emailAddress
 		return inputView
 	}()
 	
@@ -47,6 +47,7 @@ class SignInView: UIView {
 	
 	private lazy var continueButton: PYButton = {
 		let button = PYButton(kind: .filled, color: Colors.primary, title: "Continue")
+		button.addTarget(self, action: #selector(continueButtonTapped(_:)), for: .touchUpInside)
 		button.layer.cornerRadius 	= 3
 		button.titleLabel?.font 	= .boldSystemFont(ofSize: 18)
 		return button
@@ -103,37 +104,34 @@ class SignInView: UIView {
 	
 	private func configurePasswordInputView() {
 		addSubview(passwordInputView)
-		passwordInputView.translatesAutoresizingMaskIntoConstraints 	= false
-		
+		passwordInputView.translatesAutoresizingMaskIntoConstraints = false
 		NSLayoutConstraint.activate([
 			passwordInputView.centerYAnchor.constraint(equalTo: centerYAnchor),
-			passwordInputView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
-			passwordInputView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
-			passwordInputView.heightAnchor.constraint(equalToConstant: 70)
+			passwordInputView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: padding),
+			passwordInputView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -padding),
+			passwordInputView.heightAnchor.constraint(equalToConstant: 68)
 		])
 	}
 	
 	private func configureEmailInputView() {
 		addSubview(emailInputView)
-		emailInputView.translatesAutoresizingMaskIntoConstraints 	= false
-		
+		emailInputView.translatesAutoresizingMaskIntoConstraints = false
 		NSLayoutConstraint.activate([
 			emailInputView.bottomAnchor.constraint(equalTo: passwordInputView.topAnchor,
 												   constant: -2*spacing),
-			emailInputView.leadingAnchor.constraint(equalTo: passwordInputView.leadingAnchor),
-			emailInputView.trailingAnchor.constraint(equalTo: passwordInputView.trailingAnchor),
-			emailInputView.heightAnchor.constraint(equalToConstant: 70)
+			emailInputView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: padding),
+			emailInputView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -padding),
+			emailInputView.heightAnchor.constraint(equalToConstant: 68)
 		])
 	}
 	
 	private func configureContinueButton() {
 		addSubview(continueButton)
-		continueButton.translatesAutoresizingMaskIntoConstraints 	= false
-		continueButton.addTarget(self, action: #selector(continueButtonTapped), for: .touchUpInside)
+		continueButton.translatesAutoresizingMaskIntoConstraints = false
 		NSLayoutConstraint.activate([
 			continueButton.topAnchor.constraint(equalTo: passwordInputView.bottomAnchor, constant: 2*spacing),
-			continueButton.leadingAnchor.constraint(equalTo: passwordInputView.leadingAnchor),
-			continueButton.trailingAnchor.constraint(equalTo: passwordInputView.trailingAnchor),
+			continueButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: padding),
+			continueButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -padding),
 			continueButton.heightAnchor.constraint(equalToConstant: 52)
 		])
 	}
@@ -154,12 +152,10 @@ class SignInView: UIView {
 	
 	//MARK: Actions
 	@objc private func continueButtonTapped(_ button: PYButton) {
-		print("Continue")
-		delegate?.signInView(self, didTapContinueButton: button)
+		interface?.signInView(self, didTapContinueButton: button)
 	}
 
 	@objc private func goSignUpButtonTapped(_ button: UIButton) {
-		print("Go sign up")
-		delegate?.signInView(self, didTapGoSignUpButton: button)
+		interface?.signInView(self, didTapGoSignUpButton: button)
 	}
 }

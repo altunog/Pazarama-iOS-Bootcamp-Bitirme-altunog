@@ -10,7 +10,6 @@
 		6A000CBA2912F0010011E9D6 /* ProductsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A000CB92912F0010011E9D6 /* ProductsViewModel.swift */; };
 		6A431B8A2914146100AD15DD /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A431B892914146100AD15DD /* SignInViewController.swift */; };
 		6A431B8C2914147200AD15DD /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A431B8B2914147200AD15DD /* AuthViewModel.swift */; };
-		6A431B8E2914731200AD15DD /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A431B8D2914731200AD15DD /* Storyboard.storyboard */; };
 		6A431B90291477FA00AD15DD /* PYInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A431B8F291477FA00AD15DD /* PYInputView.swift */; };
 		6A431B9229147B8800AD15DD /* PYInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A431B9129147B8800AD15DD /* PYInputField.swift */; };
 		6A431B962914D85D00AD15DD /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A431B952914D85D00AD15DD /* SignInView.swift */; };
@@ -86,7 +85,6 @@
 		6A000CB92912F0010011E9D6 /* ProductsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewModel.swift; sourceTree = "<group>"; };
 		6A431B892914146100AD15DD /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		6A431B8B2914147200AD15DD /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
-		6A431B8D2914731200AD15DD /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		6A431B8F291477FA00AD15DD /* PYInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYInputView.swift; sourceTree = "<group>"; };
 		6A431B9129147B8800AD15DD /* PYInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYInputField.swift; sourceTree = "<group>"; };
 		6A431B952914D85D00AD15DD /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
@@ -173,7 +171,6 @@
 				6A431B8B2914147200AD15DD /* AuthViewModel.swift */,
 				6A431B892914146100AD15DD /* SignInViewController.swift */,
 				6A431B952914D85D00AD15DD /* SignInView.swift */,
-				6A431B8D2914731200AD15DD /* Storyboard.storyboard */,
 				6A431B972915559300AD15DD /* SignUpView.swift */,
 				6A431B99291555A300AD15DD /* SignUpViewController.swift */,
 			);
@@ -474,7 +471,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6AECFC392908136F0020B98A /* LaunchScreen.storyboard in Resources */,
-				6A431B8E2914731200AD15DD /* Storyboard.storyboard in Resources */,
 				6AE2EF4B291400110011F45E /* GoogleService-Info.plist in Resources */,
 				6AECFC362908136F0020B98A /* Assets.xcassets in Resources */,
 			);

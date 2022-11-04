@@ -7,7 +7,14 @@
 
 import UIKit
 
+protocol SignUpViewInterface: AnyObject {
+	func signUpView(_ view: SignUpView, didTapSubmitButton button: PYButton)
+	func signUpView(_ view: SignUpView, didTapCancelButton button: UIButton)
+}
+
 class SignUpView: UIView {
+	
+	weak var interface: SignUpViewInterface?
 
 	// MARK: Properties
 	private let height: CGFloat		= 68
@@ -20,9 +27,7 @@ class SignUpView: UIView {
 		button.titleLabel?.font = .systemFont(ofSize: 17)
 		button.setTitle("Cancel", for: .normal)
 		button.setTitleColor(Colors.primary, for: .normal)
-//		button.addTarget(self,
-//						 action: #selector(didTapCancelButton(_:)),
-//						 for: .touchUpInside)
+		button.addTarget(self, action: #selector(cancelButtonTapped(_:)), for: .touchUpInside)
 		return button
 	}()
 
@@ -65,13 +70,15 @@ class SignUpView: UIView {
 		return inputView
 	}()
 	
-	private lazy var continueButton: PYButton = {
-		let button = PYButton(kind: .filled, color: Colors.tertiary, title: "Continue")
+	private lazy var submitButton: PYButton = {
+		let button = PYButton(kind: .tinted, color: Colors.primary, title: "Submit")
 		button.layer.cornerRadius 	= 3
 		button.titleLabel?.font 	= .boldSystemFont(ofSize: 18)
+		button.addTarget(self, action: #selector(submitButtonTapped(_:)), for: .touchUpInside)
 		return button
 	}()
 	
+	// MARK: Init
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		
@@ -82,7 +89,7 @@ class SignUpView: UIView {
 		configureUsernameInputView()
 		configurePasswordIntputView()
 		configureConfirmInputView()
-		
+		configureContinueButton()
 	}
 	
 	required init?(coder: NSCoder) {
@@ -146,6 +153,26 @@ class SignUpView: UIView {
 			confirmInputView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -padding),
 			confirmInputView.heightAnchor.constraint(equalToConstant: height)
 		])
+	}
+	
+	private func configureContinueButton() {
+		addSubview(submitButton)
+		submitButton.translatesAutoresizingMaskIntoConstraints = false
+		NSLayoutConstraint.activate([
+			submitButton.topAnchor.constraint(equalTo: confirmInputView.bottomAnchor, constant: 2*spacing),
+			submitButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: padding),
+			submitButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -padding),
+			submitButton.heightAnchor.constraint(equalToConstant: 52)
+		])
+	}
+	
+	// MARK: Actions
+	@objc private func submitButtonTapped(_ button: PYButton) {
+		interface?.signUpView(self, didTapSubmitButton: button)
+	}
+	
+	@objc private func cancelButtonTapped(_ button: UIButton) {
+		interface?.signUpView(self, didTapCancelButton: button)
 	}
 	
 }
