@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import FirebaseAuth
+import FirebaseFirestore
 
 protocol AuthViewModelDelegate: AnyObject {
 	func didOccurError(_ error: Error)
