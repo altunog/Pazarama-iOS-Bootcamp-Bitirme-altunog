@@ -12,7 +12,7 @@ class SignInView: UIView {
 	// MARK: Properties
 	private let padding: CGFloat = 20
 	private let spacing: CGFloat = 8
-
+	
 	// MARK: UI Elements
 	private lazy var titleLabel: UILabel = {
 		let label 		= UILabel()
@@ -21,7 +21,7 @@ class SignInView: UIView {
 		label.textColor = .black
 		return label
 	}()
-
+	
 	private lazy var emailInputView: PYInputView = {
 		let inputView 						= PYInputView()
 		inputView.inputLabel.text 			= "Email"
@@ -29,7 +29,7 @@ class SignInView: UIView {
 		inputView.inputField.keyboardType 	= .emailAddress
 		return inputView
 	}()
-		
+	
 	private lazy var passwordInputView: PYInputView = {
 		let inputView 							= PYInputView()
 		inputView.inputLabel.text 				= "Password"
@@ -58,9 +58,7 @@ class SignInView: UIView {
 		button.titleLabel?.font = .boldSystemFont(ofSize: 17)
 		button.setTitle("Sign up!", for: .normal)
 		button.setTitleColor(Colors.primary, for: .normal)
-		//		button.addTarget(self,
-		//						 action: #selector(didTapCancelButton(_:)),
-		//						 for: .touchUpInside)
+		button.addTarget(self, action: #selector(goSignUpButtonTapped), for: .touchUpInside)
 		return button
 	}()
 	
@@ -76,7 +74,9 @@ class SignInView: UIView {
 		
 		backgroundColor = .white
 		configureTitleLabel()
-		configureSignInMenu()
+		configurePasswordInputView()
+		configureEmailInputView()
+		configureContinueButton()
 		configureBottomStackView()
 	}
 	
@@ -96,27 +96,37 @@ class SignInView: UIView {
 			titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
 		])
 	}
-
-	private func configureSignInMenu() {
-		addSubview(emailInputView)
+	
+	private func configurePasswordInputView() {
 		addSubview(passwordInputView)
-		addSubview(continueButton)
+		passwordInputView.translatesAutoresizingMaskIntoConstraints 	= false
+		
+		NSLayoutConstraint.activate([
+			passwordInputView.centerYAnchor.constraint(equalTo: centerYAnchor),
+			passwordInputView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
+			passwordInputView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
+			passwordInputView.heightAnchor.constraint(equalToConstant: 70)
+		])
+	}
+	
+	private func configureEmailInputView() {
+		addSubview(emailInputView)
 		emailInputView.translatesAutoresizingMaskIntoConstraints 	= false
-		passwordInputView.translatesAutoresizingMaskIntoConstraints = false
-		continueButton.translatesAutoresizingMaskIntoConstraints 	= false
 		
 		NSLayoutConstraint.activate([
 			emailInputView.bottomAnchor.constraint(equalTo: passwordInputView.topAnchor,
 												   constant: -2*spacing),
 			emailInputView.leadingAnchor.constraint(equalTo: passwordInputView.leadingAnchor),
 			emailInputView.trailingAnchor.constraint(equalTo: passwordInputView.trailingAnchor),
-			emailInputView.heightAnchor.constraint(equalToConstant: 70),
-			
-			passwordInputView.centerYAnchor.constraint(equalTo: centerYAnchor),
-			passwordInputView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
-			passwordInputView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
-			passwordInputView.heightAnchor.constraint(equalToConstant: 70),
-			
+			emailInputView.heightAnchor.constraint(equalToConstant: 70)
+		])
+	}
+	
+	private func configureContinueButton() {
+		addSubview(continueButton)
+		continueButton.translatesAutoresizingMaskIntoConstraints 	= false
+		continueButton.addTarget(self, action: #selector(continueButtonTapped), for: .touchUpInside)
+		NSLayoutConstraint.activate([
 			continueButton.topAnchor.constraint(equalTo: passwordInputView.bottomAnchor, constant: 2*spacing),
 			continueButton.leadingAnchor.constraint(equalTo: passwordInputView.leadingAnchor),
 			continueButton.trailingAnchor.constraint(equalTo: passwordInputView.trailingAnchor),
@@ -134,7 +144,16 @@ class SignInView: UIView {
 		bottomStackView.translatesAutoresizingMaskIntoConstraints = false
 		NSLayoutConstraint.activate([
 			bottomStackView.centerXAnchor.constraint(equalTo: centerXAnchor),
-			bottomStackView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -3*padding)
+			bottomStackView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -padding)
 		])
+	}
+	
+	//MARK: Actions
+	@objc private func continueButtonTapped() {
+		print("Continue")
+	}
+	
+	@objc private func goSignUpButtonTapped() {
+		print("Go sign up")
 	}
 }
