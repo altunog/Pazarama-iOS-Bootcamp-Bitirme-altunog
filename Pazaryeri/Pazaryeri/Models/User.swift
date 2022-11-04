@@ -18,6 +18,17 @@ struct User: Codable {
 }
 
 struct Cart: Codable {
-	var userId: String
-	var products: [Product]
+	var products: [Product: Int]	
+}
+
+extension Cart {
+	
+	var totalCost: Double {
+		var cost: Double = .zero
+		for (product, count) in products {
+			guard let price = product.price else { continue }
+			cost += price * Double(count)
+		}
+		return cost
+	}
 }
