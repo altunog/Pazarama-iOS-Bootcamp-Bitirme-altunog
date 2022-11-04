@@ -20,7 +20,7 @@ final class AuthViewModel {
 	
 	private let db = Firestore.firestore()
 	
-	func signUp(username: String, email: String, password: String, completion: @escaping () -> Void) {
+	func signUp(username: String, email: String, password: String) {
 		Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
 			if let error {
 				self.delegate?.didOccurError(error)
@@ -42,11 +42,19 @@ final class AuthViewModel {
 				if let error {
 					self.delegate?.didOccurError(error)
 					return
-				} else {
-					self.delegate?.didSignUpSuccessful()
-					completion()
 				}
+				self.delegate?.didSignUpSuccessful()
 			}
+		}
+	}
+	
+	func signIn(email: String, password: String) {
+		Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+			if let error {
+				self.delegate?.didOccurError(error)
+				return
+			}
+			self.delegate?.didSignInSuccessful()
 		}
 	}
 }
