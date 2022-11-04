@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6A000CBA2912F0010011E9D6 /* ProductsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A000CB92912F0010011E9D6 /* ProductsViewModel.swift */; };
-		6A431B8A2914146100AD15DD /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A431B892914146100AD15DD /* AuthViewController.swift */; };
+		6A431B8A2914146100AD15DD /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A431B892914146100AD15DD /* SignInViewController.swift */; };
 		6A431B8C2914147200AD15DD /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A431B8B2914147200AD15DD /* AuthViewModel.swift */; };
 		6A431B8E2914731200AD15DD /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A431B8D2914731200AD15DD /* Storyboard.storyboard */; };
 		6A431B90291477FA00AD15DD /* PYInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A431B8F291477FA00AD15DD /* PYInputView.swift */; };
@@ -82,7 +82,7 @@
 
 /* Begin PBXFileReference section */
 		6A000CB92912F0010011E9D6 /* ProductsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewModel.swift; sourceTree = "<group>"; };
-		6A431B892914146100AD15DD /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		6A431B892914146100AD15DD /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		6A431B8B2914147200AD15DD /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		6A431B8D2914731200AD15DD /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		6A431B8F291477FA00AD15DD /* PYInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYInputView.swift; sourceTree = "<group>"; };
@@ -167,7 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				6A431B8B2914147200AD15DD /* AuthViewModel.swift */,
-				6A431B892914146100AD15DD /* AuthViewController.swift */,
+				6A431B892914146100AD15DD /* SignInViewController.swift */,
 				6A431B8D2914731200AD15DD /* Storyboard.storyboard */,
 				6A431B932914D18E00AD15DD /* View.xib */,
 				6A431B952914D85D00AD15DD /* SignInView.swift */,
@@ -507,7 +507,7 @@
 				6AF64F8D290E4CD1004A35AA /* PYCartButton.swift in Sources */,
 				6AECFC74290C7FA80020B98A /* PYProductImageView.swift in Sources */,
 				6A4FA400290DCBF300137437 /* UIView+PinToEdges.swift in Sources */,
-				6A431B8A2914146100AD15DD /* AuthViewController.swift in Sources */,
+				6A431B8A2914146100AD15DD /* SignInViewController.swift in Sources */,
 				6A4FA3FD290DB37E00137437 /* UIHelper.swift in Sources */,
 				6A000CBA2912F0010011E9D6 /* ProductsViewModel.swift in Sources */,
 				6AECFC6E290C36DE0020B98A /* ProductCell.swift in Sources */,

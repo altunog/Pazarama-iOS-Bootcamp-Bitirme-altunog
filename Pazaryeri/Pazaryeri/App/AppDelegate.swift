@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		// Override point for customization after application launch.
 		let window = UIWindow(frame: UIScreen.main.bounds)
 //		let tabBar = PYMainTabBarController()
-		let authVC = UINavigationController(rootViewController: AuthViewController())
+		let authVC = UINavigationController(rootViewController: SignInViewController())
 		window.rootViewController = authVC
 		window.makeKeyAndVisible()
 		self.window = window

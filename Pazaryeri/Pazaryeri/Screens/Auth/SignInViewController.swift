@@ -1,5 +1,5 @@
 //
-//  AuthViewController.swift
+//  SignInViewController.swift
 //  Pazaryeri
 //
 //  Created by Oğuz Kaan Altun on 3.11.2022.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AuthViewController: UIViewController {
+class SignInViewController: UIViewController {
 
 	private lazy var signInView: SignInView = {
 		let view = SignInView()
