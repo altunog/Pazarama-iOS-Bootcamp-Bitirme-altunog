@@ -168,13 +168,53 @@
 		6A431B882914144700AD15DD /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				6A431B8B2914147200AD15DD /* AuthViewModel.swift */,
-				6A431B892914146100AD15DD /* SignInViewController.swift */,
-				6A431B952914D85D00AD15DD /* SignInView.swift */,
-				6A431B972915559300AD15DD /* SignUpView.swift */,
-				6A431B99291555A300AD15DD /* SignUpViewController.swift */,
+				6A431B9D2915967500AD15DD /* ViewModel */,
+				6A431BA0291596AC00AD15DD /* View */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		6A431B9D2915967500AD15DD /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6A431B8B2914147200AD15DD /* AuthViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6A431B9E2915967D00AD15DD /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				6A431B892914146100AD15DD /* SignInViewController.swift */,
+				6A431B952914D85D00AD15DD /* SignInView.swift */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		6A431B9F2915968A00AD15DD /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				6A431B99291555A300AD15DD /* SignUpViewController.swift */,
+				6A431B972915559300AD15DD /* SignUpView.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		6A431BA0291596AC00AD15DD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6A431B9E2915967D00AD15DD /* SignIn */,
+				6A431B9F2915968A00AD15DD /* SignUp */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6A431BA129159DC100AD15DD /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				6A431B9129147B8800AD15DD /* PYInputField.swift */,
+			);
+			path = TextFields;
 			sourceTree = "<group>";
 		};
 		6A4FA3FE290DCBD700137437 /* Extensions */ = {
@@ -312,6 +352,7 @@
 				6AF64F8B290E4CA7004A35AA /* Cells */,
 				6AF64F8A290E4C87004A35AA /* Labels */,
 				6AF64F90290EB578004A35AA /* Views */,
+				6A431BA129159DC100AD15DD /* TextFields */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -350,7 +391,6 @@
 				6AECFC73290C7FA80020B98A /* PYProductImageView.swift */,
 				6A4FA3FA290DAD2200137437 /* PYSectionView.swift */,
 				6A431B8F291477FA00AD15DD /* PYInputView.swift */,
-				6A431B9129147B8800AD15DD /* PYInputField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

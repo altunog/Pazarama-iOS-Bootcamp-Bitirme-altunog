@@ -51,6 +51,15 @@ class PYInputView: UIView {
 			inputField.heightAnchor.constraint(equalToConstant: 52)
 		])
 	}
+	
+	func set(text: String, placeholder: String,
+			 keyboardType: UIKeyboardType = .default,
+			 isSecureEntry: Bool = false) {
+		inputLabel.text					= text
+		inputField.placeholder 			= placeholder
+		inputField.keyboardType			= keyboardType
+		inputField.isSecureTextEntry 	= isSecureEntry
+	}
 }
 
 // MARK: UITextFieldDelegate

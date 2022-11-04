@@ -8,19 +8,19 @@
 import UIKit
 
 class SignInViewController: UIViewController {
-
-	private lazy var signInView: SignInView = {
-		let view = SignInView()
-		view.interface = self
-		return view
-	}()
+	
+	private let signInView = SignInView()
 	
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-		view.backgroundColor = .systemPink
-		view = signInView
+		configureViewController()
     }
+	
+	private func configureViewController() {
+		view = signInView
+		signInView.interface = self
+	}
 
 }
 

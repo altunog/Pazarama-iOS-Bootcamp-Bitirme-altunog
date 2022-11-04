@@ -21,61 +21,19 @@ class SignInView: UIView {
 	private let spacing: CGFloat = 8
 	
 	// MARK: UI Elements
-	private lazy var titleLabel: UILabel = {
-		let label 		= UILabel()
-		label.text 		= "Sign In"
-		label.font 		= .systemFont(ofSize: 48, weight: .light)
-		label.textColor = .black
-		return label
-	}()
+	let titleLabel 			= PYTitleLabel(textAlignment: .center, fontSize: 36)
+	let emailInputView 		= PYInputView()
+	let passwordInputView 	= PYInputView()
+	let continueButton 		= PYButton(kind: .filled, color: Colors.primary, title: "Continue")
 	
-	private lazy var emailInputView: PYInputView = {
-		let inputView 							=	 PYInputView()
-		inputView.inputLabel.text 				= "Email"
-		inputView.inputField.placeholderText 	= "enter your email address"
-		inputView.inputField.keyboardType 		= .emailAddress
-		return inputView
-	}()
-	
-	private lazy var passwordInputView: PYInputView = {
-		let inputView 							= PYInputView()
-		inputView.inputLabel.text 				= "Password"
-		inputView.inputField.placeholderText 	= "enter your password"
-		inputView.inputField.isSecureTextEntry 	= true
-		return inputView
-	}()
-	
-	private lazy var continueButton: PYButton = {
-		let button = PYButton(kind: .filled, color: Colors.primary, title: "Continue")
-		button.addTarget(self, action: #selector(continueButtonTapped(_:)), for: .touchUpInside)
-		button.layer.cornerRadius 	= 3
-		button.titleLabel?.font 	= .boldSystemFont(ofSize: 18)
-		return button
-	}()
-	
-	private lazy var bottomLabel: UILabel = {
-		let label 		= UILabel()
-		label.text 		= "Don't have an account?"
-		label.font 		= .systemFont(ofSize: 17, weight: .regular)
-		label.textColor = .black
-		return label
-	}()
-	
-	private lazy var goSignUpButton: UIButton = {
-		let button 				= UIButton(type: .system)
-		button.titleLabel?.font = .boldSystemFont(ofSize: 17)
-		button.setTitle("Sign up!", for: .normal)
-		button.setTitleColor(Colors.primary, for: .normal)
-		button.addTarget(self, action: #selector(goSignUpButtonTapped), for: .touchUpInside)
-		return button
-	}()
-	
+	let bottomLabel 		= UILabel()
+	let goSignUpButton 		= UIButton(type: .system)
 	private lazy var bottomStackView: UIStackView = {
 		let stackView = UIStackView(arrangedSubviews: [bottomLabel,
 													   goSignUpButton])
 		return stackView
 	}()
-	
+
 	// MARK: Init
 	override init(frame: CGRect) {
 		super.init(frame: frame)
@@ -85,6 +43,8 @@ class SignInView: UIView {
 		configurePasswordInputView()
 		configureEmailInputView()
 		configureContinueButton()
+		configureBottomLabel()
+		configureGoSignUpButton()
 		configureBottomStackView()
 	}
 	
@@ -95,6 +55,8 @@ class SignInView: UIView {
 	// MARK: Configurations
 	private func configureTitleLabel() {
 		addSubview(titleLabel)
+		titleLabel.text = "Sign In"
+		
 		titleLabel.translatesAutoresizingMaskIntoConstraints = false
 		NSLayoutConstraint.activate([
 			titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor,	constant: 3*padding),
@@ -102,8 +64,23 @@ class SignInView: UIView {
 		])
 	}
 	
+	private func configureEmailInputView() {
+		addSubview(emailInputView)
+		emailInputView.set(text: "Email", placeholder: "enter your email address", keyboardType: .emailAddress)
+		
+		emailInputView.translatesAutoresizingMaskIntoConstraints = false
+		NSLayoutConstraint.activate([
+			emailInputView.bottomAnchor.constraint(equalTo: passwordInputView.topAnchor, constant: -2*spacing),
+			emailInputView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: padding),
+			emailInputView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -padding),
+			emailInputView.heightAnchor.constraint(equalToConstant: 68)
+		])
+	}
+	
 	private func configurePasswordInputView() {
 		addSubview(passwordInputView)
+		passwordInputView.set(text: "Password", placeholder: "enter your password", isSecureEntry: true)
+		
 		passwordInputView.translatesAutoresizingMaskIntoConstraints = false
 		NSLayoutConstraint.activate([
 			passwordInputView.centerYAnchor.constraint(equalTo: centerYAnchor),
@@ -113,20 +90,10 @@ class SignInView: UIView {
 		])
 	}
 	
-	private func configureEmailInputView() {
-		addSubview(emailInputView)
-		emailInputView.translatesAutoresizingMaskIntoConstraints = false
-		NSLayoutConstraint.activate([
-			emailInputView.bottomAnchor.constraint(equalTo: passwordInputView.topAnchor,
-												   constant: -2*spacing),
-			emailInputView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: padding),
-			emailInputView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -padding),
-			emailInputView.heightAnchor.constraint(equalToConstant: 68)
-		])
-	}
-	
 	private func configureContinueButton() {
 		addSubview(continueButton)
+		continueButton.set(cornerRadius: 3, font: .boldSystemFont(ofSize: 18))
+		
 		continueButton.translatesAutoresizingMaskIntoConstraints = false
 		NSLayoutConstraint.activate([
 			continueButton.topAnchor.constraint(equalTo: passwordInputView.bottomAnchor, constant: 2*spacing),
@@ -134,6 +101,18 @@ class SignInView: UIView {
 			continueButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -padding),
 			continueButton.heightAnchor.constraint(equalToConstant: 52)
 		])
+	}
+	
+	private func configureBottomLabel() {
+		bottomLabel.text = "Don't have an account?"
+		bottomLabel.font = .systemFont(ofSize: 17, weight: .regular)
+	}
+	
+	private func configureGoSignUpButton() {
+		goSignUpButton.titleLabel?.font = .boldSystemFont(ofSize: 17)
+		goSignUpButton.setTitle("Sign up!", for: .normal)
+		goSignUpButton.setTitleColor(Colors.primary, for: .normal)
+		goSignUpButton.addTarget(self, action: #selector(goSignUpButtonTapped), for: .touchUpInside)
 	}
 	
 	private func configureBottomStackView() {

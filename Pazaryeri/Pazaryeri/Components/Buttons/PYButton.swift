@@ -39,4 +39,9 @@ final class PYButton: UIButton {
 		layer.cornerRadius 	= 8
 		titleLabel?.font 	= .preferredFont(forTextStyle: .callout)
 	}
+	
+	func set(cornerRadius: CGFloat, font: UIFont!) {
+		layer.cornerRadius 	= cornerRadius
+		titleLabel?.font 	= font
+	}
 }

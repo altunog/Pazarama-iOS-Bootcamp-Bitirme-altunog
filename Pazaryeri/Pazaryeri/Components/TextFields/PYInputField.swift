@@ -8,10 +8,9 @@
 import UIKit
 
 class PYInputField: UITextField {
-
-	var placeholderText: String? {
+	
+	override var placeholder: String? {
 		didSet {
-			placeholder = placeholderText
 			let attributes: [NSAttributedString.Key: Any] = [.font: UIFont.systemFont(ofSize: 17)]
 			attributedPlaceholder = NSAttributedString(string: placeholder ?? "", attributes: attributes)
 		}
@@ -26,9 +25,9 @@ class PYInputField: UITextField {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
-	convenience init(placeholder: String, isSecureTextEntry: Bool) {
+	convenience init(placeholder: String, isSecureTextEntry: Bool = false) {
 		self.init(frame: .zero)
-		self.placeholderText	= placeholder
+		self.placeholder		= placeholder
 		self.isSecureTextEntry 	= isSecureTextEntry
 		configure()
 	}

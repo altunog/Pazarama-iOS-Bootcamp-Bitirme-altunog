@@ -34,16 +34,5 @@ class PYBodyLabel: UILabel {
 		numberOfLines = 0
 		lineBreakMode = .byWordWrapping
 	}
-
 	
-	override func drawText(in rect: CGRect) {
-		let insets = UIEdgeInsets(top: 0, left: 2, bottom: 0, right: 2)
-		super.drawText(in: rect.inset(by: insets))
-	}
-	
-	override var intrinsicContentSize: CGSize {
-		let size = super.intrinsicContentSize
-		return CGSize(width: size.width + 2 + 2,
-					  height: size.height + 0 + 0)
-	}
 }

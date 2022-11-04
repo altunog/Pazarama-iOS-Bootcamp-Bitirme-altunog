@@ -22,61 +22,14 @@ class SignUpView: UIView {
 	private let spacing: CGFloat	= 8
 	
 	// MARK: - UI Elements
-	private lazy var cancelButton: UIButton = {
-		let button 				= UIButton(type: .system)
-		button.titleLabel?.font = .systemFont(ofSize: 17)
-		button.setTitle("Cancel", for: .normal)
-		button.setTitleColor(Colors.primary, for: .normal)
-		button.addTarget(self, action: #selector(cancelButtonTapped(_:)), for: .touchUpInside)
-		return button
-	}()
+	let cancelButton 		= UIButton(type: .system)
+	let titleLabel 			= PYTitleLabel(textAlignment: .center, fontSize: 36)
 
-	private lazy var titleLabel: UILabel = {
-		let label 		= UILabel()
-		label.text 		= "Sign Up"
-		label.font 		= .systemFont(ofSize: 48, weight: .light)
-		label.textColor = .black
-		return label
-	}()
-	
-	private lazy var usernameInputView: PYInputView = {
-		let inputView = PYInputView()
-		inputView.inputLabel.text 				= "Username"
-		inputView.inputField.placeholderText 	= "choose a username"
-		return inputView
-	}()
-	
-	private lazy var emailInputView: PYInputView = {
-		let inputView 							= PYInputView()
-		inputView.inputLabel.text 				= "Email"
-		inputView.inputField.placeholderText	= "enter your email address"
-		inputView.inputField.keyboardType 		= .emailAddress
-		return inputView
-	}()
-	
-	private lazy var passwordInputView: PYInputView = {
-		let inputView 							= PYInputView()
-		inputView.inputLabel.text 				= "Password"
-		inputView.inputField.placeholderText 	= "choose a password"
-		inputView.inputField.isSecureTextEntry 	= true
-		return inputView
-	}()
-	
-	private lazy var confirmInputView: PYInputView = {
-		let inputView 							= PYInputView()
-		inputView.inputLabel.text 				= "Confirm Password"
-		inputView.inputField.placeholderText 	= "confirm your password"
-		inputView.inputField.isSecureTextEntry	= true
-		return inputView
-	}()
-	
-	private lazy var submitButton: PYButton = {
-		let button = PYButton(kind: .tinted, color: Colors.primary, title: "Submit")
-		button.layer.cornerRadius 	= 3
-		button.titleLabel?.font 	= .boldSystemFont(ofSize: 18)
-		button.addTarget(self, action: #selector(submitButtonTapped(_:)), for: .touchUpInside)
-		return button
-	}()
+	let usernameInputView 	= PYInputView()
+	let emailInputView 		= PYInputView()
+	let passwordInputView 	= PYInputView()
+	let confirmInputView 	= PYInputView()
+	let submitButton 		= PYButton(kind: .tinted, color: Colors.primary, title: "Submit")
 	
 	// MARK: Init
 	override init(frame: CGRect) {
@@ -99,6 +52,11 @@ class SignUpView: UIView {
 	// MARK: Configurations
 	private func configureCancelButton() {
 		addSubview(cancelButton)
+		cancelButton.setTitle("Cancel", for: .normal)
+		cancelButton.setTitleColor(Colors.primary, for: .normal)
+		cancelButton.titleLabel?.font = .systemFont(ofSize: 17)
+		cancelButton.addTarget(self, action: #selector(cancelButtonTapped(_:)), for: .touchUpInside)
+		
 		cancelButton.translatesAutoresizingMaskIntoConstraints = false
 		NSLayoutConstraint.activate([
 			cancelButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: padding),
@@ -108,6 +66,8 @@ class SignUpView: UIView {
 	
 	private func configureTitleLabel() {
 		addSubview(titleLabel)
+		titleLabel.text = "Sign Up"
+		
 		titleLabel.translatesAutoresizingMaskIntoConstraints = false
 		NSLayoutConstraint.activate([
 			titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor,	constant: 4*padding),
@@ -117,6 +77,8 @@ class SignUpView: UIView {
 	
 	private func configureUsernameInputView() {
 		addSubview(usernameInputView)
+		usernameInputView.set(text: "Username", placeholder: "choose a username")
+		
 		NSLayoutConstraint.activate([
 			usernameInputView.bottomAnchor.constraint(equalTo: emailInputView.topAnchor, constant: -spacing),
 			usernameInputView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: padding),
@@ -127,6 +89,8 @@ class SignUpView: UIView {
 	
 	private func configureEmailInputView() {
 		addSubview(emailInputView)
+		emailInputView.set(text: "Email", placeholder: "enter your email address", keyboardType: .emailAddress)
+		
 		NSLayoutConstraint.activate([
 			emailInputView.bottomAnchor.constraint(equalTo: centerYAnchor, constant: -spacing/2),
 			emailInputView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: padding),
@@ -137,6 +101,8 @@ class SignUpView: UIView {
 	
 	private func configurePasswordIntputView() {
 		addSubview(passwordInputView)
+		passwordInputView.set(text: "Password", placeholder: "choose a password", isSecureEntry: true)
+		
 		NSLayoutConstraint.activate([
 			passwordInputView.topAnchor.constraint(equalTo: centerYAnchor, constant: spacing/2),
 			passwordInputView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: padding),
@@ -147,6 +113,8 @@ class SignUpView: UIView {
 	
 	private func configureConfirmInputView() {
 		addSubview(confirmInputView)
+		confirmInputView.set(text: "Confirm Password", placeholder: "re-enter your password", isSecureEntry: true)
+		
 		NSLayoutConstraint.activate([
 			confirmInputView.topAnchor.constraint(equalTo: passwordInputView.bottomAnchor, constant: spacing),
 			confirmInputView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: padding),
@@ -157,6 +125,8 @@ class SignUpView: UIView {
 	
 	private func configureContinueButton() {
 		addSubview(submitButton)
+		submitButton.set(cornerRadius: 3, font: .boldSystemFont(ofSize: 18))
+		
 		submitButton.translatesAutoresizingMaskIntoConstraints = false
 		NSLayoutConstraint.activate([
 			submitButton.topAnchor.constraint(equalTo: confirmInputView.bottomAnchor, constant: 2*spacing),
