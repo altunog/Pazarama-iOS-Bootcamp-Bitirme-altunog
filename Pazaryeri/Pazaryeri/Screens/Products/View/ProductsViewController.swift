@@ -111,7 +111,7 @@ extension ProductsViewController: ProductsViewInterface {
 
 // MARK: ProductsViewModelDelegate
 extension ProductsViewController: ProductsViewModelDelegate {
-	func didOccurError(_ error: Error) {
+	func errorDidOccur(_ error: Error) {
 		print(error.localizedDescription)
 	}
 	

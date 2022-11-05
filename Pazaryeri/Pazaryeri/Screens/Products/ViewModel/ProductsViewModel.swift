@@ -9,8 +9,9 @@ import Foundation
 import PazaryeriAPI
 
 protocol ProductsViewModelDelegate: AnyObject {
-	func didOccurError(_ error: Error)
+	func errorDidOccur(_ error: Error)
 	func didFetchProducts()
+	func didFetchSingleProduct(_ produc: Product)
 }
 
 final class ProductsViewModel {
@@ -31,21 +32,34 @@ final class ProductsViewModel {
 		pazaryeriServiceProvider.request(.getProducts) { result in
 			switch result {
 			case .failure(let error):
-				self.delegate?.didOccurError(error)
+				self.delegate?.errorDidOccur(error)
 			case .success(let response):
 				do {
 					let products = try JSONDecoder().decode([Product].self, from: response.data)
 					self.products = products
 					self.delegate?.didFetchProducts()
 				} catch {
-					self.delegate?.didOccurError(error)
+					self.delegate?.errorDidOccur(error)
 				}
 			}
 		}
 	}
 	
-	func fetchProduct(withId: String) {
-		
+	func fetchProduct(withId id: String) {
+		pazaryeriServiceProvider.request(.getSingleProduct(id: id)) { result in
+			switch result {
+			case .failure(let error):
+				self.delegate?.errorDidOccur(error)
+			case .success(let response):
+				do {
+					let product = try JSONDecoder().decode(Product.self, from: response.data)
+					print(product) // MARK: DELETE THIS after debug
+					self.delegate?.didFetchSingleProduct(product)
+				} catch {
+					self.delegate?.errorDidOccur(error)
+				}
+			}
+		}
 	}
 	
 	func getNumberOfProducts(for section: PYSectionView) -> Int {
