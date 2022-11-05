@@ -138,6 +138,8 @@ class SignUpView: UIView {
 		submitButton.set(cornerRadius: 3, font: .boldSystemFont(ofSize: 18))
 		submitButton.switchToggle(enabled: false)
 		
+		submitButton.addTarget(self, action: #selector(submitButtonTapped(_:)), for: .touchUpInside)
+		
 		submitButton.translatesAutoresizingMaskIntoConstraints = false
 		NSLayoutConstraint.activate([
 			submitButton.topAnchor.constraint(equalTo: confirmInputView.bottomAnchor, constant: 2*spacing),

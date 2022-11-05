@@ -27,6 +27,15 @@ final class AuthViewModel {
 				return
 			}
 			
+			let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+			changeRequest?.displayName = username
+			changeRequest?.commitChanges { error in
+				if let error {
+					self.delegate?.didOccurError(error)
+					return
+				}
+			}
+			
 			guard let uid = authResult?.user.uid,
 				  let email = authResult?.user.email else { return }
 			
@@ -57,4 +66,9 @@ final class AuthViewModel {
 			self.delegate?.didSignInSuccessful()
 		}
 	}
+}
+
+extension AuthViewModelDelegate {
+	func didSignUpSuccessful() {}
+	func didSignInSuccessful() {}
 }

@@ -38,7 +38,8 @@ class SignUpViewController: UIViewController {
 	
 	private func configureViewController() {
 		view = signUpView
-		signUpView.interface = self
+		signUpView.interface 	= self
+		viewModel.delegate 		= self
 	}
 }
 
@@ -53,13 +54,24 @@ extension SignUpViewController: SignUpViewInterface {
 	}
 	
 	func signUpView(_ view: SignUpView, didTapSubmitButton button: PYButton) {
-		print("signed up")
-		// TODO: implement firebase signUp()
-		
+		viewModel.signUp(username: username, email: email, password: password)
 	}
 	
 	func signUpView(_ view: SignUpView, didTapCancelButton button: UIButton) {
 		print("canceled")
 		dismiss(animated: true)
 	}
+}
+
+extension SignUpViewController: AuthViewModelDelegate {
+	func didOccurError(_ error: Error) {
+		print(error.localizedDescription)
+	}
+	
+	func didSignUpSuccessful() {
+		let tabBar = PYMainTabBarController()
+		tabBar.modalPresentationStyle = .fullScreen
+		present(tabBar, animated: true)
+	}
+	
 }
