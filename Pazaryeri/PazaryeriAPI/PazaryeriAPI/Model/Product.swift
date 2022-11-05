@@ -17,6 +17,16 @@ public struct Product: Codable, Hashable {
 	public var image: String?
 	public var rating: Rating?
 	
+	public init(id: Int? = nil, title: String? = nil, price: Double? = nil, description: String? = nil, category: String? = nil, image: String? = nil, rating: Rating? = nil) {
+		self.id = id
+		self.title = title
+		self.price = price
+		self.description = description
+		self.category = category
+		self.image = image
+		self.rating = rating
+	}
+	
 	public static func == (lhs: Product, rhs: Product) -> Bool {
 		lhs.id == rhs.id
 	}

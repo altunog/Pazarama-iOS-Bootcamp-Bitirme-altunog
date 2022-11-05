@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import PazaryeriAPI
 import FirebaseAuth
 import FirebaseFirestore
 
@@ -38,13 +39,14 @@ final class AuthViewModel {
 			
 			guard let uid = authResult?.user.uid,
 				  let email = authResult?.user.email else { return }
-			
+			let prod = Product(id: 1, title: "macbook", price: 999.90, description: "macbook pro 14inch", category: "electronics", image: nil, rating: nil)
+			let _cart = Cart(products: [ProductCount(product: prod, quantity: 2), ProductCount(product: prod, quantity: 5)])
 			let user = User(id: uid,
 							username: username,
 							email: email,
-							cart: Cart(products: [:]),
-							previousOrders: [],
-							activeOrders: [])
+							cart: _cart,
+							previousOrders: [_cart],
+							activeOrders: [_cart])
 			
 			let userAsEncoded = user.dictionary
 			self.db.collection("users").document(uid).setData(userAsEncoded) { error in
