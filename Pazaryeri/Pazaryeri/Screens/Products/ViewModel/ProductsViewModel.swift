@@ -11,7 +11,7 @@ import PazaryeriAPI
 protocol ProductsViewModelDelegate: AnyObject {
 	func errorDidOccur(_ error: Error)
 	func didFetchProducts()
-	func didFetchSingleProduct(_ produc: Product)
+	func didFetchSingleProduct(_ product: Product)
 }
 
 final class ProductsViewModel {
@@ -53,7 +53,7 @@ final class ProductsViewModel {
 			case .success(let response):
 				do {
 					let product = try JSONDecoder().decode(Product.self, from: response.data)
-					print(product) // MARK: DELETE THIS after debug
+					print(product) // MARK: DELETE this line after debug
 					self.delegate?.didFetchSingleProduct(product)
 				} catch {
 					self.delegate?.errorDidOccur(error)

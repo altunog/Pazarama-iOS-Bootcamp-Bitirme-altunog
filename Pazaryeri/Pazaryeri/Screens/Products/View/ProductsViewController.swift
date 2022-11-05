@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import PazaryeriAPI
 
-class ProductsViewController: UIViewController {
+final class ProductsViewController: UIViewController {
 
 	private let viewModel: ProductsViewModel
 	private let productsView = ProductsView()
@@ -47,9 +48,8 @@ class ProductsViewController: UIViewController {
 //		configureJewelerySectionView()
 		
 		view = productsView
-		productsView.interface = self
+		
 		configureViewController()
-		viewModel.delegate = self
 		viewModel.fetchProducts()
 		
     }
@@ -91,6 +91,8 @@ class ProductsViewController: UIViewController {
 	private func configureViewController() {
 		title = "Products"
 		view.backgroundColor = .white
+		productsView.interface = self
+		viewModel.delegate = self
 		productsView.mensClothingSectionView.collectionView.delegate = self
 		productsView.mensClothingSectionView.collectionView.dataSource = self
 		productsView.womensClothingSectionView.collectionView.delegate = self
@@ -122,6 +124,11 @@ extension ProductsViewController: ProductsViewModelDelegate {
 		productsView.electronicsSectionView.collectionView.reloadData()
 		productsView.jewelerySectionView.collectionView.reloadData()
 		print("Products fetched.")
+	}
+	
+	func didFetchSingleProduct(_ product: Product) {
+		let detailVC = ProductDetailViewController()
+		navigationController?.pushViewController(detailVC, animated: true)
 	}
 }
 
@@ -182,7 +189,7 @@ extension ProductsViewController: ProductsViewModelDelegate {
 // MARK: UICollectionViewDelegate
 extension ProductsViewController: UICollectionViewDelegate {
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		
+		viewModel.fetchProduct(withId: viewModel.products[indexPath.item])
 	}
 }
 

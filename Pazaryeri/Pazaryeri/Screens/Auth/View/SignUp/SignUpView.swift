@@ -162,6 +162,7 @@ final class SignUpView: UIView {
 		interface?.signUpView(self, inputFieldDidEditingChange: inputField)
 	}
 	
+	// MARK: Methods
 	func setSubmitButton(enabled: Bool) {
 		submitButton.switchToggle(enabled: enabled)
 	}
