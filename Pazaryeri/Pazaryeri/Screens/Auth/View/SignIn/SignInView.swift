@@ -10,6 +10,7 @@ import UIKit
 protocol SignInViewInterface: AnyObject {
 	func signInView(_ view: SignInView, didTapContinueButton button: PYButton)
 	func signInView(_ view: SignInView, didTapGoSignUpButton button: UIButton)
+	func signInView(_ view: SignInView, inputFieldDidEditingChange inputField: PYInputField)
 }
 
 class SignInView: UIView {
@@ -21,13 +22,14 @@ class SignInView: UIView {
 	private let spacing: CGFloat = 8
 	
 	// MARK: UI Elements
-	let titleLabel 			= PYTitleLabel(textAlignment: .center, fontSize: 36)
-	let emailInputView 		= PYInputView()
-	let passwordInputView 	= PYInputView()
-	let continueButton 		= PYButton(kind: .filled, color: Colors.primary, title: "Continue")
+	private let titleLabel 	= PYTitleLabel(textAlignment: .center, fontSize: 36)
 	
-	let bottomLabel 		= UILabel()
-	let goSignUpButton 		= UIButton(type: .system)
+	let emailInputView 			= PYInputView()
+	let passwordInputView 		= PYInputView()
+	private let continueButton 	= PYButton(kind: .filled, color: Colors.primary, title: "Continue")
+	
+	private let bottomLabel		= UILabel()
+	private let goSignUpButton 	= UIButton(type: .system)
 	private lazy var bottomStackView: UIStackView = {
 		let stackView = UIStackView(arrangedSubviews: [bottomLabel,
 													   goSignUpButton])
@@ -67,6 +69,8 @@ class SignInView: UIView {
 	private func configureEmailInputView() {
 		addSubview(emailInputView)
 		emailInputView.set(text: "Email", placeholder: "enter your email address", keyboardType: .emailAddress)
+
+		emailInputView.inputField.addTarget(self, action: #selector(inputFieldChanged(_:)), for: .editingChanged)
 		
 		emailInputView.translatesAutoresizingMaskIntoConstraints = false
 		NSLayoutConstraint.activate([
@@ -81,6 +85,8 @@ class SignInView: UIView {
 		addSubview(passwordInputView)
 		passwordInputView.set(text: "Password", placeholder: "enter your password", isSecureEntry: true)
 		
+		passwordInputView.inputField.addTarget(self, action: #selector(inputFieldChanged(_:)), for: .editingChanged)
+		
 		passwordInputView.translatesAutoresizingMaskIntoConstraints = false
 		NSLayoutConstraint.activate([
 			passwordInputView.centerYAnchor.constraint(equalTo: centerYAnchor),
@@ -93,6 +99,7 @@ class SignInView: UIView {
 	private func configureContinueButton() {
 		addSubview(continueButton)
 		continueButton.set(cornerRadius: 3, font: .boldSystemFont(ofSize: 18))
+		continueButton.switchToggle(enabled: false)
 		
 		continueButton.translatesAutoresizingMaskIntoConstraints = false
 		NSLayoutConstraint.activate([
@@ -136,5 +143,13 @@ class SignInView: UIView {
 
 	@objc private func goSignUpButtonTapped(_ button: UIButton) {
 		interface?.signInView(self, didTapGoSignUpButton: button)
+	}
+	
+	@objc private func inputFieldChanged(_ inputField: PYInputField) {
+		interface?.signInView(self, inputFieldDidEditingChange: inputField)
+	}
+	
+	func setContinueButton(enabled: Bool) {
+		continueButton.switchToggle(enabled: enabled)
 	}
 }

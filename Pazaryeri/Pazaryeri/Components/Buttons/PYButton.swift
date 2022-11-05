@@ -26,9 +26,11 @@ final class PYButton: UIButton {
 		case .filled:
 			backgroundColor = color
 			setTitleColor(.white, for: .normal)
+			setTitleColor(.lightGray, for: .disabled)
 		case .tinted:
 			backgroundColor = color.withAlphaComponent(0.1)
 			setTitleColor(color, for: .normal)
+			setTitleColor(.darkGray, for: .disabled)
 		}
 		
 		configure()
@@ -43,5 +45,15 @@ final class PYButton: UIButton {
 	func set(cornerRadius: CGFloat, font: UIFont!) {
 		layer.cornerRadius 	= cornerRadius
 		titleLabel?.font 	= font
+	}
+	
+	func switchToggle(enabled: Bool) {
+		if enabled {
+			alpha = 1.0
+			isEnabled = true
+		} else {
+			alpha = 0.5
+			isEnabled = false
+		}
 	}
 }

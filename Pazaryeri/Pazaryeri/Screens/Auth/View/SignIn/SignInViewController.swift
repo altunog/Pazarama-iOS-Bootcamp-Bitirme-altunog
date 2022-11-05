@@ -11,6 +11,14 @@ class SignInViewController: UIViewController {
 	
 	private let signInView = SignInView()
 	
+	var email: String {
+		signInView.emailInputView.inputField.text ?? ""
+	}
+	
+	var password: String {
+		signInView.passwordInputView.inputField.text ?? ""
+	}
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 		
@@ -25,6 +33,13 @@ class SignInViewController: UIViewController {
 }
 
 extension SignInViewController: SignInViewInterface {
+	func signInView(_ view: SignInView, inputFieldDidEditingChange inputField: PYInputField) {
+		let emailFilled		= email != "" && !email.contains(" ")
+		let passwordFilled	= password != "" && !password.contains(" ")
+		let formFilled		= emailFilled && passwordFilled
+		signInView.setContinueButton(enabled: formFilled)
+	}
+	
 	func signInView(_ view: SignInView, didTapContinueButton button: PYButton) {
 		print("Burada")
 	}

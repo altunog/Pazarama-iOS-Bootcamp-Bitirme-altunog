@@ -43,6 +43,15 @@ class SignUpViewController: UIViewController {
 }
 
 extension SignUpViewController: SignUpViewInterface {
+	func signUpView(_ view: SignUpView, inputFieldDidEditingChange inputField: PYInputField) {
+		let usernameFilled 	= username != "" && !username.contains(" ")
+		let emailFilled		= email != "" && !email.contains(" ")
+		let passwordFilled	= password != "" && !password.contains(" ")
+		let confirmFilled	= confirmPassword != "" && !confirmPassword.contains(" ")
+		let formFilled 		= usernameFilled && emailFilled && passwordFilled && confirmFilled
+		signUpView.setSubmitButton(enabled: formFilled)
+	}
+	
 	func signUpView(_ view: SignUpView, didTapSubmitButton button: PYButton) {
 		print("signed up")
 		// TODO: implement firebase signUp()
@@ -53,6 +62,4 @@ extension SignUpViewController: SignUpViewInterface {
 		print("canceled")
 		dismiss(animated: true)
 	}
-	
-	
 }
