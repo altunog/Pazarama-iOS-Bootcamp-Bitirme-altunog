@@ -19,6 +19,16 @@ extension UIView {
 		])
 	}
 	
+	func pinToTop(of superview: UIView, withHeight height: CGFloat) {
+		translatesAutoresizingMaskIntoConstraints = false
+		NSLayoutConstraint.activate([
+			topAnchor.constraint(equalTo: superview.topAnchor),
+			leadingAnchor.constraint(equalTo: superview.leadingAnchor),
+			trailingAnchor.constraint(equalTo: superview.trailingAnchor),
+			heightAnchor.constraint(equalToConstant: height)
+		])
+	}
+	
 	func addVerticalGradient(topColor: UIColor!, bottomColor: UIColor!) {
 		let gradient = CAGradientLayer()
 		gradient.frame 		= bounds
