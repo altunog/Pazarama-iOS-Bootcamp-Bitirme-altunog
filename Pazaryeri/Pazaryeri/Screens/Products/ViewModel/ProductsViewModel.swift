@@ -22,7 +22,6 @@ final class ProductsViewModel {
 				productsByCategory[item.category ?? "unavailable", default: []].append(item)
 				print(productsByCategory)
 			}
-
 		}
 	}
 
