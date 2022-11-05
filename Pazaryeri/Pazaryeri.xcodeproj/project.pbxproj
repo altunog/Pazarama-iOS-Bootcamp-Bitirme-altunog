@@ -17,7 +17,7 @@
 		6A431B9A291555A300AD15DD /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A431B99291555A300AD15DD /* SignUpViewController.swift */; };
 		6A431B9C29156BA100AD15DD /* PYInputLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A431B9B29156BA100AD15DD /* PYInputLabel.swift */; };
 		6A431BA32915C3BD00AD15DD /* Encodable+Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A431BA22915C3BD00AD15DD /* Encodable+Dictionary.swift */; };
-		6A431BA729169E1C00AD15DD /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A431BA629169E1C00AD15DD /* Products.swift */; };
+		6A431BA729169E1C00AD15DD /* ProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A431BA629169E1C00AD15DD /* ProductsView.swift */; };
 		6A4FA3FB290DAD2200137437 /* PYSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4FA3FA290DAD2200137437 /* PYSectionView.swift */; };
 		6A4FA3FD290DB37E00137437 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4FA3FC290DB37E00137437 /* UIHelper.swift */; };
 		6A4FA400290DCBF300137437 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4FA3FF290DCBF300137437 /* UIView+Extensions.swift */; };
@@ -94,7 +94,7 @@
 		6A431B99291555A300AD15DD /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		6A431B9B29156BA100AD15DD /* PYInputLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYInputLabel.swift; sourceTree = "<group>"; };
 		6A431BA22915C3BD00AD15DD /* Encodable+Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Dictionary.swift"; sourceTree = "<group>"; };
-		6A431BA629169E1C00AD15DD /* Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
+		6A431BA629169E1C00AD15DD /* ProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsView.swift; sourceTree = "<group>"; };
 		6A4FA3FA290DAD2200137437 /* PYSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYSectionView.swift; sourceTree = "<group>"; };
 		6A4FA3FC290DB37E00137437 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		6A4FA3FF290DCBF300137437 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
@@ -233,7 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				6AECFC60290A976D0020B98A /* ProductsViewController.swift */,
-				6A431BA629169E1C00AD15DD /* Products.swift */,
+				6A431BA629169E1C00AD15DD /* ProductsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -586,7 +586,7 @@
 				6A431B8C2914147200AD15DD /* AuthViewModel.swift in Sources */,
 				6AECFC68290AA20F0020B98A /* Constants.swift in Sources */,
 				6AECFC76290D83430020B98A /* PYBodyLabel.swift in Sources */,
-				6A431BA729169E1C00AD15DD /* Products.swift in Sources */,
+				6A431BA729169E1C00AD15DD /* ProductsView.swift in Sources */,
 				6A431B9229147B8800AD15DD /* PYInputField.swift in Sources */,
 				6AB1C9482911082100042527 /* User.swift in Sources */,
 			);
