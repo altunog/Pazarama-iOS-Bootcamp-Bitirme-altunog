@@ -39,31 +39,31 @@ public struct Rating: Codable, Hashable {
 
 extension Product {
 	
-	var _id: Int {
+	public var _id: Int {
 		id ?? .zero
 	}
 	
-	var _title: String {
+	public var _title: String {
 		title ?? ""
 	}
 	
-	var _price: Double {
+	public var _price: Double {
 		price ?? .zero
 	}
 	
-	var _desc: String {
+	public var _desc: String {
 		description ?? ""
 	}
 	
-	var _category: String {
+	public var _category: String {
 		category ?? ""
 	}
 	
-	var _image: String {
+	public var _image: String {
 		image ?? ""
 	}
 	
-	var _rating: Rating {
+	public var _rating: Rating {
 		rating ?? Rating(rate: .zero, count: .zero)
 	}
 	

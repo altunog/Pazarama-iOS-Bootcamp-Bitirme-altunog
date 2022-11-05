@@ -10,21 +10,11 @@ import PazaryeriAPI
 
 final class ProductsViewController: UIViewController {
 
+	// MARK: Properties
 	private let viewModel: ProductsViewModel
 	private let productsView = ProductsView()
-	var price: Double = 30
 	
-//	private var scrollView: UIScrollView!
-//	private var stackView: UIStackView!
-//	private var cartButton: PYCartButton!
-//	private var cartBarButton: UIBarButtonItem!
-//	private var cartButtonWidthConstraint: NSLayoutConstraint?
-//
-//	private var mensClothingSectionView: PYSectionView!
-//	private var womensClothingSectionView: PYSectionView!
-//	private var electronicsSectionView: PYSectionView!
-//	private var jewelerySectionView: PYSectionView!
-	
+	// MARK: Init
 	init(viewModel: ProductsViewModel) {
 		self.viewModel = viewModel
 		super.init(nibName: nil, bundle: nil)
@@ -34,77 +24,39 @@ final class ProductsViewController: UIViewController {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
+	// MARK: Life cycle
 	override func viewDidLoad() {
         super.viewDidLoad()
-		
-//		configureCartButton()
-//		configureViewController()
-//		configureScrollView()
-//		configureStackView()
-//
-//		configureMensClothingSectionView()
-//		configureWomensClothingSectionView()
-//		configureElectronicsSectionView()
-//		configureJewelerySectionView()
-		
-		view = productsView
-		
 		configureViewController()
+		setupDelegates()
 		viewModel.fetchProducts()
 		
     }
 	
-//	func configureCartButton() {
-//		cartButton = PYCartButton(color: Colors.secondary,
-//								  image: Images.cart,
-//								  title: price.currencyString)
-//
-//		cartButton.updateInsets(considering: price)
-//		cartButton.addTarget(self, action: #selector(updateCartCost), for: .touchUpInside)
-//
-//		cartBarButton = UIBarButtonItem(customView: cartButton)
-//
-//		if price == .zero {
-//			cartButtonWidthConstraint = cartButton.collapse()
-//		} else {
-//			cartButtonWidthConstraint = cartButton.expand(considering: price)
-//		}
-//		cartButtonWidthConstraint?.isActive = true
-//
-//		navigationItem.rightBarButtonItem = cartBarButton
-//	}
-//
-//	@objc private func updateCartCost() {
-//		price -= 10
-//		cartButtonWidthConstraint?.isActive = false
-//		if price == .zero {
-//			cartButtonWidthConstraint = cartButton.collapse()
-//		} else {
-//			cartButtonWidthConstraint = cartButton.expand(considering: price)
-//		}
-//		cartButtonWidthConstraint?.isActive = true
-//
-//		self.cartButton.title = self.price.currencyString
-//
-//	}
-	
+	// MARK: Configurations
 	private func configureViewController() {
+		view = productsView
 		title = "Products"
 		view.backgroundColor = .white
-		productsView.interface = self
-		viewModel.delegate = self
-		productsView.mensClothingSectionView.collectionView.delegate = self
-		productsView.mensClothingSectionView.collectionView.dataSource = self
-		productsView.womensClothingSectionView.collectionView.delegate = self
-		productsView.womensClothingSectionView.collectionView.dataSource = self
-		productsView.electronicsSectionView.collectionView.delegate = self
-		productsView.electronicsSectionView.collectionView.dataSource = self
-		productsView.jewelerySectionView.collectionView.delegate = self
-		productsView.jewelerySectionView.collectionView.dataSource = self
-		
+		navigationItem.rightBarButtonItem = productsView.cartBarButton
 	}
+	
+	private func setupDelegates() {
+		productsView.interface	= self
+		viewModel.delegate		= self
+		productsView.mensClothingSectionView.collectionView.delegate 		= self
+		productsView.mensClothingSectionView.collectionView.dataSource 		= self
+		productsView.womensClothingSectionView.collectionView.delegate 		= self
+		productsView.womensClothingSectionView.collectionView.dataSource 	= self
+		productsView.electronicsSectionView.collectionView.delegate 		= self
+		productsView.electronicsSectionView.collectionView.dataSource 		= self
+		productsView.jewelerySectionView.collectionView.delegate 			= self
+		productsView.jewelerySectionView.collectionView.dataSource 			= self
+	}
+	
 }
 
+// MARK: ProductsViewInterface
 extension ProductsViewController: ProductsViewInterface {
 	func productsView(_ view: ProductsView, didTapCartButton: PYCartButton) {
 		print("Cart tapped")
@@ -118,7 +70,6 @@ extension ProductsViewController: ProductsViewModelDelegate {
 	}
 	
 	func didFetchProducts() {
-		
 		productsView.mensClothingSectionView.collectionView.reloadData()
 		productsView.womensClothingSectionView.collectionView.reloadData()
 		productsView.electronicsSectionView.collectionView.reloadData()
@@ -132,64 +83,33 @@ extension ProductsViewController: ProductsViewModelDelegate {
 	}
 }
 
-// MARK: CONFIGURE SCROLL VIEW and STACK VIEW
-//extension ProductsViewController {
-//	private func configureScrollView() {
-//		scrollView = UIScrollView(frame: .zero)
-//		view.addSubview(scrollView)
-//		scrollView.translatesAutoresizingMaskIntoConstraints = false
-//		scrollView.showsVerticalScrollIndicator = false
-//		scrollView.pinToEdges(of: view)
-//	}
-//
-//	private func configureStackView() {
-//		stackView = UIStackView()
-//		scrollView.addSubview(stackView)
-//		stackView.translatesAutoresizingMaskIntoConstraints = false
-//		stackView.isLayoutMarginsRelativeArrangement = true
-//
-//		let padding: CGFloat = 10
-//		stackView.layoutMargins = UIEdgeInsets(top: 2*padding, left: padding, bottom: 2*padding, right: padding)
-//		stackView.axis = .vertical
-//		stackView.distribution = .fillEqually
-//		stackView.spacing = 4*padding
-//
-//		stackView.pinToEdges(of: scrollView)
-//		stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
-//	}
-//}
-
-//// MARK: CONFIGURE SECTION VIEWS
-//extension ProductsViewController {
-//	private func configureMensClothingSectionView() {
-//		mensClothingSectionView = PYSectionView(containerStackView: stackView, title: "Men's Clothing")
-//		mensClothingSectionView.collectionView.delegate = self
-//		mensClothingSectionView.collectionView.dataSource = self
-//	}
-//
-//	private func configureWomensClothingSectionView() {
-//		womensClothingSectionView = PYSectionView(containerStackView: stackView, title: "Women's Clothing")
-//		womensClothingSectionView.collectionView.delegate = self
-//		womensClothingSectionView.collectionView.dataSource = self
-//	}
-//
-//	private func configureElectronicsSectionView() {
-//		electronicsSectionView = PYSectionView(containerStackView: stackView, title: "Electronics")
-//		electronicsSectionView.collectionView.delegate = self
-//		electronicsSectionView.collectionView.dataSource = self
-//	}
-//
-//	private func configureJewelerySectionView() {
-//		jewelerySectionView = PYSectionView(containerStackView: stackView, title: "Jewelery")
-//		jewelerySectionView.collectionView.delegate = self
-//		jewelerySectionView.collectionView.dataSource = self
-//	}
-//}
-
 // MARK: UICollectionViewDelegate
 extension ProductsViewController: UICollectionViewDelegate {
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		viewModel.fetchProduct(withId: viewModel.products[indexPath.item])
+		print(indexPath)
+		
+		switch collectionView {
+		
+		case productsView.mensClothingSectionView.collectionView:
+			if let productId = viewModel.getProduct(for: productsView.mensClothingSectionView, at: indexPath)?._id {
+				viewModel.fetchSingleProduct(withId: productId)
+			}
+		case productsView.womensClothingSectionView.collectionView:
+			if let productId = viewModel.getProduct(for: productsView.womensClothingSectionView, at: indexPath)?._id {
+				viewModel.fetchSingleProduct(withId: productId)
+			}
+		case productsView.electronicsSectionView.collectionView:
+			if let productId = viewModel.getProduct(for: productsView.electronicsSectionView, at: indexPath)?._id {
+				viewModel.fetchSingleProduct(withId: productId)
+			}
+			
+		case productsView.jewelerySectionView.collectionView:
+			if let productId = viewModel.getProduct(for: productsView.jewelerySectionView, at: indexPath)?._id {
+				viewModel.fetchSingleProduct(withId: productId)
+			}
+		default:
+			print("Out of index")
+		}
 	}
 }
 

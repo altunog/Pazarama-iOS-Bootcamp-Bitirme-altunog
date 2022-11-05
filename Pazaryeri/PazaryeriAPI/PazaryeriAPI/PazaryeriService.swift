@@ -12,7 +12,7 @@ public let pazaryeriServiceProvider = MoyaProvider<PazaryeriService>()
 
 public enum PazaryeriService {
 	case getProducts
-	case getSingleProduct(id: String)
+	case getSingleProduct(id: Int)
 }
 
 extension PazaryeriService: TargetType {
@@ -25,19 +25,20 @@ extension PazaryeriService: TargetType {
 		case .getProducts:
 			return "/products"
 		case .getSingleProduct(let id):
-			return "/product/\(id)"
+			return "/products/\(id)"
 		}
 	}
 	
 	public var method: Moya.Method {
-		.get
+		switch self {
+		case .getProducts, .getSingleProduct:
+			return .get
+		}
 	}
 	
 	public var task: Moya.Task {
 		switch self {
-		case .getProducts:
-			return .requestPlain
-		case .getSingleProduct:
+		case .getProducts, .getSingleProduct:
 			return .requestPlain
 		}
 	}

@@ -61,8 +61,6 @@ class ProductsView: UIView {
 			cartButtonWidthConstraint = cartButton.expand(considering: price)
 		}
 		cartButtonWidthConstraint?.isActive = true
-		
-//		navigationItem.rightBarButtonItem = cartBarButton
 	}
 
 }

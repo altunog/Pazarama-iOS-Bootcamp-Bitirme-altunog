@@ -32,7 +32,14 @@ final class ProductCell: UICollectionViewCell {
 		contentView.addSubview(nameLabel)
 		contentView.addSubview(productImageView)
 		contentView.addSubview(priceLabel)
-
+		backgroundColor = .white
+		layer.cornerRadius = 10
+		layer.shadowColor = UIColor.black.cgColor
+		layer.shadowOffset = CGSize(width: 0, height: 1)
+		layer.shadowRadius = 2.0
+		layer.shadowOpacity = 0.5
+		layer.masksToBounds = false
+		
 		let padding: CGFloat = 4
 		
 		priceLabel.textColor = Colors.secondary
