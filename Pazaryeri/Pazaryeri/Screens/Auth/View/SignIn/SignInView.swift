@@ -13,7 +13,7 @@ protocol SignInViewInterface: AnyObject {
 	func signInView(_ view: SignInView, inputFieldDidEditingChange inputField: PYInputField)
 }
 
-class SignInView: UIView {
+final class SignInView: UIView {
 	
 	weak var interface: SignInViewInterface?
 	
@@ -100,6 +100,8 @@ class SignInView: UIView {
 		addSubview(continueButton)
 		continueButton.set(cornerRadius: 3, font: .boldSystemFont(ofSize: 18))
 		continueButton.switchToggle(enabled: false)
+		
+		continueButton.addTarget(self, action: #selector(continueButtonTapped), for: .touchUpInside)
 		
 		continueButton.translatesAutoresizingMaskIntoConstraints = false
 		NSLayoutConstraint.activate([

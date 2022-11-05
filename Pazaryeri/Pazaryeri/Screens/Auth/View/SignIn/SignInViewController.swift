@@ -7,10 +7,13 @@
 
 import UIKit
 
-class SignInViewController: UIViewController {
+final class SignInViewController: UIViewController {
 	
-	private let signInView = SignInView()
+	// MARK: Properties
+	private let viewModel	= AuthViewModel()
+	private let signInView	= SignInView()
 	
+	// MARK: Gettable Properties
 	var email: String {
 		signInView.emailInputView.inputField.text ?? ""
 	}
@@ -21,13 +24,14 @@ class SignInViewController: UIViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		
 		configureViewController()
     }
 	
 	private func configureViewController() {
+		navigationItem.backButtonTitle = "Sign in"
 		view = signInView
-		signInView.interface = self
+		signInView.interface	= self
+		viewModel.delegate		= self
 	}
 
 }
@@ -41,11 +45,23 @@ extension SignInViewController: SignInViewInterface {
 	}
 	
 	func signInView(_ view: SignInView, didTapContinueButton button: PYButton) {
-		print("Burada")
+		viewModel.signIn(email: email, password: password)
 	}
 	
 	func signInView(_ view: SignInView, didTapGoSignUpButton button: UIButton) {
 		let signUpVC = SignUpViewController()
-		present(signUpVC, animated: true)
+		navigationController?.pushViewController(signUpVC, animated: true)
+	}
+}
+
+extension SignInViewController: AuthViewModelDelegate {
+	func didOccurError(_ error: Error) {
+		print(error.localizedDescription)
+	}
+	
+	func didSignInSuccessful() {
+		let tabBar = PYMainTabBarController()
+		tabBar.modalPresentationStyle = .fullScreen
+		present(tabBar, animated: true)
 	}
 }

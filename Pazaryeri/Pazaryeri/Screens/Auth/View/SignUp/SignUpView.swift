@@ -13,7 +13,7 @@ protocol SignUpViewInterface: AnyObject {
 	func signUpView(_ view: SignUpView, inputFieldDidEditingChange inputField: PYInputField)
 }
 
-class SignUpView: UIView {
+final class SignUpView: UIView {
 	
 	weak var interface: SignUpViewInterface?
 

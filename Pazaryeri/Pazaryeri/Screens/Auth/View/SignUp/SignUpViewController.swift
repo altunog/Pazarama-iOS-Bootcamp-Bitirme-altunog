@@ -7,11 +7,11 @@
 
 import UIKit
 
-class SignUpViewController: UIViewController {
+final class SignUpViewController: UIViewController {
 
 	// MARK: Properties
-	private let viewModel = AuthViewModel()
-	private let signUpView = SignUpView()
+	private let viewModel	= AuthViewModel()
+	private let signUpView	= SignUpView()
 	
 	// MARK: Gettable Properties
 	var username: String {
@@ -30,19 +30,21 @@ class SignUpViewController: UIViewController {
 		signUpView.confirmInputView.inputField.text ?? ""
 	}
 	
+	// MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-		
         configureViewController()
     }
 	
+	// MARK: Configurations
 	private func configureViewController() {
 		view = signUpView
-		signUpView.interface 	= self
-		viewModel.delegate 		= self
+		signUpView.interface	= self
+		viewModel.delegate		= self
 	}
 }
 
+// MARK: SignUpViewInterface
 extension SignUpViewController: SignUpViewInterface {
 	func signUpView(_ view: SignUpView, inputFieldDidEditingChange inputField: PYInputField) {
 		let usernameFilled 	= username != "" && !username.contains(" ")
@@ -63,6 +65,7 @@ extension SignUpViewController: SignUpViewInterface {
 	}
 }
 
+// MARK: AuthViewModelDelegate
 extension SignUpViewController: AuthViewModelDelegate {
 	func didOccurError(_ error: Error) {
 		print(error.localizedDescription)
