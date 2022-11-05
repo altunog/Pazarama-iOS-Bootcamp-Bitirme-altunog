@@ -36,3 +36,35 @@ public struct Rating: Codable, Hashable {
 	public var rate: Double?
 	public var count: Int?
 }
+
+extension Product {
+	
+	var _id: Int {
+		id ?? .zero
+	}
+	
+	var _title: String {
+		title ?? ""
+	}
+	
+	var _price: Double {
+		price ?? .zero
+	}
+	
+	var _desc: String {
+		description ?? ""
+	}
+	
+	var _category: String {
+		category ?? ""
+	}
+	
+	var _image: String {
+		image ?? ""
+	}
+	
+	var _rating: Rating {
+		rating ?? Rating(rate: .zero, count: .zero)
+	}
+	
+}
