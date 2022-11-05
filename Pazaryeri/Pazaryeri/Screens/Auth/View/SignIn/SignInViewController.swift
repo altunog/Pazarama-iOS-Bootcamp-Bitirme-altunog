@@ -13,18 +13,26 @@ final class SignInViewController: UIViewController {
 	private let viewModel	= AuthViewModel()
 	private let signInView	= SignInView()
 	
-	// MARK: Gettable Properties
+	// MARK: Getter and Setter Properties
 	var email: String {
-		signInView.emailInputView.inputField.text ?? ""
+		get { signInView.emailInputView.inputField.text ?? "" }
+		set { signInView.emailInputView.inputField.text = newValue }
 	}
 	
 	var password: String {
-		signInView.passwordInputView.inputField.text ?? ""
+		get { signInView.passwordInputView.inputField.text ?? "" }
+		set { signInView.passwordInputView.inputField.text = newValue }
 	}
 	
     override func viewDidLoad() {
         super.viewDidLoad()
 		configureViewController()
+		
+		#if targetEnvironment(simulator)
+		email		= "qqq@qq.com"
+		password	= "qqqaaa"
+		signInView.setContinueButton(enabled: true)
+		#endif
     }
 	
 	private func configureViewController() {
