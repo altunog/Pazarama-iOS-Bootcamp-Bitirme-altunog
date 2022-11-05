@@ -44,6 +44,10 @@ final class ProductsViewModel {
 		}
 	}
 	
+	func fetchProduct(withId: String) {
+		
+	}
+	
 	func getNumberOfProducts(for section: PYSectionView) -> Int {
 		return productsByCategory[section.title.lowercased()]?.count ?? .zero
 	}

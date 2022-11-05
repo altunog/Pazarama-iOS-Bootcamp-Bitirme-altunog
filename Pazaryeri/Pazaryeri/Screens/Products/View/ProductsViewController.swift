@@ -181,7 +181,9 @@ extension ProductsViewController: ProductsViewModelDelegate {
 
 // MARK: UICollectionViewDelegate
 extension ProductsViewController: UICollectionViewDelegate {
-
+	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		
+	}
 }
 
 // MARK: UICollectionViewDataSource
