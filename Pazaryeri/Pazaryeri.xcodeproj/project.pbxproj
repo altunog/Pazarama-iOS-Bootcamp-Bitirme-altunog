@@ -54,6 +54,8 @@
 		6AF64F8D290E4CD1004A35AA /* PYCartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF64F8C290E4CD1004A35AA /* PYCartButton.swift */; };
 		6AF64F92290EF1E8004A35AA /* Double+CurrencyString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF64F91290EF1E8004A35AA /* Double+CurrencyString.swift */; };
 		6AF64F942910812C004A35AA /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF64F932910812C004A35AA /* UIButton+Extensions.swift */; };
+		6AFF797F2917E20700EC3C77 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFF797D2917E20700EC3C77 /* OnboardingViewController.swift */; };
+		6AFF79802917E20700EC3C77 /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AFF797E2917E20700EC3C77 /* OnboardingViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +137,8 @@
 		6AF64F8C290E4CD1004A35AA /* PYCartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYCartButton.swift; sourceTree = "<group>"; };
 		6AF64F91290EF1E8004A35AA /* Double+CurrencyString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+CurrencyString.swift"; sourceTree = "<group>"; };
 		6AF64F932910812C004A35AA /* UIButton+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extensions.swift"; sourceTree = "<group>"; };
+		6AFF797D2917E20700EC3C77 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		6AFF797E2917E20700EC3C77 /* OnboardingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -314,6 +318,7 @@
 		6A6697C32912B85100DF44E9 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				6AFF797C2917E1E900EC3C77 /* Onboarding */,
 				6A431B882914144700AD15DD /* Auth */,
 				6A431BA82916B89000AD15DD /* ProductDetail */,
 				6A000CB82912EFEE0011E9D6 /* Products */,
@@ -453,6 +458,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		6AFF797C2917E1E900EC3C77 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				6AFF797D2917E20700EC3C77 /* OnboardingViewController.swift */,
+				6AFF797E2917E20700EC3C77 /* OnboardingViewController.xib */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -570,6 +584,7 @@
 			files = (
 				6AECFC392908136F0020B98A /* LaunchScreen.storyboard in Resources */,
 				6AE2EF4B291400110011F45E /* GoogleService-Info.plist in Resources */,
+				6AFF79802917E20700EC3C77 /* OnboardingViewController.xib in Resources */,
 				6AECFC362908136F0020B98A /* Assets.xcassets in Resources */,
 				6A1602A62917168E0014957D /* ProductDetailViewController.xib in Resources */,
 			);
@@ -599,6 +614,7 @@
 				6AECFC61290A976D0020B98A /* ProductsViewController.swift in Sources */,
 				6A431B90291477FA00AD15DD /* PYInputView.swift in Sources */,
 				6AF64F942910812C004A35AA /* UIButton+Extensions.swift in Sources */,
+				6AFF797F2917E20700EC3C77 /* OnboardingViewController.swift in Sources */,
 				6AECFC5F290A96FE0020B98A /* PYMainTabBarController.swift in Sources */,
 				6A431BAE2916B8C400AD15DD /* ProductDetailViewModel.swift in Sources */,
 				6AECFC65290A97850020B98A /* ProfileViewController.swift in Sources */,
