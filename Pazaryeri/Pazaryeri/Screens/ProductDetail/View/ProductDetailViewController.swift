@@ -16,6 +16,8 @@ class ProductDetailViewController: UIViewController {
 	
 	// MARK: UI Elements
 	var cartButton: PYCartButton!
+	var cartBarButton: UIBarButtonItem!
+	var cartButtonWidthConstraint: NSLayoutConstraint?
 	
 	@IBOutlet weak var imageView: UIImageView!
 	@IBOutlet weak var productTitle: UILabel!
@@ -48,14 +50,15 @@ class ProductDetailViewController: UIViewController {
 	// MARK: Lifecycle
 	override func viewDidLoad() {
         super.viewDidLoad()
-		
+
 		configureViewController()
 		configureLabels()
+		configureCartButton()
 		configureUI()
     }
 	
-	override func viewDidAppear(_ animated: Bool) {
-		super.viewDidAppear(animated)
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
 		viewModel.fetchCartContent()
 	}
 	
@@ -86,25 +89,37 @@ class ProductDetailViewController: UIViewController {
 		bottomView.layer.cornerRadius			= 20
 		bottomView.layer.borderColor			= Colors.primary?.cgColor
 		bottomView.layer.borderWidth			= 0.5
+		navigationItem.rightBarButtonItem 		= cartBarButton
 	}
 	
-//	func configureCartButton() {
-//		cartButton = PYCartButton(color: Colors.secondary,
-//									  image: Images.cart,
-//									  title: price.currencyString)
-//		cartButton.updateInsets(considering: price)
-//		// TODO: Add action to button
-////		cartButton.addTarget(self, action: #selector(updateCartCost), for: .touchUpInside)
-//
-//		cartBarButton = UIBarButtonItem(customView: cartButton)
-//
-//		if price == .zero {
-//			cartButtonWidthConstraint = cartButton.collapse()
-//		} else {
-//			cartButtonWidthConstraint = cartButton.expand(considering: price)
-//		}
-//		cartButtonWidthConstraint?.isActive = true
-//	}
+	func configureCartButton() {
+		cartButton = PYCartButton(color: Colors.secondary,
+								  image: Images.cart,
+								  title: viewModel.cartCost.currencyString)
+		// TODO: Add action to button
+//		cartButton.addTarget(self, action: #selector(updateCartCost), for: .touchUpInside)
+		
+		cartBarButton = UIBarButtonItem(customView: cartButton)
+		if viewModel.cartCost == .zero {
+			cartButtonWidthConstraint = cartButton.collapse()
+		} else {
+			cartButtonWidthConstraint = cartButton.expand(considering: viewModel.cartCost)
+		}
+		cartButtonWidthConstraint?.isActive = true
+	}
+	
+	func updateBarButton() {
+		cartButtonWidthConstraint?.isActive = false
+
+		if viewModel.cartCost == .zero {
+			cartButtonWidthConstraint = cartButton.collapse(to: 25)
+		} else {
+			cartButtonWidthConstraint = cartButton.expand(considering: viewModel.cartCost)
+			cartButton.setTitle(viewModel.cartCost.currencyString, for: .normal)
+		}
+		
+		cartButtonWidthConstraint?.isActive = true
+	}
 
 	func updateStepperLabel() {
 		stepperLabel.text = "\(Int(stepper.value))"
@@ -118,20 +133,17 @@ class ProductDetailViewController: UIViewController {
 	
 	// MARK: Actions
 	@IBAction func addCartButtonTapped(_ button: UIButton) {
-		
-		// TODO: firebase update user cart
 		viewModel.updateCart(withProductId: product._id, quantity: 1)
-		
-		// TODO: update cart barbutton
+
 		stepper.value += 1
 		updateStepperLabel()
 		toggleButtons()
 	}
 	
 	@IBAction func stepperValueChanged(_ stepper: UIStepper) {
-		// TODO: firebase update user cart
 		updateStepperLabel()
 		viewModel.updateCart(withProductId: product._id, quantity: Int(stepper.value))
+		
 		if stepper.value == .zero {
 			toggleButtons()
 		}
@@ -140,11 +152,12 @@ class ProductDetailViewController: UIViewController {
 
 extension ProductDetailViewController: ProductDetailViewModelDelegate {
 	func didUpdateCartSuccesful() {
-
+		viewModel.fetchCartContent()
+		updateBarButton()
 	}
 	
 	func didFetchCartCost() {
-		print(viewModel.cartCost)
+		updateBarButton()
 	}
 	
 	func errorDidOccur(_ error: Error) {

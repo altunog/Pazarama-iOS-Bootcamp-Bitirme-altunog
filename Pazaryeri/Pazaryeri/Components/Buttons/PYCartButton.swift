@@ -27,6 +27,7 @@ class PYCartButton: UIButton {
 		self.init(type: .system)
 		setImage(image, for: .normal)
 		setTitle(title, for: .normal)
+		setTitleColor(.white, for: .normal)
 		configure(using: color)
 	}
 	
