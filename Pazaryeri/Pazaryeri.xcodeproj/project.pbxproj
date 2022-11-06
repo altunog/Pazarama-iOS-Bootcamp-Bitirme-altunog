@@ -324,8 +324,8 @@
 			children = (
 				6AFF797C2917E1E900EC3C77 /* Onboarding */,
 				6A431B882914144700AD15DD /* Auth */,
-				6A431BA82916B89000AD15DD /* ProductDetail */,
 				6A000CB82912EFEE0011E9D6 /* Products */,
+				6A431BA82916B89000AD15DD /* ProductDetail */,
 				6AECFC62290A977B0020B98A /* SearchViewController.swift */,
 				6AECFC64290A97850020B98A /* ProfileViewController.swift */,
 			);

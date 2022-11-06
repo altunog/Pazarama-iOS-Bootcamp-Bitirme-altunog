@@ -18,18 +18,18 @@ struct User: Codable {
 }
 
 struct Cart: Codable {
-	var product: Product
+	var productId: Int
 	var quantity: Int
 }
 
 extension User {
 	
-	var totalCost: Double {
-		var cost: Double = .zero
-		for product in cart {
-			let price = product.product._price
-			cost += price * Double(product.quantity)
-		}
-		return cost
-	}
+//	var totalCost: Double {
+//		var cost: Double = .zero
+//		for product in cart {
+//			let price = product.product._price
+//			cost += price * Double(product.quantity)
+//		}
+//		return cost
+//	}
 }

@@ -41,11 +41,11 @@ final class AuthViewModel {
 				  let email = authResult?.user.email else { return }
 
 			let product = Product(id: 2, title: "television", price: 111.11, description: "LG", category: "electronics", image: "", rating: nil)
-			let _cart = Cart(product: product, quantity: 2)
+
 			let user = User(id: uid,
 							username: username,
 							email: email,
-							cart: [_cart],
+							cart: [],
 							previousOrders: [],
 							activeOrders: [])
 			

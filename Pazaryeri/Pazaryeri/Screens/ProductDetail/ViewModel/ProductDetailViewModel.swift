@@ -36,7 +36,7 @@ final class ProductDetailViewModel {
 			case .failure(let error):
 				self.delegate?.errorDidOccur(error)
 			case .success(let user):
-				self.cartCost = user.totalCost
+//				self.cartCost = user.totalCost
 				self.delegate?.didFetchCartCost()
 			}
 		}
@@ -48,7 +48,7 @@ final class ProductDetailViewModel {
 		let userRef = db.collection("users").document(currentUser.uid)
 		if quantity > 0 {
 			userRef.updateData([
-				"cart.product": quantity
+				"cart.productId": quantity
 			]) { error in
 				if let error { self.delegate?.errorDidOccur(error) }
 				else { self.delegate?.didUpdateCartSuccesful() }
