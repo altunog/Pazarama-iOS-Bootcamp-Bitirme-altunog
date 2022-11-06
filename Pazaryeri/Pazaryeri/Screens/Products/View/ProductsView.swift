@@ -51,6 +51,7 @@ class ProductsView: UIView {
 									  image: Images.cart,
 									  title: price.currencyString)
 		cartButton.updateInsets(considering: price)
+		// TODO: Add action to button
 //		cartButton.addTarget(self, action: #selector(updateCartCost), for: .touchUpInside)
 		
 		cartBarButton = UIBarButtonItem(customView: cartButton)

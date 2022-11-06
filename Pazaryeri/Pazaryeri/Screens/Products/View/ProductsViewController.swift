@@ -78,7 +78,7 @@ extension ProductsViewController: ProductsViewModelDelegate {
 	}
 	
 	func didFetchSingleProduct(_ product: Product) {
-		let detailVC = ProductDetailViewController()
+		let detailVC = ProductDetailViewController(product: product)
 		navigationController?.pushViewController(detailVC, animated: true)
 	}
 }

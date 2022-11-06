@@ -56,15 +56,19 @@ extension Product {
 	}
 	
 	public var _category: String {
-		category ?? ""
+		category?.capitalized ?? ""
 	}
 	
 	public var _image: String {
 		image ?? ""
 	}
 	
-	public var _rating: Rating {
-		rating ?? Rating(rate: .zero, count: .zero)
+	public var _rate: Double {
+		rating?.rate ?? .zero
+	}
+	
+	public var _rateCount: Int {
+		rating?.count ?? .zero
 	}
 	
 }
