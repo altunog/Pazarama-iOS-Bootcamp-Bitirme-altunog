@@ -37,6 +37,7 @@ final class ProductDetailViewModel {
 				self.delegate?.errorDidOccur(error)
 			case .success(let user):
 //				self.cartCost = user.totalCost
+				print(user)
 				self.delegate?.didFetchCartCost()
 			}
 		}

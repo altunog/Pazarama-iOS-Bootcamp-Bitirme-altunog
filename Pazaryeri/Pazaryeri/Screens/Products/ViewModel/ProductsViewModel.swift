@@ -7,6 +7,8 @@
 
 import Foundation
 import PazaryeriAPI
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 protocol ProductsViewModelDelegate: AnyObject {
 	func errorDidOccur(_ error: Error)
@@ -16,6 +18,8 @@ protocol ProductsViewModelDelegate: AnyObject {
 
 final class ProductsViewModel {
 	weak var delegate: ProductsViewModelDelegate?
+	
+	private let db = Firestore.firestore()
 	
 	private(set) var products = [Product]() {
 		didSet {
@@ -36,8 +40,24 @@ final class ProductsViewModel {
 				do {
 					let products = try JSONDecoder().decode([Product].self, from: response.data)
 					self.products = products
+					self.writeProductsToFirestore(products)
 					self.delegate?.didFetchProducts()
 				} catch {
+					self.delegate?.errorDidOccur(error)
+				}
+			}
+		}
+	}
+	
+	func writeProductsToFirestore(_ products: [Product]?) {
+		guard let products else { return }
+		
+		products.forEach { product in
+			guard let id = product.id else { return }
+			let productAsEncoded = product.dictionary
+			
+			db.collection("products").document("\(id)").setData(productAsEncoded) { error in
+				if let error {
 					self.delegate?.errorDidOccur(error)
 				}
 			}
