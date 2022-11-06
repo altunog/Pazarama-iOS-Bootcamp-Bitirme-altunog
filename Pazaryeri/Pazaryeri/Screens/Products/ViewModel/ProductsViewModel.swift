@@ -21,7 +21,6 @@ final class ProductsViewModel {
 		didSet {
 			for item in products {
 				productsByCategory[item.category ?? "unavailable", default: []].append(item)
-				print(productsByCategory)
 			}
 		}
 	}

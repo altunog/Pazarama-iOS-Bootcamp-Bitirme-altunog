@@ -74,7 +74,6 @@ extension ProductsViewController: ProductsViewModelDelegate {
 		productsView.womensClothingSectionView.collectionView.reloadData()
 		productsView.electronicsSectionView.collectionView.reloadData()
 		productsView.jewelerySectionView.collectionView.reloadData()
-		print("Products fetched.")
 	}
 	
 	func didFetchSingleProduct(_ product: Product) {

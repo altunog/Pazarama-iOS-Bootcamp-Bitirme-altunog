@@ -14,6 +14,7 @@ import FirebaseFirestoreSwift
 protocol ProductDetailViewModelDelegate: AnyObject {
 	func errorDidOccur(_ error: Error)
 	func didFetchCartCost()
+	func didUpdateCartSuccesful()
 }
 
 final class ProductDetailViewModel {
@@ -21,11 +22,12 @@ final class ProductDetailViewModel {
 	weak var delegate: ProductDetailViewModelDelegate?
 	
 	private let db = Firestore.firestore()
+	private let currentUser = Auth.auth().currentUser
 	
 	private(set) var cartCost = Double()
 	
+	
 	func fetchCartCost() {
-		let currentUser = Auth.auth().currentUser
 		guard let currentUser else { return }
 		
 		let userRef = db.collection("users").document(currentUser.uid)
@@ -38,22 +40,27 @@ final class ProductDetailViewModel {
 				self.delegate?.didFetchCartCost()
 			}
 		}
+	}
+	
+	func updateCart(withProduct product: Product, quantity: Int) {
+		guard let currentUser else { return }
 		
-//		userRef.getDocument { document, error in
-//			if let error {
-//				self.delegate?.errorDidOccur(error)
-//				return
-//			}
-//			if let document, document.exists,
-//			   let data = document.data() {
-//				let cart = data as? User
-//				self.cartCost =
-//				print(cart!)
-//			} else {
-//				print("document does not exist")
-//			}
-//		}
-		
+		let userRef = db.collection("users").document(currentUser.uid)
+		if quantity > 0 {
+			userRef.updateData([
+				"cart.product": quantity
+			]) { error in
+				if let error { self.delegate?.errorDidOccur(error) }
+				else { self.delegate?.didUpdateCartSuccesful() }
+			}
+		} /*else {
+			userRef.updateData([
+				"cart": FieldValue.arrayRemove([product, quantity])
+			]) { error in
+				if let error { self.delegate?.errorDidOccur(error) }
+				else { self.delegate?.didUpdateCartSuccesful() }
+			}
+		}*/
 	}
 	
 }

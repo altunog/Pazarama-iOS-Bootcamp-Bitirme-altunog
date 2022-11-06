@@ -30,9 +30,10 @@ class ProductDetailViewController: UIViewController {
 	
 	@IBOutlet weak var priceLabel: UILabel!
 	@IBOutlet weak var addCartButton: UIButton!
-	
+
 	@IBOutlet weak var stepper: UIStepper!
 	@IBOutlet weak var stepperLabel: UILabel!
+	@IBOutlet weak var bottomView: UIView!
 	
 	// MARK: Init
 	init(product: Product) {
@@ -48,20 +49,24 @@ class ProductDetailViewController: UIViewController {
 	override func viewDidLoad() {
         super.viewDidLoad()
 		
-		viewModel.delegate = self
-		configure()
+		configureViewController()
+		configureLabels()
 		configureUI()
-		tabBarController?.tabBar.isHidden = true
-		
     }
 	
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
-		// TODO: Fetch Cart barbutton
 		viewModel.fetchCartCost()
 	}
 	
-	private func configure() {
+	// MARK: Configurations
+	private func configureViewController() {
+		viewModel.delegate = self
+		title = "Product Detail"
+		tabBarController?.tabBar.isHidden = true
+	}
+	
+	private func configureLabels() {
 		imageView.downloadImage(from: product._image)
 		productTitle.text 		= product._title
 		ratingLabel.text 		= "\(product._rate)"
@@ -72,12 +77,15 @@ class ProductDetailViewController: UIViewController {
 	}
 	
 	private func configureUI() {
-		ratingStackView.layer.cornerRadius 		= 3
-		categoryStackView.layer.cornerRadius 	= 3
-		addCartButton.layer.cornerRadius 		= 8
+		ratingStackView.layer.cornerRadius 		= 10
+		categoryStackView.layer.cornerRadius 	= 10
+		addCartButton.layer.cornerRadius 		= 10
 		stepper.layer.cornerRadius				= 10
 		stepper.layer.borderColor				= Colors.primary?.cgColor
 		stepper.layer.borderWidth				= 1
+		bottomView.layer.cornerRadius			= 10
+		bottomView.layer.borderColor			= Colors.primary?.cgColor
+		bottomView.layer.borderWidth			= 0.5
 	}
 	
 //	func configureCartButton() {
@@ -108,12 +116,13 @@ class ProductDetailViewController: UIViewController {
 		stepperLabel.isHidden 	= !stepperLabel.isHidden
 	}
 	
+	// MARK: Actions
 	@IBAction func addCartButtonTapped(_ button: UIButton) {
 		
 		// TODO: firebase update user cart
+		viewModel.updateCart(withProduct: product, quantity: 1)
 		
 		// TODO: update cart barbutton
-		
 		stepper.value += 1
 		updateStepperLabel()
 		toggleButtons()
@@ -122,6 +131,7 @@ class ProductDetailViewController: UIViewController {
 	@IBAction func stepperValueChanged(_ stepper: UIStepper) {
 		// TODO: firebase update user cart
 		updateStepperLabel()
+		viewModel.updateCart(withProduct: product, quantity: Int(stepper.value))
 		if stepper.value == .zero {
 			toggleButtons()
 		}
@@ -129,6 +139,10 @@ class ProductDetailViewController: UIViewController {
 }
 
 extension ProductDetailViewController: ProductDetailViewModelDelegate {
+	func didUpdateCartSuccesful() {
+		print("Successful updating.")
+	}
+	
 	func didFetchCartCost() {
 		print(viewModel.cartCost)
 	}
