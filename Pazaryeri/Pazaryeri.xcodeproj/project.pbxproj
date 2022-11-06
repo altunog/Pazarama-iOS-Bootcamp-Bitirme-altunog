@@ -332,6 +332,25 @@
 			path = Screens;
 			sourceTree = "<group>";
 		};
+		6A888E5D29181516004180E7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6A888E5E29181520004180E7 /* Subview */,
+				6AFF797D2917E20700EC3C77 /* OnboardingViewController.swift */,
+				6AFF797E2917E20700EC3C77 /* OnboardingViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6A888E5E29181520004180E7 /* Subview */ = {
+			isa = PBXGroup;
+			children = (
+				6AFF79812917FBA100EC3C77 /* OnboardingView.swift */,
+				6AFF79832917FBB100EC3C77 /* OnboardingView.xib */,
+			);
+			path = Subview;
+			sourceTree = "<group>";
+		};
 		6AB1C9462911080300042527 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -465,10 +484,7 @@
 		6AFF797C2917E1E900EC3C77 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				6AFF797D2917E20700EC3C77 /* OnboardingViewController.swift */,
-				6AFF797E2917E20700EC3C77 /* OnboardingViewController.xib */,
-				6AFF79812917FBA100EC3C77 /* OnboardingView.swift */,
-				6AFF79832917FBB100EC3C77 /* OnboardingView.xib */,
+				6A888E5D29181516004180E7 /* View */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
