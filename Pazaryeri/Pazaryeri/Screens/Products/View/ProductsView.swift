@@ -9,7 +9,6 @@ import UIKit
 
 protocol ProductsViewInterface: AnyObject {
 	func productsView(_ view: ProductsView, didTapCartButton: PYCartButton)
-		
 }
 
 class ProductsView: UIView {
@@ -52,7 +51,7 @@ class ProductsView: UIView {
 									  title: price.currencyString)
 		cartButton.updateInsets(considering: price)
 		// TODO: Add action to button
-//		cartButton.addTarget(self, action: #selector(updateCartCost), for: .touchUpInside)
+		cartButton.addTarget(self, action: #selector(presentBasket(_:)), for: .touchUpInside)
 		
 		cartBarButton = UIBarButtonItem(customView: cartButton)
 
@@ -62,6 +61,10 @@ class ProductsView: UIView {
 			cartButtonWidthConstraint = cartButton.expand(considering: price)
 		}
 		cartButtonWidthConstraint?.isActive = true
+	}
+	
+	@objc private func presentBasket(_ button: PYCartButton) {
+		interface?.productsView(self, didTapCartButton: button)
 	}
 
 }

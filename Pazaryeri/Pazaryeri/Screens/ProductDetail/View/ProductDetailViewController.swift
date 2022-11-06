@@ -97,7 +97,7 @@ class ProductDetailViewController: UIViewController {
 								  image: Images.cart,
 								  title: viewModel.cartCost.currencyString)
 		// TODO: Add action to button
-//		cartButton.addTarget(self, action: #selector(updateCartCost), for: .touchUpInside)
+		cartButton.addTarget(self, action: #selector(presentBasket), for: .touchUpInside)
 		
 		cartBarButton = UIBarButtonItem(customView: cartButton)
 		if viewModel.cartCost == .zero {
@@ -147,6 +147,10 @@ class ProductDetailViewController: UIViewController {
 		if stepper.value == .zero {
 			toggleButtons()
 		}
+	}
+	
+	@objc private func presentBasket() {
+		// TODO: show basket
 	}
 }
 
