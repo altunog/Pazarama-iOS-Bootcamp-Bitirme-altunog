@@ -28,6 +28,9 @@ class ProductDetailViewController: UIViewController {
 	@IBOutlet weak var priceLabel: UILabel!
 	@IBOutlet weak var addCartButton: UIButton!
 	
+	@IBOutlet weak var stepper: UIStepper!
+	@IBOutlet weak var stepperLabel: UILabel!
+	
 	// MARK: Init
 	init(product: Product) {
 		self.product = product
@@ -58,9 +61,40 @@ class ProductDetailViewController: UIViewController {
 	}
 	
 	private func configureUI() {
-		ratingStackView.layer.cornerRadius = 3
-		categoryStackView.layer.cornerRadius = 3
-		addCartButton.layer.cornerRadius = 8
+		ratingStackView.layer.cornerRadius 		= 3
+		categoryStackView.layer.cornerRadius 	= 3
+		addCartButton.layer.cornerRadius 		= 8
+		stepper.layer.cornerRadius				= 10
+		stepper.layer.borderColor				= Colors.primary?.cgColor
+		stepper.layer.borderWidth				= 1
 	}
 
+	func updateStepperLabel() {
+		stepperLabel.text = "\(Int(stepper.value))"
+	}
+	
+	func toggleButtons() {
+		addCartButton.isHidden 	= !addCartButton.isHidden
+		stepper.isHidden 		= !stepper.isHidden
+		stepperLabel.isHidden 	= !stepperLabel.isHidden
+	}
+	
+	@IBAction func addCartButtonTapped(_ button: UIButton) {
+		
+		// TODO: firebase update user cart
+		
+		// TODO: update cart barbutton
+		
+		stepper.value += 1
+		updateStepperLabel()
+		toggleButtons()
+	}
+	
+	@IBAction func stepperValueChanged(_ stepper: UIStepper) {
+		// TODO: firebase update user cart
+		updateStepperLabel()
+		if stepper.value == .zero {
+			toggleButtons()
+		}
+	}
 }

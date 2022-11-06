@@ -249,8 +249,8 @@
 		6A431BA82916B89000AD15DD /* ProductDetail */ = {
 			isa = PBXGroup;
 			children = (
-				6A431BB02916B8D700AD15DD /* View */,
 				6A431BAF2916B8CC00AD15DD /* ViewModel */,
+				6A431BB02916B8D700AD15DD /* View */,
 			);
 			path = ProductDetail;
 			sourceTree = "<group>";
