@@ -11,6 +11,9 @@
 		6A1602A52917168E0014957D /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1602A32917168E0014957D /* ProductDetailViewController.swift */; };
 		6A1602A62917168E0014957D /* ProductDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A1602A42917168E0014957D /* ProductDetailViewController.xib */; };
 		6A1602A8291734340014957D /* UIImageView+DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1602A7291734340014957D /* UIImageView+DownloadImage.swift */; };
+		6A2010CF291860140098FC89 /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A2010CD291860140098FC89 /* BasketViewController.swift */; };
+		6A2010D0291860140098FC89 /* BasketViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A2010CE291860140098FC89 /* BasketViewController.xib */; };
+		6A2010D22918602E0098FC89 /* BasketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A2010D12918602E0098FC89 /* BasketViewModel.swift */; };
 		6A431B8A2914146100AD15DD /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A431B892914146100AD15DD /* SignInViewController.swift */; };
 		6A431B8C2914147200AD15DD /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A431B8B2914147200AD15DD /* AuthViewModel.swift */; };
 		6A431B90291477FA00AD15DD /* PYInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A431B8F291477FA00AD15DD /* PYInputView.swift */; };
@@ -96,6 +99,9 @@
 		6A1602A32917168E0014957D /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		6A1602A42917168E0014957D /* ProductDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductDetailViewController.xib; sourceTree = "<group>"; };
 		6A1602A7291734340014957D /* UIImageView+DownloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+DownloadImage.swift"; sourceTree = "<group>"; };
+		6A2010CD291860140098FC89 /* BasketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewController.swift; sourceTree = "<group>"; };
+		6A2010CE291860140098FC89 /* BasketViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BasketViewController.xib; sourceTree = "<group>"; };
+		6A2010D12918602E0098FC89 /* BasketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewModel.swift; sourceTree = "<group>"; };
 		6A431B892914146100AD15DD /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		6A431B8B2914147200AD15DD /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		6A431B8F291477FA00AD15DD /* PYInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYInputView.swift; sourceTree = "<group>"; };
@@ -183,6 +189,32 @@
 				6A431BA529169D3000AD15DD /* View */,
 			);
 			path = Products;
+			sourceTree = "<group>";
+		};
+		6A2010CC29185FFF0098FC89 /* Basket */ = {
+			isa = PBXGroup;
+			children = (
+				6A2010D4291860410098FC89 /* ViewModel */,
+				6A2010D32918603A0098FC89 /* View */,
+			);
+			path = Basket;
+			sourceTree = "<group>";
+		};
+		6A2010D32918603A0098FC89 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6A2010CD291860140098FC89 /* BasketViewController.swift */,
+				6A2010CE291860140098FC89 /* BasketViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6A2010D4291860410098FC89 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6A2010D12918602E0098FC89 /* BasketViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		6A431B882914144700AD15DD /* Auth */ = {
@@ -322,6 +354,7 @@
 		6A6697C32912B85100DF44E9 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				6A2010CC29185FFF0098FC89 /* Basket */,
 				6AFF797C2917E1E900EC3C77 /* Onboarding */,
 				6A431B882914144700AD15DD /* Auth */,
 				6A000CB82912EFEE0011E9D6 /* Products */,
@@ -608,6 +641,7 @@
 				6AE2EF4B291400110011F45E /* GoogleService-Info.plist in Resources */,
 				6AFF79802917E20700EC3C77 /* OnboardingViewController.xib in Resources */,
 				6AECFC362908136F0020B98A /* Assets.xcassets in Resources */,
+				6A2010D0291860140098FC89 /* BasketViewController.xib in Resources */,
 				6A1602A62917168E0014957D /* ProductDetailViewController.xib in Resources */,
 				6AFF79842917FBB100EC3C77 /* OnboardingView.xib in Resources */,
 			);
@@ -652,6 +686,7 @@
 				6A1602A52917168E0014957D /* ProductDetailViewController.swift in Sources */,
 				6A431BA32915C3BD00AD15DD /* Encodable+Dictionary.swift in Sources */,
 				6A4FA400290DCBF300137437 /* UIView+Extensions.swift in Sources */,
+				6A2010CF291860140098FC89 /* BasketViewController.swift in Sources */,
 				6A431B8A2914146100AD15DD /* SignInViewController.swift in Sources */,
 				6A4FA3FD290DB37E00137437 /* UIHelper.swift in Sources */,
 				6A000CBA2912F0010011E9D6 /* ProductsViewModel.swift in Sources */,
@@ -661,6 +696,7 @@
 				6A431B962914D85D00AD15DD /* SignInView.swift in Sources */,
 				6AECFC72290C47E80020B98A /* PYSecondaryTitleLabel.swift in Sources */,
 				6A4FA3FB290DAD2200137437 /* PYSectionView.swift in Sources */,
+				6A2010D22918602E0098FC89 /* BasketViewModel.swift in Sources */,
 				6AECFC6C290AD8950020B98A /* PYButton.swift in Sources */,
 				6A431B8C2914147200AD15DD /* AuthViewModel.swift in Sources */,
 				6AECFC68290AA20F0020B98A /* Constants.swift in Sources */,
