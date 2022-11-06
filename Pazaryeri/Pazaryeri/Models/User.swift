@@ -12,15 +12,15 @@ struct User: Codable {
 	var id: String
 	var username: String
 	var email: String
-	var cart: [Cart]
-	var previousOrders: [[Cart]]
-	var activeOrders: [[Cart]]
+	var cart: [Int: Int]
+	var previousOrders: [[Int: Int]]
+	var activeOrders: [[Int: Int]]
 }
 
-struct Cart: Codable {
-	var productId: Int
-	var quantity: Int
-}
+//struct Cart: Codable {
+//	var productId: Int
+//	var quantity: Int
+//}
 
 extension User {
 	

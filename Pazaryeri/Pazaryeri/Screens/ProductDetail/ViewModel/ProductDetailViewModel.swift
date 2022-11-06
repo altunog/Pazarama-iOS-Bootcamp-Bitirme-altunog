@@ -25,43 +25,40 @@ final class ProductDetailViewModel {
 	private let currentUser = Auth.auth().currentUser
 	
 	private(set) var cartCost = Double()
+	private(set) var cart: [String: Int]? = [:]
 	
-	
-	func fetchCartCost() {
+	func fetchCartContent() {
 		guard let currentUser else { return }
 		
-		let userRef = db.collection("users").document(currentUser.uid)
-		userRef.getDocument(as: User.self) { result in
-			switch result {
-			case .failure(let error):
-				self.delegate?.errorDidOccur(error)
-			case .success(let user):
-//				self.cartCost = user.totalCost
-				print(user)
-				self.delegate?.didFetchCartCost()
+		let cartRef = db.collection("users").document("\(currentUser.uid)")
+		cartRef.getDocument(source: .default) { document, error in
+			if let document {
+				self.cart = document.get("cart") as? [String: Int]
+				print(self.cart)
 			}
 		}
+		
 	}
 	
-	func updateCart(withProduct product: Product, quantity: Int) {
+	func updateCart(withProductId pid: Int, quantity: Int) {
 		guard let currentUser else { return }
 		
 		let userRef = db.collection("users").document(currentUser.uid)
 		if quantity > 0 {
 			userRef.updateData([
-				"cart.productId": quantity
+				"cart.\(pid)": quantity
 			]) { error in
 				if let error { self.delegate?.errorDidOccur(error) }
 				else { self.delegate?.didUpdateCartSuccesful() }
 			}
-		} /*else {
+		} else {
 			userRef.updateData([
-				"cart": FieldValue.arrayRemove([product, quantity])
+				"cart.\(pid)": FieldValue.delete()
 			]) { error in
 				if let error { self.delegate?.errorDidOccur(error) }
 				else { self.delegate?.didUpdateCartSuccesful() }
 			}
-		}*/
+		}
 	}
 	
 }

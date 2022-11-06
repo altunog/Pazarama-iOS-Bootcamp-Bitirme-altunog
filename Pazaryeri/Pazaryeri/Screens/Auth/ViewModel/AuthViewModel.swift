@@ -40,11 +40,11 @@ final class AuthViewModel {
 			guard let uid = authResult?.user.uid,
 				  let email = authResult?.user.email else { return }
 
-			let basket = Cart(productId: 1, quantity: 11)
+			let basket = [1: 2, 3: 5, 2:7]
 			let user = User(id: uid,
 							username: username,
 							email: email,
-							cart: [basket],
+							cart: basket,
 							previousOrders: [],
 							activeOrders: [])
 			

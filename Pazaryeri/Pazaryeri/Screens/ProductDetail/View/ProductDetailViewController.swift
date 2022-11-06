@@ -56,7 +56,7 @@ class ProductDetailViewController: UIViewController {
 	
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
-		viewModel.fetchCartCost()
+		viewModel.fetchCartContent()
 	}
 	
 	// MARK: Configurations
@@ -83,7 +83,7 @@ class ProductDetailViewController: UIViewController {
 		stepper.layer.cornerRadius				= 10
 		stepper.layer.borderColor				= Colors.primary?.cgColor
 		stepper.layer.borderWidth				= 1
-		bottomView.layer.cornerRadius			= 10
+		bottomView.layer.cornerRadius			= 20
 		bottomView.layer.borderColor			= Colors.primary?.cgColor
 		bottomView.layer.borderWidth			= 0.5
 	}
@@ -120,7 +120,7 @@ class ProductDetailViewController: UIViewController {
 	@IBAction func addCartButtonTapped(_ button: UIButton) {
 		
 		// TODO: firebase update user cart
-		viewModel.updateCart(withProduct: product, quantity: 1)
+		viewModel.updateCart(withProductId: product._id, quantity: 1)
 		
 		// TODO: update cart barbutton
 		stepper.value += 1
@@ -131,7 +131,7 @@ class ProductDetailViewController: UIViewController {
 	@IBAction func stepperValueChanged(_ stepper: UIStepper) {
 		// TODO: firebase update user cart
 		updateStepperLabel()
-		viewModel.updateCart(withProduct: product, quantity: Int(stepper.value))
+		viewModel.updateCart(withProductId: product._id, quantity: Int(stepper.value))
 		if stepper.value == .zero {
 			toggleButtons()
 		}
@@ -140,7 +140,7 @@ class ProductDetailViewController: UIViewController {
 
 extension ProductDetailViewController: ProductDetailViewModelDelegate {
 	func didUpdateCartSuccesful() {
-		print("Successful updating.")
+
 	}
 	
 	func didFetchCartCost() {
