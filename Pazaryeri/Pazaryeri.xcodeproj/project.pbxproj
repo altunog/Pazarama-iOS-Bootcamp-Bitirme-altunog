@@ -56,6 +56,8 @@
 		6AF64F942910812C004A35AA /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF64F932910812C004A35AA /* UIButton+Extensions.swift */; };
 		6AFF797F2917E20700EC3C77 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFF797D2917E20700EC3C77 /* OnboardingViewController.swift */; };
 		6AFF79802917E20700EC3C77 /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AFF797E2917E20700EC3C77 /* OnboardingViewController.xib */; };
+		6AFF79822917FBA100EC3C77 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFF79812917FBA100EC3C77 /* OnboardingView.swift */; };
+		6AFF79842917FBB100EC3C77 /* OnboardingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AFF79832917FBB100EC3C77 /* OnboardingView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,6 +141,8 @@
 		6AF64F932910812C004A35AA /* UIButton+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extensions.swift"; sourceTree = "<group>"; };
 		6AFF797D2917E20700EC3C77 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		6AFF797E2917E20700EC3C77 /* OnboardingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
+		6AFF79812917FBA100EC3C77 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		6AFF79832917FBB100EC3C77 /* OnboardingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -463,6 +467,8 @@
 			children = (
 				6AFF797D2917E20700EC3C77 /* OnboardingViewController.swift */,
 				6AFF797E2917E20700EC3C77 /* OnboardingViewController.xib */,
+				6AFF79812917FBA100EC3C77 /* OnboardingView.swift */,
+				6AFF79832917FBB100EC3C77 /* OnboardingView.xib */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -587,6 +593,7 @@
 				6AFF79802917E20700EC3C77 /* OnboardingViewController.xib in Resources */,
 				6AECFC362908136F0020B98A /* Assets.xcassets in Resources */,
 				6A1602A62917168E0014957D /* ProductDetailViewController.xib in Resources */,
+				6AFF79842917FBB100EC3C77 /* OnboardingView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -624,6 +631,7 @@
 				6AECFC70290C41610020B98A /* PYTitleLabel.swift in Sources */,
 				6A431B982915559300AD15DD /* SignUpView.swift in Sources */,
 				6AF64F8D290E4CD1004A35AA /* PYCartButton.swift in Sources */,
+				6AFF79822917FBA100EC3C77 /* OnboardingView.swift in Sources */,
 				6AECFC74290C7FA80020B98A /* PYProductImageView.swift in Sources */,
 				6A1602A52917168E0014957D /* ProductDetailViewController.swift in Sources */,
 				6A431BA32915C3BD00AD15DD /* Encodable+Dictionary.swift in Sources */,

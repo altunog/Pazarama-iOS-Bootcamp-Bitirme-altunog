@@ -9,7 +9,6 @@ import UIKit
 
 protocol SignUpViewInterface: AnyObject {
 	func signUpView(_ view: SignUpView, didTapSubmitButton button: PYButton)
-	func signUpView(_ view: SignUpView, didTapCancelButton button: UIButton)
 	func signUpView(_ view: SignUpView, inputFieldDidEditingChange inputField: PYInputField)
 }
 
@@ -38,7 +37,6 @@ final class SignUpView: UIView {
 		super.init(frame: frame)
 		
 		backgroundColor = .white
-		configureCancelButton()
 		configureTitleLabel()
 		configureEmailInputView()
 		configureUsernameInputView()
@@ -52,20 +50,6 @@ final class SignUpView: UIView {
 	}
 	
 	// MARK: Configurations
-	private func configureCancelButton() {
-		addSubview(cancelButton)
-		cancelButton.setTitle("Cancel", for: .normal)
-		cancelButton.setTitleColor(Colors.primary, for: .normal)
-		cancelButton.titleLabel?.font = .systemFont(ofSize: 17)
-		cancelButton.addTarget(self, action: #selector(cancelButtonTapped(_:)), for: .touchUpInside)
-		
-		cancelButton.translatesAutoresizingMaskIntoConstraints = false
-		NSLayoutConstraint.activate([
-			cancelButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: padding),
-			cancelButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: padding)
-		])
-	}
-	
 	private func configureTitleLabel() {
 		addSubview(titleLabel)
 		titleLabel.text = "Sign Up"
@@ -152,10 +136,6 @@ final class SignUpView: UIView {
 	// MARK: Actions
 	@objc private func submitButtonTapped(_ button: PYButton) {
 		interface?.signUpView(self, didTapSubmitButton: button)
-	}
-	
-	@objc private func cancelButtonTapped(_ button: UIButton) {
-		interface?.signUpView(self, didTapCancelButton: button)
 	}
 	
 	@objc private func inputFieldChanged(_ inputField: PYInputField) {

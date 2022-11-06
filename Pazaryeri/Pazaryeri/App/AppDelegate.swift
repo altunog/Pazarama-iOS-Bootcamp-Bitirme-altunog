@@ -30,7 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //		let tabBar = PYMainTabBarController()
 		let authVC = UINavigationController(rootViewController: SignInViewController())
 		authVC.navigationBar.tintColor = .black
-		window.rootViewController = authVC
+		let onboard = UINavigationController(rootViewController: OnboardingViewController())
+		window.rootViewController = onboard
 		window.makeKeyAndVisible()
 		self.window = window
 	}

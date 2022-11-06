@@ -38,6 +38,7 @@ final class SignUpViewController: UIViewController {
 	
 	// MARK: Configurations
 	private func configureViewController() {
+		navigationController?.setNavigationBarHidden(false, animated: true)
 		view = signUpView
 		signUpView.interface	= self
 		viewModel.delegate		= self
