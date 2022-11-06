@@ -92,9 +92,9 @@
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GAl-lR-ljX">
                                             <rect key="frame" x="0.0" y="21.666666666666629" width="353" height="340.33333333333331"/>
-                                            <mutableString key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed ullamcorper nisi. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum non tellus non ipsum mollis tristique a a neque. Donec vitae sagittis purus. Quisque sodales nulla arcu, at fringilla tellus mattis pharetra. Donec in nisl nec tellus consequat volutpat sit amet at dui. Sed at rhoncus risus, in viverra augue. Praesent sed tellus aliquet, scelerisque dolor id, varius eros. Praesent non efficitur eros, a dignissim risus. In malesuada facilisis metus fringilla pellentesque.
+                                            <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed ullamcorper nisi. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum non tellus non ipsum mollis tristique a a neque. Donec vitae sagittis purus. Quisque sodales nulla arcu, at fringilla tellus mattis pharetra. Donec in nisl nec tellus consequat volutpat sit amet at dui. Sed at rhoncus risus, in viverra augue. Praesent sed tellus aliquet, scelerisque dolor id, varius eros. Praesent non efficitur eros, a dignissim risus. In malesuada facilisis metus fringilla pellentesque.
 
-Praesent efficitur volutpat nisi posuere cursus. Nulla semper ultricies orci quis maximus. Aenean lacinia metus nec purus pulvinar pulvinar. Nam interdum id neque a convallis. Phasellus et dapibus odio, in laoreet elit. Nullam consequat eros sit amet diam fermentum eleifend. Cras pulvinar metus eget dictum efficitur.</mutableString>
+Praesent efficitur volutpat nisi posuere cursus. Nulla semper ultricies orci quis maximus. Aenean lacinia metus nec purus pulvinar pulvinar. Nam interdum id neque a convallis. Phasellus et dapibus odio, in laoreet elit. Nullam consequat eros sit amet diam fermentum eleifend. Cras pulvinar metus eget dictum efficitur.</string>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -176,7 +176,8 @@ Praesent efficitur volutpat nisi posuere cursus. Nulla semper ultricies orci qui
                         </label>
                         <stepper hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="ZI1-d1-Zdx">
                             <rect key="frame" x="244" y="25" width="94" height="32"/>
-                            <color key="backgroundColor" red="0.0" green="0.1379999965429306" blue="0.73400002717971802" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" name="SecondaryColor"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="stepperValueChanged:" destination="-1" eventType="valueChanged" id="mWY-4n-dJK"/>
                             </connections>
@@ -231,7 +232,7 @@ Praesent efficitur volutpat nisi posuere cursus. Nulla semper ultricies orci qui
         <image name="product-placeholder" width="600" height="600"/>
         <image name="star.fill" width="21.687599182128906" height="22.119100570678711"/>
         <namedColor name="PrimaryColor">
-            <color red="0.0" green="0.1379999965429306" blue="0.73400002717971802" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.21199999749660492" green="0.21600000560283661" blue="0.7369999885559082" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="SecondaryColor">
             <color red="1" green="0.56400001049041748" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
