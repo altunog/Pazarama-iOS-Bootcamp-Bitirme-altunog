@@ -14,6 +14,8 @@
 		6A2010CF291860140098FC89 /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A2010CD291860140098FC89 /* BasketViewController.swift */; };
 		6A2010D0291860140098FC89 /* BasketViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A2010CE291860140098FC89 /* BasketViewController.xib */; };
 		6A2010D22918602E0098FC89 /* BasketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A2010D12918602E0098FC89 /* BasketViewModel.swift */; };
+		6A2010D82918618C0098FC89 /* BasketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A2010D62918618C0098FC89 /* BasketTableViewCell.swift */; };
+		6A2010D92918618C0098FC89 /* BasketTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A2010D72918618C0098FC89 /* BasketTableViewCell.xib */; };
 		6A431B8A2914146100AD15DD /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A431B892914146100AD15DD /* SignInViewController.swift */; };
 		6A431B8C2914147200AD15DD /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A431B8B2914147200AD15DD /* AuthViewModel.swift */; };
 		6A431B90291477FA00AD15DD /* PYInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A431B8F291477FA00AD15DD /* PYInputView.swift */; };
@@ -102,6 +104,8 @@
 		6A2010CD291860140098FC89 /* BasketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewController.swift; sourceTree = "<group>"; };
 		6A2010CE291860140098FC89 /* BasketViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BasketViewController.xib; sourceTree = "<group>"; };
 		6A2010D12918602E0098FC89 /* BasketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewModel.swift; sourceTree = "<group>"; };
+		6A2010D62918618C0098FC89 /* BasketTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketTableViewCell.swift; sourceTree = "<group>"; };
+		6A2010D72918618C0098FC89 /* BasketTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BasketTableViewCell.xib; sourceTree = "<group>"; };
 		6A431B892914146100AD15DD /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		6A431B8B2914147200AD15DD /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		6A431B8F291477FA00AD15DD /* PYInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYInputView.swift; sourceTree = "<group>"; };
@@ -203,6 +207,7 @@
 		6A2010D32918603A0098FC89 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6A2010D52918616A0098FC89 /* BasketCell */,
 				6A2010CD291860140098FC89 /* BasketViewController.swift */,
 				6A2010CE291860140098FC89 /* BasketViewController.xib */,
 			);
@@ -215,6 +220,15 @@
 				6A2010D12918602E0098FC89 /* BasketViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6A2010D52918616A0098FC89 /* BasketCell */ = {
+			isa = PBXGroup;
+			children = (
+				6A2010D62918618C0098FC89 /* BasketTableViewCell.swift */,
+				6A2010D72918618C0098FC89 /* BasketTableViewCell.xib */,
+			);
+			path = BasketCell;
 			sourceTree = "<group>";
 		};
 		6A431B882914144700AD15DD /* Auth */ = {
@@ -642,6 +656,7 @@
 				6AFF79802917E20700EC3C77 /* OnboardingViewController.xib in Resources */,
 				6AECFC362908136F0020B98A /* Assets.xcassets in Resources */,
 				6A2010D0291860140098FC89 /* BasketViewController.xib in Resources */,
+				6A2010D92918618C0098FC89 /* BasketTableViewCell.xib in Resources */,
 				6A1602A62917168E0014957D /* ProductDetailViewController.xib in Resources */,
 				6AFF79842917FBB100EC3C77 /* OnboardingView.xib in Resources */,
 			);
@@ -695,6 +710,7 @@
 				6A431B9C29156BA100AD15DD /* PYInputLabel.swift in Sources */,
 				6A431B962914D85D00AD15DD /* SignInView.swift in Sources */,
 				6AECFC72290C47E80020B98A /* PYSecondaryTitleLabel.swift in Sources */,
+				6A2010D82918618C0098FC89 /* BasketTableViewCell.swift in Sources */,
 				6A4FA3FB290DAD2200137437 /* PYSectionView.swift in Sources */,
 				6A2010D22918602E0098FC89 /* BasketViewModel.swift in Sources */,
 				6AECFC6C290AD8950020B98A /* PYButton.swift in Sources */,
