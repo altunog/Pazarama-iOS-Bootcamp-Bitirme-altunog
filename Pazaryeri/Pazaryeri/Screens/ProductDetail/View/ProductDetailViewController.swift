@@ -11,9 +11,12 @@ import PazaryeriAPI
 class ProductDetailViewController: UIViewController {
 
 	// MARK: Properties
+	let viewModel = ProductDetailViewModel()
 	var product: Product
 	
 	// MARK: UI Elements
+	var cartButton: PYCartButton!
+	
 	@IBOutlet weak var imageView: UIImageView!
 	@IBOutlet weak var productTitle: UILabel!
 	@IBOutlet weak var ratingStackView: UIStackView!
@@ -45,10 +48,18 @@ class ProductDetailViewController: UIViewController {
 	override func viewDidLoad() {
         super.viewDidLoad()
 		
+		viewModel.delegate = self
 		configure()
 		configureUI()
 		tabBarController?.tabBar.isHidden = true
+		
     }
+	
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		// TODO: Fetch Cart barbutton
+		viewModel.fetchCartCost()
+	}
 	
 	private func configure() {
 		imageView.downloadImage(from: product._image)
@@ -68,6 +79,24 @@ class ProductDetailViewController: UIViewController {
 		stepper.layer.borderColor				= Colors.primary?.cgColor
 		stepper.layer.borderWidth				= 1
 	}
+	
+//	func configureCartButton() {
+//		cartButton = PYCartButton(color: Colors.secondary,
+//									  image: Images.cart,
+//									  title: price.currencyString)
+//		cartButton.updateInsets(considering: price)
+//		// TODO: Add action to button
+////		cartButton.addTarget(self, action: #selector(updateCartCost), for: .touchUpInside)
+//
+//		cartBarButton = UIBarButtonItem(customView: cartButton)
+//
+//		if price == .zero {
+//			cartButtonWidthConstraint = cartButton.collapse()
+//		} else {
+//			cartButtonWidthConstraint = cartButton.expand(considering: price)
+//		}
+//		cartButtonWidthConstraint?.isActive = true
+//	}
 
 	func updateStepperLabel() {
 		stepperLabel.text = "\(Int(stepper.value))"
@@ -96,5 +125,15 @@ class ProductDetailViewController: UIViewController {
 		if stepper.value == .zero {
 			toggleButtons()
 		}
+	}
+}
+
+extension ProductDetailViewController: ProductDetailViewModelDelegate {
+	func didFetchCartCost() {
+		print(viewModel.cartCost)
+	}
+	
+	func errorDidOccur(_ error: Error) {
+		print(error.localizedDescription)
 	}
 }

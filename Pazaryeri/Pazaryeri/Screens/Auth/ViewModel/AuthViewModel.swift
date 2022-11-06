@@ -39,14 +39,15 @@ final class AuthViewModel {
 			
 			guard let uid = authResult?.user.uid,
 				  let email = authResult?.user.email else { return }
-			let prod = Product(id: 1, title: "macbook", price: 999.90, description: "macbook pro 14inch", category: "electronics", image: nil, rating: nil)
-			let _cart = Cart(products: [ProductCount(product: prod, quantity: 2), ProductCount(product: prod, quantity: 5)])
+
+			let product = Product(id: 2, title: "television", price: 111.11, description: "LG", category: "electronics", image: "", rating: nil)
+			let _cart = Cart(product: product, quantity: 2)
 			let user = User(id: uid,
 							username: username,
 							email: email,
-							cart: _cart,
-							previousOrders: [_cart],
-							activeOrders: [_cart])
+							cart: [_cart],
+							previousOrders: [],
+							activeOrders: [])
 			
 			let userAsEncoded = user.dictionary
 			self.db.collection("users").document(uid).setData(userAsEncoded) { error in

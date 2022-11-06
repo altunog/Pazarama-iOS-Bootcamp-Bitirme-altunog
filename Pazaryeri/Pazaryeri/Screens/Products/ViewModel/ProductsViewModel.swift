@@ -47,14 +47,14 @@ final class ProductsViewModel {
 	
 	func fetchSingleProduct(withId id: Int) {
 		pazaryeriServiceProvider.request(.getSingleProduct(id: id)) { result in
+			
 			switch result {
+				
 			case .failure(let error):
 				self.delegate?.errorDidOccur(error)
-				print("geldik")
 			case .success(let response):
 				do {
 					let product = try JSONDecoder().decode(Product.self, from: response.data)
-					print(product) // MARK: DELETE this line after debug
 					self.delegate?.didFetchSingleProduct(product)
 				} catch {
 					self.delegate?.errorDidOccur(error)
