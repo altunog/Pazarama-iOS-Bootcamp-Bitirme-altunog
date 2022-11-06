@@ -46,7 +46,7 @@ class ProductsView: UIView {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
-	func configureCartButton() {
+	private func configureCartButton() {
 		cartButton = PYCartButton(color: Colors.secondary,
 									  image: Images.cart,
 									  title: price.currencyString)

@@ -30,13 +30,17 @@ final class ProductsViewController: UIViewController {
 		configureViewController()
 		setupDelegates()
 		viewModel.fetchProducts()
-		
     }
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		viewModel.fetchCartContent()
+	}
 	
 	// MARK: Configurations
 	private func configureViewController() {
-		view = productsView
-		title = "Products"
+		view 	= productsView
+		title 	= "Products"
 		view.backgroundColor = .white
 		navigationItem.rightBarButtonItem = productsView.cartBarButton
 	}
@@ -54,6 +58,19 @@ final class ProductsViewController: UIViewController {
 		productsView.jewelerySectionView.collectionView.dataSource 			= self
 	}
 	
+	func updateBarButton() {
+		productsView.cartButtonWidthConstraint?.isActive = false
+
+		if viewModel.cartCost == .zero {
+			productsView.cartButtonWidthConstraint = productsView.cartButton.collapse(to: 25)
+		} else {
+			productsView.cartButtonWidthConstraint = productsView.cartButton.expand(considering: viewModel.cartCost)
+			productsView.cartButton.setTitle(viewModel.cartCost.currencyString, for: .normal)
+		}
+		
+		productsView.cartButtonWidthConstraint?.isActive = true
+	}
+	
 }
 
 // MARK: ProductsViewInterface
@@ -65,6 +82,10 @@ extension ProductsViewController: ProductsViewInterface {
 
 // MARK: ProductsViewModelDelegate
 extension ProductsViewController: ProductsViewModelDelegate {
+	func didFetchCartCost() {
+		updateBarButton()
+	}
+	
 	func errorDidOccur(_ error: Error) {
 		print(error.localizedDescription)
 	}
