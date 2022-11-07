@@ -155,7 +155,7 @@ class ProductDetailViewController: UIViewController {
 }
 
 extension ProductDetailViewController: ProductDetailViewModelDelegate {
-	func didUpdateCartSuccesful() {
+	func didUpdateCartSuccessful() {
 		viewModel.fetchCartContent()
 		updateBarButton()
 	}

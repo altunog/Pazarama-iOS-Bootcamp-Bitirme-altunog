@@ -14,7 +14,7 @@ import FirebaseFirestoreSwift
 protocol ProductDetailViewModelDelegate: AnyObject {
 	func errorDidOccur(_ error: Error)
 	func didFetchCartCost()
-	func didUpdateCartSuccesful()
+	func didUpdateCartSuccessful()
 }
 
 final class ProductDetailViewModel {
@@ -55,7 +55,7 @@ final class ProductDetailViewModel {
 	func fetchCartCost(_ cart: [String: Int]) {
 		let productsRef = db.collection("products")
 		for (id, quantity) in cart {
-			let product = productsRef.document("\(id)")
+			let product = productsRef.document(id)
 			product.getDocument { document, _ in
 				if let document, document.exists {
 					guard let price = document.get("price") as? Double else { return }
@@ -74,14 +74,14 @@ final class ProductDetailViewModel {
 				"cart.\(pid)": quantity
 			]) { error in
 				if let error { self.delegate?.errorDidOccur(error) }
-				else { self.delegate?.didUpdateCartSuccesful() }
+				else { self.delegate?.didUpdateCartSuccessful() }
 			}
 		} else {
 			userRef.updateData([
 				"cart.\(pid)": FieldValue.delete()
 			]) { error in
 				if let error { self.delegate?.errorDidOccur(error) }
-				else { self.delegate?.didUpdateCartSuccesful() }
+				else { self.delegate?.didUpdateCartSuccessful() }
 			}
 		}
 	}

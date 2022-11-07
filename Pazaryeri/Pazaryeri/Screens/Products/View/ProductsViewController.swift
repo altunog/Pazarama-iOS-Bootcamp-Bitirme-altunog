@@ -77,6 +77,8 @@ final class ProductsViewController: UIViewController {
 extension ProductsViewController: ProductsViewInterface {
 	func productsView(_ view: ProductsView, didTapCartButton: PYCartButton) {
 		print("Cart tapped")
+		let basketVC = BasketViewController()
+		present(basketVC, animated: true)
 	}
 }
 

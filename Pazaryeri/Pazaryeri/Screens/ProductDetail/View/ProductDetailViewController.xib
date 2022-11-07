@@ -176,7 +176,7 @@ Praesent efficitur volutpat nisi posuere cursus. Nulla semper ultricies orci qui
                         </label>
                         <stepper hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="ZI1-d1-Zdx">
                             <rect key="frame" x="244" y="25" width="94" height="32"/>
-                            <color key="backgroundColor" name="SecondaryColor"/>
+                            <color key="backgroundColor" red="0.21199999749660492" green="0.21600000560283661" blue="0.7369999885559082" alpha="0.14768729304635761" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="stepperValueChanged:" destination="-1" eventType="valueChanged" id="mWY-4n-dJK"/>
@@ -202,6 +202,7 @@ Praesent efficitur volutpat nisi posuere cursus. Nulla semper ultricies orci qui
                     <constraints>
                         <constraint firstItem="OFO-SZ-ATj" firstAttribute="leading" secondItem="Tgx-QH-ehL" secondAttribute="leading" constant="20" id="13z-5X-hC9"/>
                         <constraint firstItem="ZI1-d1-Zdx" firstAttribute="leading" secondItem="qO8-07-l91" secondAttribute="trailing" constant="14" id="8hQ-ER-gHY"/>
+                        <constraint firstItem="R5L-ar-BR1" firstAttribute="top" secondItem="Tgx-QH-ehL" secondAttribute="top" constant="10" id="KMn-Dj-7g3"/>
                         <constraint firstItem="OFO-SZ-ATj" firstAttribute="centerY" secondItem="R5L-ar-BR1" secondAttribute="centerY" id="WmD-ba-Hpf"/>
                         <constraint firstItem="ZI1-d1-Zdx" firstAttribute="centerY" secondItem="R5L-ar-BR1" secondAttribute="centerY" id="Y53-Wf-3aq"/>
                         <constraint firstItem="qO8-07-l91" firstAttribute="centerY" secondItem="ZI1-d1-Zdx" secondAttribute="centerY" id="bHS-vy-RZa"/>

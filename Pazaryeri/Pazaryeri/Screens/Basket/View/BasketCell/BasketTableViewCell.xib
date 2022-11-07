@@ -22,26 +22,26 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cq2-LE-sQ9">
                         <rect key="frame" x="16" y="28" width="62" height="62"/>
                         <constraints>
+                            <constraint firstAttribute="width" constant="62" id="GSs-DV-bXj"/>
                             <constraint firstAttribute="width" secondItem="Cq2-LE-sQ9" secondAttribute="height" id="Y8H-0X-mQP"/>
+                            <constraint firstAttribute="height" constant="62" id="fWb-f8-0Ny"/>
                         </constraints>
                     </imageView>
-                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="W2q-Yf-2rR">
+                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" maximumValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="W2q-Yf-2rR">
                         <rect key="frame" x="210" y="61" width="94" height="32"/>
                         <color key="tintColor" systemColor="tintColor"/>
                         <connections>
                             <action selector="stepperValueChanged:" destination="KGk-i7-Jjw" eventType="valueChanged" id="x9i-MO-lbT"/>
                         </connections>
                     </stepper>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6bX-xG-JZV">
-                        <rect key="frame" x="86" y="10" width="154" height="43"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6bX-xG-JZV">
+                        <rect key="frame" x="86" y="20" width="154" height="17"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$999.90" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sfU-2M-w3Q">
-                        <rect key="frame" x="86" y="72" width="65" height="20"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$999.90" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sfU-2M-w3Q">
+                        <rect key="frame" x="86" y="78.666666666666671" width="64.333333333333314" height="19.333333333333329"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -55,12 +55,17 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="W2q-Yf-2rR" firstAttribute="top" secondItem="vdv-vs-Yfv" secondAttribute="bottom" constant="5" id="3iW-Zc-rpf"/>
+                    <constraint firstItem="vdv-vs-Yfv" firstAttribute="leading" secondItem="6bX-xG-JZV" secondAttribute="trailing" constant="12" id="5Gt-kS-ecz"/>
                     <constraint firstAttribute="bottom" secondItem="W2q-Yf-2rR" secondAttribute="bottom" constant="25" id="677-20-Ok9"/>
+                    <constraint firstItem="6bX-xG-JZV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="ATM-aw-B8u"/>
+                    <constraint firstItem="6bX-xG-JZV" firstAttribute="leading" secondItem="sfU-2M-w3Q" secondAttribute="leading" id="Gxd-WG-VID"/>
                     <constraint firstItem="Cq2-LE-sQ9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Krw-qo-GHr"/>
+                    <constraint firstAttribute="bottom" secondItem="sfU-2M-w3Q" secondAttribute="bottom" constant="20" id="Lbp-zb-o5i"/>
                     <constraint firstAttribute="trailing" secondItem="W2q-Yf-2rR" secondAttribute="trailing" constant="16" id="RgX-yl-OEb"/>
                     <constraint firstAttribute="bottom" secondItem="Cq2-LE-sQ9" secondAttribute="bottom" constant="28" id="TJ4-7k-k0M"/>
                     <constraint firstItem="vdv-vs-Yfv" firstAttribute="centerX" secondItem="W2q-Yf-2rR" secondAttribute="centerX" id="kuk-W7-yCJ"/>
                     <constraint firstItem="Cq2-LE-sQ9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="28" id="pGA-KO-EcO"/>
+                    <constraint firstItem="sfU-2M-w3Q" firstAttribute="leading" secondItem="Cq2-LE-sQ9" secondAttribute="trailing" constant="8" symbolic="YES" id="pWx-JV-Llv"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

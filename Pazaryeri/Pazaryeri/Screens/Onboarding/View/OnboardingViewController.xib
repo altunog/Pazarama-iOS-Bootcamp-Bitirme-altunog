@@ -28,14 +28,15 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oT4-YN-bdG">
-                    <rect key="frame" x="316" y="64" width="57" height="44"/>
+                    <rect key="frame" x="319.33333333333331" y="64" width="53.666666666666686" height="44"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="SUu-KG-sMf"/>
                     </constraints>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                     <state key="normal" title="Skip"/>
                     <buttonConfiguration key="configuration" style="plain" title="Skip">
-                        <color key="baseForegroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="titleFontDescription" type="system" weight="light" pointSize="15"/>
+                        <color key="baseForegroundColor" name="PrimaryColor"/>
                     </buttonConfiguration>
                     <connections>
                         <action selector="skipButtonTapped:" destination="-1" eventType="touchUpInside" id="ycL-Fq-k6c"/>
@@ -72,43 +73,39 @@
                         <constraint firstItem="Ohf-vE-qYH" firstAttribute="top" secondItem="gJQ-cz-Qnw" secondAttribute="top" id="iK0-Mv-g7G"/>
                     </constraints>
                 </scrollView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1jb-5o-yep">
-                    <rect key="frame" x="317" y="750" width="60" height="38"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1jb-5o-yep">
+                    <rect key="frame" x="317" y="740" width="60" height="38"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="38" id="Aa1-o2-1rj"/>
                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="e7m-qr-Oxn"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                    <state key="normal" title="Next"/>
-                    <buttonConfiguration key="configuration" style="plain" title="Next">
-                        <fontDescription key="titleFontDescription" type="boldSystem" pointSize="15"/>
-                        <color key="baseForegroundColor" name="PrimaryColor"/>
-                    </buttonConfiguration>
+                    <state key="normal" title="Next">
+                        <color key="titleColor" name="PrimaryColor"/>
+                    </state>
                     <connections>
                         <action selector="nextButtonTapped:" destination="-1" eventType="touchUpInside" id="hed-uz-ifC"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Esk-o1-HmD">
-                    <rect key="frame" x="16" y="750" width="87.666666666666671" height="38"/>
+                    <rect key="frame" x="16" y="740" width="82" height="38"/>
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="38" id="6b5-3v-sP5"/>
                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="PXr-xC-GXy"/>
                         <constraint firstAttribute="height" constant="38" id="WHA-8n-FYp"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                    <state key="normal" title="Next"/>
-                    <buttonConfiguration key="configuration" style="plain" title="Previous">
-                        <fontDescription key="titleFontDescription" type="boldSystem" pointSize="15"/>
-                        <color key="baseForegroundColor" name="PrimaryColor"/>
-                    </buttonConfiguration>
+                    <state key="normal" title="Previous">
+                        <color key="titleColor" name="PrimaryColor"/>
+                    </state>
                     <connections>
                         <action selector="prevButtonTapped:" destination="-1" eventType="touchUpInside" id="3Ul-xD-YCK"/>
                     </connections>
                 </button>
                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Efr-wP-z1w">
-                    <rect key="frame" x="138.66666666666666" y="756" width="116" height="26"/>
+                    <rect key="frame" x="138.66666666666666" y="746" width="116" height="26"/>
                     <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="currentPageIndicatorTintColor" red="0.97018494897959184" green="0.23530505952380953" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </pageControl>
@@ -128,9 +125,9 @@
                 <constraint firstItem="gJQ-cz-Qnw" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="V8G-Ka-ysH"/>
                 <constraint firstItem="oT4-YN-bdG" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="5" id="WUX-Eh-0R3"/>
                 <constraint firstItem="V0Q-IH-J1c" firstAttribute="top" secondItem="gJQ-cz-Qnw" secondAttribute="bottom" constant="20" id="a4G-0c-ATE"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="1jb-5o-yep" secondAttribute="bottom" constant="30" id="e56-on-jKz"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="1jb-5o-yep" secondAttribute="bottom" constant="40" id="e56-on-jKz"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="V0Q-IH-J1c" secondAttribute="bottom" constant="20" id="iId-Qx-fSX"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Esk-o1-HmD" secondAttribute="bottom" constant="30" id="sS0-TI-9kj"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Esk-o1-HmD" secondAttribute="bottom" constant="40" id="sS0-TI-9kj"/>
             </constraints>
             <point key="canvasLocation" x="72.51908396946564" y="-6.3380281690140849"/>
         </view>

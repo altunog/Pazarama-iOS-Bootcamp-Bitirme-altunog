@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,6 +12,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BasketViewController" customModule="Pazaryeri" customModuleProvider="target">
             <connections>
+                <outlet property="cartTotalLabel" destination="RUi-zs-2pO" id="kCA-8D-wHe"/>
+                <outlet property="checkoutButton" destination="Kii-MG-sV4" id="jgm-CQ-rNS"/>
+                <outlet property="tableView" destination="ndC-GK-4Xv" id="9Ft-Qj-frg"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,22 +24,81 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ndC-GK-4Xv">
-                    <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                    <rect key="frame" x="0.0" y="87" width="390" height="653"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Basket" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kpG-Ko-gKR">
+                    <rect key="frame" x="20" y="57.000000000000007" width="350" height="19.333333333333336"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="acQ-M6-AdO">
+                    <rect key="frame" x="0.0" y="740" width="390" height="104"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kii-MG-sV4">
+                            <rect key="frame" x="175" y="15" width="195" height="52"/>
+                            <color key="backgroundColor" red="1" green="0.56400001049041748" blue="0.0" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="52" id="0T9-is-Hbu"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Checkout">
+                                <color key="titleColor" name="SecondaryColor"/>
+                            </state>
+                            <connections>
+                                <action selector="checkOutButtonTapped:" destination="-1" eventType="touchUpInside" id="0aK-Cq-AfE"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RUi-zs-2pO">
+                            <rect key="frame" x="20" y="43" width="57" height="24"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CART TOTAL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DQm-sv-a0W">
+                            <rect key="frame" x="20" y="23.666666666666629" width="76.666666666666686" height="14.333333333333336"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                            <color key="textColor" name="SecondaryColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="DQm-sv-a0W" firstAttribute="leading" secondItem="RUi-zs-2pO" secondAttribute="leading" id="GNu-DL-YHl"/>
+                        <constraint firstItem="RUi-zs-2pO" firstAttribute="leading" secondItem="acQ-M6-AdO" secondAttribute="leading" constant="20" id="K7y-pc-8bc"/>
+                        <constraint firstItem="RUi-zs-2pO" firstAttribute="top" secondItem="DQm-sv-a0W" secondAttribute="bottom" constant="5" id="M2X-K0-pfG"/>
+                        <constraint firstAttribute="trailing" secondItem="Kii-MG-sV4" secondAttribute="trailing" constant="20" id="q6y-Ml-I2P"/>
+                        <constraint firstItem="Kii-MG-sV4" firstAttribute="top" secondItem="acQ-M6-AdO" secondAttribute="top" constant="15" id="sM5-fx-99f"/>
+                        <constraint firstItem="RUi-zs-2pO" firstAttribute="bottom" secondItem="Kii-MG-sV4" secondAttribute="bottom" id="vDp-Bl-jcZ"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="ndC-GK-4Xv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="RyF-tI-cZd"/>
-                <constraint firstAttribute="bottom" secondItem="ndC-GK-4Xv" secondAttribute="bottom" id="aJM-02-m3w"/>
+                <constraint firstItem="kpG-Ko-gKR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="FOZ-uV-EtN"/>
+                <constraint firstAttribute="bottom" secondItem="acQ-M6-AdO" secondAttribute="bottom" id="Md7-Cp-EiG"/>
+                <constraint firstItem="ndC-GK-4Xv" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="40" id="RyF-tI-cZd"/>
+                <constraint firstItem="acQ-M6-AdO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="UO7-ZU-EXH"/>
+                <constraint firstItem="acQ-M6-AdO" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="WDg-C0-2zD"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ndC-GK-4Xv" secondAttribute="bottom" constant="70" id="aJM-02-m3w"/>
                 <constraint firstItem="ndC-GK-4Xv" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="gjP-X7-lg9"/>
                 <constraint firstItem="ndC-GK-4Xv" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="iz7-Th-UN1"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="kpG-Ko-gKR" secondAttribute="trailing" constant="20" id="u1u-L3-5eq"/>
+                <constraint firstItem="Kii-MG-sV4" firstAttribute="width" secondItem="fnl-2z-Ty3" secondAttribute="width" multiplier="0.5" id="ure-Du-30Z"/>
+                <constraint firstItem="acQ-M6-AdO" firstAttribute="top" secondItem="ndC-GK-4Xv" secondAttribute="bottom" id="vdZ-pU-u2b"/>
+                <constraint firstItem="kpG-Ko-gKR" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="yll-8a-aTw"/>
             </constraints>
             <point key="canvasLocation" x="130.76923076923077" y="-12.085308056872037"/>
         </view>
     </objects>
     <resources>
+        <namedColor name="SecondaryColor">
+            <color red="1" green="0.56400001049041748" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -8,7 +8,7 @@
 import UIKit
 
 protocol BasketTableViewCellInterface: AnyObject {
-	func stepperValueDidChange(_ stepper: UIStepper)
+	func stepperValueDidChange(_ pid: Int, _ stepper: UIStepper)
 }
 
 
@@ -16,27 +16,60 @@ class BasketTableViewCell: UITableViewCell {
 
 	static let reuseID = "BasketCell"
 	
-	@IBOutlet weak var productImageView: UIImageView!
-	@IBOutlet weak var productTitle: UILabel!
-	@IBOutlet weak var priceLabel: UILabel!
-	@IBOutlet weak var quantityLabel: UILabel!
-	@IBOutlet weak var stepper: UIStepper!
+	weak var interface: BasketTableViewCellInterface?
+	
+	var pid: Int?
+	
+	var image: UIImage? {
+		didSet {
+			productImageView.image = image
+		}
+	}
+	
+	var productName: String? {
+		didSet {
+			productTitle.text = productName
+		}
+	}
+	
+	var price: Double? {
+		didSet {
+			priceLabel.text = price?.currencyString
+		}
+	}
+	
+	var stepperValue: Int? {
+		didSet {
+			quantityLabel.text 	= "\(stepperValue ?? .zero)"
+			stepper.value		= Double(stepperValue ?? .zero)
+			print(stepper.value)
+		}
+	}
+	
+	@IBOutlet private(set) weak var productImageView: UIImageView!
+	@IBOutlet private weak var productTitle: UILabel!
+	@IBOutlet private weak var priceLabel: UILabel!
+	@IBOutlet private weak var quantityLabel: UILabel!
+	@IBOutlet private weak var stepper: UIStepper!
 	
 	
 	override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
+	func updateStepperLabel() {
+		quantityLabel.text = "\(Int(stepper.value))"
+	}
 	
 	@IBAction func stepperValueChanged(_ stepper: UIStepper) {
-		
+		if let pid {
+			updateStepperLabel()
+			interface?.stepperValueDidChange(pid, stepper)
+		}
 	}
 	
 }
