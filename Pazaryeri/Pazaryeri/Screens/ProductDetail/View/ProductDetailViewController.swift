@@ -62,6 +62,11 @@ class ProductDetailViewController: UIViewController {
 		viewModel.fetchCartContent()
 	}
 	
+	override func viewWillDisappear(_ animated: Bool) {
+		super.viewWillDisappear(animated)
+		tabBarController?.tabBar.isHidden = false
+	}
+	
 	// MARK: Configurations
 	private func configureViewController() {
 		viewModel.delegate = self

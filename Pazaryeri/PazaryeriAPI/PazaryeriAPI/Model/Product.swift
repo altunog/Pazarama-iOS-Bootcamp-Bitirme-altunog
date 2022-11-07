@@ -72,3 +72,11 @@ extension Product {
 	}
 	
 }
+
+public enum ProductCategory: String, CaseIterable {
+	case men = "men's clothing"
+	case women = "women's clothing"
+	case electronics = "electronics"
+	case jewelery = "jewelery"
+	case all
+}

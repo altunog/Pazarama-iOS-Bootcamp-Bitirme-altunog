@@ -18,12 +18,30 @@ protocol SearchViewModelDelegate: AnyObject {
 final class SearchViewModel {
 	
 	weak var delegate: SearchViewModelDelegate?
-	private let db = Firestore.firestore()
+	let db = Firestore.firestore()
 	
 	private(set) var products: [Product] = []
 	
 	func fetchProducts() {
-		
+		db.collection("products").getDocuments { querySnapshot, error in
+			if let error {
+				self.delegate?.errorDidOccur(error)
+				return
+			} else {
+				for document in querySnapshot!.documents {
+					do {
+						try self.products.append(document.data(as: Product.self))
+					} catch {
+						self.delegate?.errorDidOccur(error)
+					}
+				}
+				self.delegate?.didFetchSearchProducts()
+			}
+		}
+	}
+	
+	func productForCell(at indexPath: IndexPath) -> Product? {
+		products[indexPath.row]
 	}
 	
 }
