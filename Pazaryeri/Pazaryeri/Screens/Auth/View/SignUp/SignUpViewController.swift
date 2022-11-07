@@ -43,6 +43,11 @@ final class SignUpViewController: UIViewController {
 		signUpView.interface	= self
 		viewModel.delegate		= self
 	}
+	
+	// MARK: Methods
+	private func checkPasswordMatch() -> Bool {
+		return password == confirmPassword
+	}
 }
 
 // MARK: SignUpViewInterface
@@ -57,6 +62,8 @@ extension SignUpViewController: SignUpViewInterface {
 	}
 	
 	func signUpView(_ view: SignUpView, didTapSubmitButton button: PYButton) {
+		guard checkPasswordMatch() else { return }
+		
 		viewModel.signUp(username: username, email: email, password: password)
 	}
 	
