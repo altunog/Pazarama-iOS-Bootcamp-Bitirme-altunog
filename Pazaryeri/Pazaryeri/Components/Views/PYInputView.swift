@@ -10,7 +10,7 @@ import UIKit
 class PYInputView: UIView {
 	
 	// MARK: UI Elements
-	let inputLabel = PYInputLabel(textAlignment: .left, fontSize: 14)
+	let inputLabel = PYInputLabel(textAlignment: .left, fontSize: 13)
 	let inputField = PYInputField(placeholder: "", isSecureTextEntry: false)
 	
 	// MARK: Init

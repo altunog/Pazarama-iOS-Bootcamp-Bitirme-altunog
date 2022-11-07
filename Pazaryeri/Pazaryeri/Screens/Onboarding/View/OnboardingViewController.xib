@@ -88,7 +88,7 @@
                         <action selector="nextButtonTapped:" destination="-1" eventType="touchUpInside" id="hed-uz-ifC"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Esk-o1-HmD">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Esk-o1-HmD">
                     <rect key="frame" x="16" y="740" width="82" height="38"/>
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="38" id="6b5-3v-sP5"/>

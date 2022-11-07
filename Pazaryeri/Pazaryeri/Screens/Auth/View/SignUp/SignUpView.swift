@@ -63,7 +63,7 @@ final class SignUpView: UIView {
 	
 	private func configureUsernameInputView() {
 		addSubview(usernameInputView)
-		usernameInputView.set(text: "Username", placeholder: "choose a username")
+		usernameInputView.set(text: "USERNAME", placeholder: "choose a username")
 
 		usernameInputView.inputField.addTarget(self, action: #selector(inputFieldChanged(_:)), for: .editingChanged)
 		
@@ -77,7 +77,7 @@ final class SignUpView: UIView {
 	
 	private func configureEmailInputView() {
 		addSubview(emailInputView)
-		emailInputView.set(text: "Email", placeholder: "enter your email address", keyboardType: .emailAddress)
+		emailInputView.set(text: "EMAIL", placeholder: "enter your email address", keyboardType: .emailAddress)
 		
 		emailInputView.inputField.addTarget(self, action: #selector(inputFieldChanged(_:)), for: .editingChanged)
 		
@@ -91,7 +91,7 @@ final class SignUpView: UIView {
 	
 	private func configurePasswordIntputView() {
 		addSubview(passwordInputView)
-		passwordInputView.set(text: "Password", placeholder: "choose a password", isSecureEntry: true)
+		passwordInputView.set(text: "PASSWORD", placeholder: "choose a password", isSecureEntry: true)
 		
 		passwordInputView.inputField.addTarget(self, action: #selector(inputFieldChanged(_:)), for: .editingChanged)
 		
@@ -105,7 +105,7 @@ final class SignUpView: UIView {
 	
 	private func configureConfirmInputView() {
 		addSubview(confirmInputView)
-		confirmInputView.set(text: "Confirm Password", placeholder: "re-enter your password", isSecureEntry: true)
+		confirmInputView.set(text: "CONFIRM PASSWORD", placeholder: "re-enter your password", isSecureEntry: true)
 		
 		confirmInputView.inputField.addTarget(self, action: #selector(inputFieldChanged(_:)), for: .editingChanged)
 		

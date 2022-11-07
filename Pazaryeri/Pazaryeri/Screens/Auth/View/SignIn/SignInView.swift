@@ -68,7 +68,7 @@ final class SignInView: UIView {
 	
 	private func configureEmailInputView() {
 		addSubview(emailInputView)
-		emailInputView.set(text: "Email", placeholder: "enter your email address", keyboardType: .emailAddress)
+		emailInputView.set(text: "EMAIL", placeholder: "enter your email address", keyboardType: .emailAddress)
 
 		emailInputView.inputField.addTarget(self, action: #selector(inputFieldChanged(_:)), for: .editingChanged)
 		
@@ -83,7 +83,7 @@ final class SignInView: UIView {
 	
 	private func configurePasswordInputView() {
 		addSubview(passwordInputView)
-		passwordInputView.set(text: "Password", placeholder: "enter your password", isSecureEntry: true)
+		passwordInputView.set(text: "PASSWORD", placeholder: "enter your password", isSecureEntry: true)
 		
 		passwordInputView.inputField.addTarget(self, action: #selector(inputFieldChanged(_:)), for: .editingChanged)
 		
