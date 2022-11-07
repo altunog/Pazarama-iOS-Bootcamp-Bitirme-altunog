@@ -16,6 +16,9 @@
 		6A2010D22918602E0098FC89 /* BasketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A2010D12918602E0098FC89 /* BasketViewModel.swift */; };
 		6A2010D82918618C0098FC89 /* BasketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A2010D62918618C0098FC89 /* BasketTableViewCell.swift */; };
 		6A2010D92918618C0098FC89 /* BasketTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A2010D72918618C0098FC89 /* BasketTableViewCell.xib */; };
+		6A2010DD2918B0070098FC89 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A2010DB2918B0070098FC89 /* ProfileViewController.swift */; };
+		6A2010DE2918B0070098FC89 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A2010DC2918B0070098FC89 /* ProfileViewController.xib */; };
+		6A2010E02918B20D0098FC89 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A2010DF2918B20D0098FC89 /* ProfileViewModel.swift */; };
 		6A431B8A2914146100AD15DD /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A431B892914146100AD15DD /* SignInViewController.swift */; };
 		6A431B8C2914147200AD15DD /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A431B8B2914147200AD15DD /* AuthViewModel.swift */; };
 		6A431B90291477FA00AD15DD /* PYInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A431B8F291477FA00AD15DD /* PYInputView.swift */; };
@@ -48,7 +51,6 @@
 		6AECFC5F290A96FE0020B98A /* PYMainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AECFC5E290A96FE0020B98A /* PYMainTabBarController.swift */; };
 		6AECFC61290A976D0020B98A /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AECFC60290A976D0020B98A /* ProductsViewController.swift */; };
 		6AECFC63290A977B0020B98A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AECFC62290A977B0020B98A /* SearchViewController.swift */; };
-		6AECFC65290A97850020B98A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AECFC64290A97850020B98A /* ProfileViewController.swift */; };
 		6AECFC68290AA20F0020B98A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AECFC67290AA20F0020B98A /* Constants.swift */; };
 		6AECFC6C290AD8950020B98A /* PYButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AECFC6B290AD8950020B98A /* PYButton.swift */; };
 		6AECFC6E290C36DE0020B98A /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AECFC6D290C36DE0020B98A /* ProductCell.swift */; };
@@ -106,6 +108,9 @@
 		6A2010D12918602E0098FC89 /* BasketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewModel.swift; sourceTree = "<group>"; };
 		6A2010D62918618C0098FC89 /* BasketTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketTableViewCell.swift; sourceTree = "<group>"; };
 		6A2010D72918618C0098FC89 /* BasketTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BasketTableViewCell.xib; sourceTree = "<group>"; };
+		6A2010DB2918B0070098FC89 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		6A2010DC2918B0070098FC89 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
+		6A2010DF2918B20D0098FC89 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		6A431B892914146100AD15DD /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		6A431B8B2914147200AD15DD /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		6A431B8F291477FA00AD15DD /* PYInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYInputView.swift; sourceTree = "<group>"; };
@@ -138,7 +143,6 @@
 		6AECFC5E290A96FE0020B98A /* PYMainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYMainTabBarController.swift; sourceTree = "<group>"; };
 		6AECFC60290A976D0020B98A /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
 		6AECFC62290A977B0020B98A /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		6AECFC64290A97850020B98A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		6AECFC67290AA20F0020B98A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		6AECFC6B290AD8950020B98A /* PYButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PYButton.swift; sourceTree = "<group>"; };
 		6AECFC6D290C36DE0020B98A /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
@@ -229,6 +233,32 @@
 				6A2010D72918618C0098FC89 /* BasketTableViewCell.xib */,
 			);
 			path = BasketCell;
+			sourceTree = "<group>";
+		};
+		6A2010DA2918AFE00098FC89 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				6A2010E22918B21B0098FC89 /* ViewModel */,
+				6A2010E12918B2150098FC89 /* View */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		6A2010E12918B2150098FC89 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6A2010DB2918B0070098FC89 /* ProfileViewController.swift */,
+				6A2010DC2918B0070098FC89 /* ProfileViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6A2010E22918B21B0098FC89 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6A2010DF2918B20D0098FC89 /* ProfileViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		6A431B882914144700AD15DD /* Auth */ = {
@@ -374,7 +404,7 @@
 				6A000CB82912EFEE0011E9D6 /* Products */,
 				6A431BA82916B89000AD15DD /* ProductDetail */,
 				6AECFC62290A977B0020B98A /* SearchViewController.swift */,
-				6AECFC64290A97850020B98A /* ProfileViewController.swift */,
+				6A2010DA2918AFE00098FC89 /* Profile */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -651,6 +681,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A2010DE2918B0070098FC89 /* ProfileViewController.xib in Resources */,
 				6AECFC392908136F0020B98A /* LaunchScreen.storyboard in Resources */,
 				6AE2EF4B291400110011F45E /* GoogleService-Info.plist in Resources */,
 				6AFF79802917E20700EC3C77 /* OnboardingViewController.xib in Resources */,
@@ -689,7 +720,6 @@
 				6AFF797F2917E20700EC3C77 /* OnboardingViewController.swift in Sources */,
 				6AECFC5F290A96FE0020B98A /* PYMainTabBarController.swift in Sources */,
 				6A431BAE2916B8C400AD15DD /* ProductDetailViewModel.swift in Sources */,
-				6AECFC65290A97850020B98A /* ProfileViewController.swift in Sources */,
 				6AECFC63290A977B0020B98A /* SearchViewController.swift in Sources */,
 				6A431B9A291555A300AD15DD /* SignUpViewController.swift in Sources */,
 				6AECFC2D2908136E0020B98A /* AppDelegate.swift in Sources */,
@@ -712,6 +742,7 @@
 				6AECFC72290C47E80020B98A /* PYSecondaryTitleLabel.swift in Sources */,
 				6A2010D82918618C0098FC89 /* BasketTableViewCell.swift in Sources */,
 				6A4FA3FB290DAD2200137437 /* PYSectionView.swift in Sources */,
+				6A2010DD2918B0070098FC89 /* ProfileViewController.swift in Sources */,
 				6A2010D22918602E0098FC89 /* BasketViewModel.swift in Sources */,
 				6AECFC6C290AD8950020B98A /* PYButton.swift in Sources */,
 				6A431B8C2914147200AD15DD /* AuthViewModel.swift in Sources */,
@@ -719,6 +750,7 @@
 				6AECFC76290D83430020B98A /* PYBodyLabel.swift in Sources */,
 				6A431BA729169E1C00AD15DD /* ProductsView.swift in Sources */,
 				6A431B9229147B8800AD15DD /* PYInputField.swift in Sources */,
+				6A2010E02918B20D0098FC89 /* ProfileViewModel.swift in Sources */,
 				6AB1C9482911082100042527 /* User.swift in Sources */,
 				6A1602A8291734340014957D /* UIImageView+DownloadImage.swift in Sources */,
 			);
