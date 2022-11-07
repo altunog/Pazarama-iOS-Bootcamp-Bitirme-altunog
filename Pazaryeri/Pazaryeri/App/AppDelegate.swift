@@ -45,15 +45,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	private func setupAuthWindow() {
 		let window = UIWindow(frame: UIScreen.main.bounds)
 		
-		if UserDefaults.standard.bool(forKey: "notFirstTime") {
-			UserDefaults.standard.set(true, forKey: "notFirstTime")
-			let onboard = UINavigationController(rootViewController: OnboardingViewController())
-			window.rootViewController = onboard
-		} else {
-			let authVC = UINavigationController(rootViewController: SignInViewController())
-			authVC.navigationBar.tintColor = .black
-			window.rootViewController = authVC
-		}
+		let onboard = UINavigationController(rootViewController: OnboardingViewController())
+		window.rootViewController = onboard
+
+//		let authVC = UINavigationController(rootViewController: SignInViewController())
+//		authVC.navigationBar.tintColor = .black
+//		window.rootViewController = authVC
+		
 		window.makeKeyAndVisible()
 		self.window = window
 	}

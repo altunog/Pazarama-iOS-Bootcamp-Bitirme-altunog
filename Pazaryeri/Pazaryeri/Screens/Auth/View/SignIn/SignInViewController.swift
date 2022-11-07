@@ -29,8 +29,8 @@ final class SignInViewController: UIViewController {
 		configureViewController()
 		
 		#if targetEnvironment(simulator)
-		email		= "qqq@qq.com"
-		password	= "qqqaaa"
+		email		= "deneme@mail.com"
+		password	= "deneme"
 		signInView.setContinueButton(enabled: true)
 		#endif
     }
