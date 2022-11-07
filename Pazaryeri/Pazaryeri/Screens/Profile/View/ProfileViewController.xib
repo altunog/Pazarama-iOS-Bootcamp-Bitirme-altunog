@@ -41,7 +41,7 @@
                     </subviews>
                 </stackView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Gi-Vh-hXE">
-                    <rect key="frame" x="40" y="758" width="310" height="52"/>
+                    <rect key="frame" x="40" y="718" width="310" height="52"/>
                     <color key="backgroundColor" red="0.21199999749660492" green="0.21600000560283661" blue="0.7369999885559082" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="52" id="HOx-HX-gIA"/>
@@ -61,7 +61,7 @@
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Swn-Kw-dK4" secondAttribute="trailing" constant="40" id="H3N-lY-T7U"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="2Gi-Vh-hXE" secondAttribute="trailing" constant="40" id="NkO-VL-Swa"/>
-                <constraint firstItem="2Gi-Vh-hXE" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="Xlw-PT-1xo"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="2Gi-Vh-hXE" secondAttribute="bottom" constant="40" id="Xlw-PT-1xo"/>
                 <constraint firstItem="2Gi-Vh-hXE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="dRv-LG-A7Y"/>
                 <constraint firstItem="Swn-Kw-dK4" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="nz2-wi-z3L"/>
                 <constraint firstItem="Swn-Kw-dK4" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="qw5-Cb-pfH"/>
