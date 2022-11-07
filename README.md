@@ -15,7 +15,7 @@
 - **git:** GitFlow's branching strategy followed
 - **support:** iOS 12.0+
 - **architecture:** MVVM
-- **UI:** programmatic and xib
+- **UI:** custom components, programmatic and xib
 - **backend:** Firebase
 - **3rd-party libs:** Moya
 
